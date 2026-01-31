@@ -1,0 +1,2658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ash Hu Music - Premier music label empowering artists and creating unforgettable musical experiences worldwide.">
+    <meta name="keywords" content="Ash Hu Music, music label, record label, artists, music production, albums, streaming">
+    <meta name="author" content="Ash Hu Music">
+    <meta property="og:title" content="Ash Hu Music - Amplifying Extraordinary Talent">
+    <meta property="og:description" content="Discover groundbreaking artists and exclusive releases.">
+    <title>Ash Hu Music - Amplifying Extraordinary Talent</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ========================================
+           RESET & GLOBAL VARIABLES
+        ======================================== */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff4757;
+            --secondary: #5f27cd;
+            --accent: #00d2d3;
+            --gold: #ffa502;
+            --dark-bg: #0a0a0a;
+            --darker: #050505;
+            --card-bg: #1a1a1a;
+            --card-hover: #242424;
+            --text-white: #ffffff;
+            --text-gray: #b5b5b5;
+            --text-dark-gray: #787878;
+            
+            --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+            --gradient-purple: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+            --gradient-blue: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%);
+            --gradient-overlay: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.85) 100%);
+            
+            --shadow-glow: 0 0 50px rgba(255, 71, 87, 0.35);
+            --shadow-card: 0 15px 45px rgba(0, 0, 0, 0.5);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', 'Poppins', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--primary);
+            color: var(--text-white);
+        }
+
+        /* ========================================
+           ANIMATED BACKGROUND
+        ======================================== */
+        
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--darker);
+            overflow: hidden;
+        }
+
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            width: 250%;
+            height: 250%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 71, 87, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 75% 75%, rgba(95, 39, 205, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.08) 0%, transparent 45%);
+            animation: bgFloat 30s ease-in-out infinite;
+        }
+
+        @keyframes bgFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-80px, 80px) rotate(90deg); }
+            50% { transform: translate(-40px, -60px) rotate(180deg); }
+            75% { transform: translate(60px, 40px) rotate(270deg); }
+        }
+
+        /* ========================================
+           NAVIGATION
+        ======================================== */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            z-index: 1000;
+            padding: 1.3rem 0;
+            transition: var(--transition);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.97);
+            padding: 0.9rem 0;
+            box-shadow: 0 5px 35px rgba(255, 71, 87, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2.3rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .logo i {
+            color: var(--primary);
+            font-size: 2rem;
+            -webkit-text-fill-color: var(--primary);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: brightness(1.3);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            font-size: 0.98rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            transition: var(--transition);
+            border-radius: 10px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a:hover::before {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 30px;
+            height: 3px;
+            background: var(--text-white);
+            transition: var(--transition);
+            border-radius: 3px;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding: 10rem 2rem 5rem;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 10;
+            max-width: 1200px;
+            animation: fadeInUp 1.3s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.7rem 1.8rem;
+            background: rgba(255, 71, 87, 0.12);
+            border: 1px solid rgba(255, 71, 87, 0.3);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            animation: fadeInUp 1s ease-out 0.2s backwards;
+        }
+
+        .hero h1 {
+            font-size: clamp(3.5rem, 9vw, 8rem);
+            font-weight: 900;
+            margin-bottom: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+            letter-spacing: -2px;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+            color: var(--text-gray);
+            margin-bottom: 3.5rem;
+            font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.4s backwards;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .btn {
+            padding: 1.1rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.7rem;
+            cursor: pointer;
+            border: none;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 35px rgba(255, 71, 87, 0.4);
+        }
+
+        .floating-music {
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.08;
+            animation: floatAround 8s ease-in-out infinite;
+            color: var(--primary);
+        }
+
+        .floating-music:nth-child(1) {
+            top: 15%;
+            left: 8%;
+            animation-delay: 0s;
+        }
+
+        .floating-music:nth-child(2) {
+            top: 60%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .floating-music:nth-child(3) {
+            bottom: 15%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        @keyframes floatAround {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            25% { transform: translateY(-25px) translateX(15px) rotate(5deg); }
+            50% { transform: translateY(-50px) translateX(0) rotate(-5deg); }
+            75% { transform: translateY(-25px) translateX(-15px) rotate(5deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ========================================
+           SECTION STYLES
+        ======================================== */
+        
+        section {
+            padding: 7rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-label {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 71, 87, 0.1);
+            border: 1px solid rgba(255, 71, 87, 0.25);
+            border-radius: 50px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            font-family: 'Playfair Display', serif;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            font-weight: 400;
+            max-width: 750px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* ========================================
+           FEATURED ARTISTS SECTION
+        ======================================== */
+        
+        #artists {
+            background: rgba(26, 26, 26, 0.3);
+            border-radius: 30px;
+            padding: 7rem 3rem;
+            margin: 4rem auto;
+        }
+
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .artist-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: var(--transition);
+            position: relative;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .artist-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.35);
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .artist-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+        }
+
+        .artist-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .artist-card:hover .artist-image {
+            transform: scale(1.1);
+        }
+
+        .artist-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-overlay);
+            padding: 2.5rem 2rem 2rem;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+
+        .artist-info {
+            padding: 2rem;
+        }
+
+        .artist-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .artist-genre {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .artist-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-dark-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .artist-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================
+           LATEST RELEASES SECTION
+        ======================================== */
+        
+        .releases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .release-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: var(--transition);
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .release-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(95, 39, 205, 0.3);
+            border-color: rgba(95, 39, 205, 0.4);
+        }
+
+        .release-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+        }
+
+        .release-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .release-card:hover .release-image {
+            transform: scale(1.08);
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: var(--transition);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
+        }
+
+        .release-card:hover .play-overlay {
+            opacity: 1;
+        }
+
+        .play-overlay i {
+            font-size: 1.8rem;
+            color: var(--text-white);
+            margin-left: 4px;
+        }
+
+        .release-info {
+            padding: 1.8rem;
+        }
+
+        .release-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+
+        .release-artist {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .release-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .release-date {
+            color: var(--text-dark-gray);
+            font-size: 0.9rem;
+        }
+
+        .release-duration {
+            color: var(--text-dark-gray);
+            font-size: 0.9rem;
+        }
+
+        /* ========================================
+           MUSIC PLAYER SECTION
+        ======================================== */
+        
+        .music-player-section {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(95, 39, 205, 0.1) 100%);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            margin: 4rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .player-container {
+            max-width: 900px;
+            margin: 3rem auto 0;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 3rem;
+            box-shadow: var(--shadow-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .now-playing {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .now-playing-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .now-playing-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .now-playing-info p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .control-btn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: none;
+            color: var(--text-white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .control-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+        .play-btn {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-main);
+            font-size: 1.6rem;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .play-btn:hover {
+            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.6);
+            transform: scale(1.1);
+        }
+
+        .progress-bar-wrapper {
+            margin-bottom: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .progress {
+            height: 100%;
+            background: var(--gradient-main);
+            width: 35%;
+            transition: width 0.3s ease;
+        }
+
+        .time-display {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-dark-gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .volume-slider {
+            flex: 1;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .volume-level {
+            height: 100%;
+            background: var(--gradient-blue);
+            width: 70%;
+            transition: width 0.3s ease;
+        }
+
+        /* ========================================
+           EVENTS SECTION
+        ======================================== */
+        
+        .events-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 4rem auto 0;
+        }
+
+        .event-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2.5rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            cursor: pointer;
+        }
+
+        .event-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 15px 50px rgba(0, 210, 211, 0.25);
+            border-color: rgba(0, 210, 211, 0.4);
+        }
+
+        .event-date {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .event-day {
+            font-size: 3rem;
+            font-weight: 900;
+            background: var(--gradient-blue);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .event-month {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+
+        .event-location {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-time {
+            color: var(--text-dark-gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .event-ticket {
+            text-align: right;
+        }
+
+        .ticket-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .ticket-btn {
+            padding: 0.8rem 2rem;
+            background: var(--gradient-blue);
+            color: var(--text-white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .ticket-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 210, 211, 0.4);
+        }
+
+        /* ========================================
+           SERVICES SECTION
+        ======================================== */
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 3rem 2.5rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-main);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-card);
+            border-color: var(--primary);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-main);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg);
+        }
+
+        .service-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* ========================================
+           STATISTICS SECTION
+        ======================================== */
+        
+        .stats-section {
+            background: linear-gradient(135deg, rgba(95, 39, 205, 0.15) 0%, rgba(255, 71, 87, 0.15) 100%);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            margin: 4rem auto;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .stat-card {
+            text-align: center;
+        }
+
+        .stat-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: var(--gradient-purple);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.2rem;
+            color: var(--text-white);
+            box-shadow: 0 10px 40px rgba(95, 39, 205, 0.4);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        /* ========================================
+           TESTIMONIALS SECTION
+        ======================================== */
+        
+        .testimonials-container {
+            max-width: 1100px;
+            margin: 4rem auto 0;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 4rem 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: none;
+        }
+
+        .testimonial-card.active {
+            display: block;
+            animation: fadeInScale 0.6s ease;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .testimonial-quote {
+            font-size: 1.4rem;
+            color: var(--text-gray);
+            line-height: 2;
+            margin-bottom: 2.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+        }
+
+        .author-info h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .author-info p {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .testimonial-dot.active {
+            background: var(--primary);
+            width: 40px;
+            border-radius: 10px;
+        }
+
+        /* ========================================
+           NEWSLETTER SECTION
+        ======================================== */
+        
+        .newsletter-section {
+            background: var(--gradient-main);
+            border-radius: 30px;
+            padding: 5rem 3rem;
+            text-align: center;
+            margin: 4rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -150px;
+            right: -100px;
+        }
+
+        .newsletter-section::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            bottom: -100px;
+            left: -50px;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 10;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .newsletter-section h2 {
+            font-size: clamp(2.2rem, 4vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .newsletter-section p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 280px;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--dark-bg);
+            font-weight: 500;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            background: var(--text-white);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .newsletter-btn {
+            padding: 1.2rem 3rem;
+            background: var(--dark-bg);
+            color: var(--text-white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .newsletter-btn:hover {
+            background: var(--darker);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ========================================
+           CONTACT SECTION
+        ======================================== */
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-blue);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-white);
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-text p {
+            color: var(--text-gray);
+            font-size: 1.05rem;
+        }
+
+        .contact-form {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.7rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            color: var(--text-white);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--gradient-main);
+            color: var(--text-white);
+            border: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.5);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        
+        footer {
+            background: var(--darker);
+            padding: 5rem 3rem 2rem;
+            margin-top: 6rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-about h3 {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 1rem;
+        }
+
+        .footer-about p {
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .footer-social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-links h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-dark-gray);
+            font-size: 0.95rem;
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            color: var(--text-dark-gray);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--primary);
+        }
+
+        /* ========================================
+           SCROLL TO TOP BUTTON
+        ======================================== */
+        
+        .scroll-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 55px;
+            height: 55px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+            z-index: 999;
+            font-size: 1.3rem;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
+        }
+
+        /* ========================================
+           RESPONSIVE DESIGN
+        ======================================== */
+        
+        @media (max-width: 1024px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 400px;
+                background: rgba(13, 13, 13, 0.98);
+                backdrop-filter: blur(25px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 3rem;
+                transition: var(--transition);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+            }
+
+            .footer-about {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            section {
+                padding: 5rem 1.5rem;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .artists-grid,
+            .releases-grid,
+            .services-grid,
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .event-card {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .event-ticket {
+                text-align: center;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1.5rem;
+                text-align: center;
+            }
+
+            .footer-bottom-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .scroll-top {
+                bottom: 2rem;
+                right: 2rem;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .now-playing {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .player-controls {
+                gap: 1rem;
+            }
+
+            .control-btn {
+                width: 45px;
+                height: 45px;
+            }
+
+            .play-btn {
+                width: 65px;
+                height: 65px;
+            }
+        }
+
+        /* ========================================
+           LOADING ANIMATION
+        ======================================== */
+        
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-size: 4rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        .loader-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 71, 87, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* ========================================
+           CUSTOM SCROLLBAR
+        ======================================== */
+        
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-main);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* ========================================
+           ACCESSIBILITY
+        ======================================== */
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* ========================================
+           UTILITIES
+        ======================================== */
+        
+        .text-gradient {
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .no-scroll {
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">Ash Hu Music</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-music"></i>
+                Ash Hu Music
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <i class="fas fa-music floating-music"></i>
+        <i class="fas fa-headphones floating-music"></i>
+        <i class="fas fa-guitar floating-music"></i>
+        
+        <div class="hero-content">
+            <div class="hero-badge">🎵 Premier Music Label</div>
+            <h1>Amplifying Extraordinary Talent</h1>
+            <p>Where passion meets performance. Discover groundbreaking artists and exclusive releases that define the future of music.</p>
+            <div class="cta-buttons">
+                <a href="#artists" class="btn btn-primary">
+                    Explore Artists <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#releases" class="btn btn-secondary">
+                    <i class="fas fa-play"></i> Latest Releases
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artists Section -->
+    <section id="artists">
+        <div class="section-header">
+            <div class="section-label">Our Roster</div>
+            <h2 class="section-title">Featured Artists</h2>
+            <p class="section-subtitle">Meet the extraordinary talents shaping the soundscape of tomorrow</p>
+        </div>
+
+        <div class="artists-grid">
+            <!-- Artist Card 1 -->
+            <div class="artist-card">
+                <div class="artist-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=800&fit=crop" alt="Aria Chen" class="artist-image">
+                    <div class="artist-overlay"></div>
+                </div>
+                <div class="artist-info">
+                    <h3 class="artist-name">Aria Chen</h3>
+                    <p class="artist-genre">Pop · Electronic</p>
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <span class="stat-number">2.5M+</span>
+                            <span class="stat-label">Monthly Listeners</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Tracks</span>
+                        </div>
+                    </div>
+                    <div class="artist-social">
+                        <div class="social-icon"><i class="fab fa-spotify"></i></div>
+                        <div class="social-icon"><i class="fab fa-apple"></i></div>
+                        <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 2 -->
+            <div class="artist-card">
+                <div class="artist-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&h=800&fit=crop" alt="Marcus Knight" class="artist-image">
+                    <div class="artist-overlay"></div>
+                </div>
+                <div class="artist-info">
+                    <h3 class="artist-name">Marcus Knight</h3>
+                    <p class="artist-genre">Hip-Hop · R&B</p>
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <span class="stat-number">3.8M+</span>
+                            <span class="stat-label">Monthly Listeners</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">62</span>
+                            <span class="stat-label">Tracks</span>
+                        </div>
+                    </div>
+                    <div class="artist-social">
+                        <div class="social-icon"><i class="fab fa-spotify"></i></div>
+                        <div class="social-icon"><i class="fab fa-apple"></i></div>
+                        <div class="social-icon"><i class="fab fa-twitter"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artist Card 3 -->
+            <div class="artist-card">
+                <div class="artist-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=800&fit=crop" alt="Luna Rivers" class="artist-image">
+                    <div class="artist-overlay"></div>
+                </div>
+                <div class="artist-info">
+                    <h3 class="artist-name">Luna Rivers</h3>
+                    <p class="artist-genre">Indie · Alternative</p>
+                    <div class="artist-stats">
+                        <div class="stat">
+                            <span class="stat-number">1.9M+</span>
+                            <span class="stat-label">Monthly Listeners</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">38</span>
+                            <span class="stat-label">Tracks</span>
+                        </div>
+                    </div>
+                    <div class="artist-social">
+                        <div class="social-icon"><i class="fab fa-spotify"></i></div>
+                        <div class="social-icon"><i class="fab fa-soundcloud"></i></div>
+                        <div class="social-icon"><i class="fab fa-instagram"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Releases Section -->
+    <section id="releases">
+        <div class="section-header">
+            <div class="section-label">New Music</div>
+            <h2 class="section-title">Latest Releases</h2>
+            <p class="section-subtitle">Fresh tracks and albums from our incredible lineup of artists</p>
+        </div>
+
+        <div class="releases-grid">
+            <!-- Release Card 1 -->
+            <div class="release-card">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Midnight Dreams" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h3 class="release-title">Midnight Dreams</h3>
+                    <p class="release-artist">Aria Chen</p>
+                    <div class="release-meta">
+                        <span class="release-date">Jan 15, 2026</span>
+                        <span class="release-duration">3:42</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Release Card 2 -->
+            <div class="release-card">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=600&fit=crop" alt="Urban Legends" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h3 class="release-title">Urban Legends</h3>
+                    <p class="release-artist">Marcus Knight</p>
+                    <div class="release-meta">
+                        <span class="release-date">Jan 10, 2026</span>
+                        <span class="release-duration">4:18</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Release Card 3 -->
+            <div class="release-card">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Echo Valley" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h3 class="release-title">Echo Valley</h3>
+                    <p class="release-artist">Luna Rivers</p>
+                    <div class="release-meta">
+                        <span class="release-date">Jan 5, 2026</span>
+                        <span class="release-duration">3:56</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Release Card 4 -->
+            <div class="release-card">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Neon Pulse" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h3 class="release-title">Neon Pulse</h3>
+                    <p class="release-artist">Aria Chen</p>
+                    <div class="release-meta">
+                        <span class="release-date">Dec 28, 2025</span>
+                        <span class="release-duration">3:29</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player Section -->
+    <div class="music-player-section">
+        <div class="section-header">
+            <div class="section-label">Now Playing</div>
+            <h2 class="section-title">Interactive Player</h2>
+        </div>
+
+        <div class="player-container">
+            <div class="now-playing">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=300&h=300&fit=crop" alt="Now Playing" class="now-playing-image">
+                <div class="now-playing-info">
+                    <h3>Midnight Dreams</h3>
+                    <p>Aria Chen · Pop/Electronic</p>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <button class="control-btn">
+                    <i class="fas fa-backward"></i>
+                </button>
+                <button class="control-btn play-btn">
+                    <i class="fas fa-play"></i>
+                </button>
+                <button class="control-btn">
+                    <i class="fas fa-forward"></i>
+                </button>
+            </div>
+
+            <div class="progress-bar-wrapper">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="time-display">
+                    <span>1:18</span>
+                    <span>3:42</span>
+                </div>
+            </div>
+
+            <div class="volume-control">
+                <i class="fas fa-volume-up"></i>
+                <div class="volume-slider">
+                    <div class="volume-level"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Events Section -->
+    <section id="events">
+        <div class="section-header">
+            <div class="section-label">Live Shows</div>
+            <h2 class="section-title">Upcoming Events</h2>
+            <p class="section-subtitle">Experience unforgettable live performances from our artists</p>
+        </div>
+
+        <div class="events-list">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">15</div>
+                    <div class="event-month">FEB</div>
+                </div>
+                <div class="event-details">
+                    <h3 class="event-title">Aria Chen Live in Concert</h3>
+                    <p class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Madison Square Garden, New York
+                    </p>
+                    <p class="event-time">
+                        <i class="fas fa-clock"></i>
+                        8:00 PM - 11:00 PM
+                    </p>
+                </div>
+                <div class="event-ticket">
+                    <div class="ticket-price">$85</div>
+                    <button class="ticket-btn">Get Tickets</button>
+                </div>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">22</div>
+                    <div class="event-month">FEB</div>
+                </div>
+                <div class="event-details">
+                    <h3 class="event-title">Marcus Knight World Tour</h3>
+                    <p class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        The Forum, Los Angeles
+                    </p>
+                    <p class="event-time">
+                        <i class="fas fa-clock"></i>
+                        7:30 PM - 10:30 PM
+                    </p>
+                </div>
+                <div class="event-ticket">
+                    <div class="ticket-price">$95</div>
+                    <button class="ticket-btn">Get Tickets</button>
+                </div>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-card">
+                <div class="event-date">
+                    <div class="event-day">08</div>
+                    <div class="event-month">MAR</div>
+                </div>
+                <div class="event-details">
+                    <h3 class="event-title">Luna Rivers Acoustic Session</h3>
+                    <p class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        Blue Note, Chicago
+                    </p>
+                    <p class="event-time">
+                        <i class="fas fa-clock"></i>
+                        9:00 PM - 11:30 PM
+                    </p>
+                </div>
+                <div class="event-ticket">
+                    <div class="ticket-price">$65</div>
+                    <button class="ticket-btn">Get Tickets</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <div class="section-label">What We Offer</div>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive solutions for artists at every stage of their journey</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <h3 class="service-title">Music Production</h3>
+                <p class="service-description">State-of-the-art recording studios and world-class producers to bring your vision to life.</p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-compact-disc"></i>
+                </div>
+                <h3 class="service-title">Distribution</h3>
+                <p class="service-description">Global digital distribution across all major streaming platforms and music stores.</p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="service-title">Marketing & PR</h3>
+                <p class="service-description">Strategic campaigns and media relations to amplify your reach and fanbase.</p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ticket-alt"></i>
+                </div>
+                <h3 class="service-title">Tour Management</h3>
+                <p class="service-description">Full-service tour planning, booking, and logistics for unforgettable live experiences.</p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-balance-scale"></i>
+                </div>
+                <h3 class="service-title">Legal Support</h3>
+                <p class="service-description">Expert legal counsel for contracts, copyrights, and intellectual property protection.</p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                </div>
+                <h3 class="service-title">Funding & Deals</h3>
+                <p class="service-description">Investment opportunities and strategic partnerships to fuel your artistic growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <div class="stats-section">
+        <div class="section-header">
+            <div class="section-label">Our Impact</div>
+            <h2 class="section-title">Success By Numbers</h2>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Signed Artists</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Tracks Released</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="stat-number">120+</div>
+                <div class="stat-label">Countries Reached</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <div class="stat-number">50M+</div>
+                <div class="stat-label">Total Streams</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section>
+        <div class="section-header">
+            <div class="section-label">Testimonials</div>
+            <h2 class="section-title">What Artists Say</h2>
+            <p class="section-subtitle">Hear from the talented musicians we've had the privilege to work with</p>
+        </div>
+
+        <div class="testimonials-container">
+            <div class="testimonial-card active">
+                <p class="testimonial-quote">
+                    "Working with Ash Hu Music has been transformative. They believed in my vision and helped me reach millions of listeners worldwide. The team's dedication is unmatched."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=150&h=150&fit=crop" alt="Aria Chen" class="author-image">
+                    <div class="author-info">
+                        <h4>Aria Chen</h4>
+                        <p>Pop Artist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Ash Hu Music gave me the platform and resources to express myself authentically. Their support has been invaluable in my artistic journey."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&h=150&fit=crop" alt="Marcus Knight" class="author-image">
+                    <div class="author-info">
+                        <h4>Marcus Knight</h4>
+                        <p>Hip-Hop Artist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "The creative freedom and professional guidance I've received here is incredible. Ash Hu Music understands what independent artists need to thrive."
+                </p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=150&h=150&fit=crop" alt="Luna Rivers" class="author-image">
+                    <div class="author-info">
+                        <h4>Luna Rivers</h4>
+                        <p>Indie Artist</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-nav">
+                <span class="testimonial-dot active" onclick="showTestimonial(0)"></span>
+                <span class="testimonial-dot" onclick="showTestimonial(1)"></span>
+                <span class="testimonial-dot" onclick="showTestimonial(2)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+        <div class="newsletter-content">
+            <h2>Stay In The Loop</h2>
+            <p>Get exclusive updates on new releases, upcoming events, and behind-the-scenes content.</p>
+            <form class="newsletter-form" onsubmit="return handleNewsletter(event)">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-header">
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Have a question or want to work with us? We'd love to hear from you.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Visit Us</h3>
+                        <p>123 Music Avenue<br>Los Angeles, CA 90028</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Call Us</h3>
+                        <p>+1 (555) 123-4567<br>Mon-Fri: 9AM - 6PM PST</p>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-text">
+                        <h3>Email Us</h3>
+                        <p>info@ashhumusic.com<br>artists@ashhumusic.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <form onsubmit="return handleContactForm(event)">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-about">
+                <h3>Ash Hu Music</h3>
+                <p>Empowering artists and creating unforgettable musical experiences. Join us in shaping the future of music.</p>
+                <div class="footer-social">
+                    <div class="footer-social-icon"><i class="fab fa-facebook-f"></i></div>
+                    <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
+                    <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
+                    <div class="footer-social-icon"><i class="fab fa-youtube"></i></div>
+                    <div class="footer-social-icon"><i class="fab fa-spotify"></i></div>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#artists">Artists</a></li>
+                    <li><a href="#releases">Releases</a></li>
+                    <li><a href="#events">Events</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="#services">Production</a></li>
+                    <li><a href="#services">Distribution</a></li>
+                    <li><a href="#services">Marketing</a></li>
+                    <li><a href="#services">Tour Management</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#contact">About Us</a></li>
+                    <li><a href="#contact">Careers</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#contact">Press</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Ash Hu Music. All Rights Reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', function() {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Close menu when clicking nav link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Active Navigation Link
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', function() {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href').includes(current)) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Music Player Controls
+        const playBtn = document.querySelector('.play-btn');
+        let isPlaying = false;
+
+        playBtn.addEventListener('click', function() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                startProgress();
+            } else {
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                stopProgress();
+            }
+        });
+
+        let progressInterval;
+        function startProgress() {
+            const progress = document.querySelector('.progress');
+            let width = 35;
+            progressInterval = setInterval(function() {
+                if (width >= 100) {
+                    width = 0;
+                    isPlaying = false;
+                    playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                    clearInterval(progressInterval);
+                } else {
+                    width += 0.5;
+                    progress.style.width = width + '%';
+                }
+            }, 100);
+        }
+
+        function stopProgress() {
+            clearInterval(progressInterval);
+        }
+
+        // Progress Bar Click
+        const progressBar = document.querySelector('.progress-bar');
+        progressBar.addEventListener('click', function(e) {
+            const rect = progressBar.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width * 100;
+            document.querySelector('.progress').style.width = percent + '%';
+        });
+
+        // Volume Control
+        const volumeSlider = document.querySelector('.volume-slider');
+        volumeSlider.addEventListener('click', function(e) {
+            const rect = volumeSlider.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width * 100;
+            document.querySelector('.volume-level').style.width = percent + '%';
+        });
+
+        // Testimonials
+        let currentTestimonial = 0;
+        const testimonialCards = document.querySelectorAll('.testimonial-card');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+        function showTestimonial(index) {
+            testimonialCards.forEach(card => card.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonialCards[index].classList.add('active');
+            testimonialDots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        // Auto-rotate testimonials
+        setInterval(function() {
+            currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
+            showTestimonial(currentTestimonial);
+        }, 6000);
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submissions
+        function handleNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert('Thank you for subscribing! Check your email for confirmation.');
+            event.target.reset();
+            return false;
+        }
+
+        function handleContactForm(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
+            return false;
+        }
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for Fade-in Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.artist-card, .release-card, .service-card, .event-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Prevent right-click context menu (optional)
+        // document.addEventListener('contextmenu', e => e.preventDefault());
+
+        // Console Message
+        console.log('%cAsh Hu Music', 'font-size: 40px; font-weight: bold; color: #ff4757;');
+        console.log('%cWelcome to our website! 🎵', 'font-size: 16px; color: #5f27cd;');
+    </script>
+</body>
+</html>
