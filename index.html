@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - Premier music label empowering artists and creating unforgettable musical experiences worldwide.">
-    <meta name="keywords" content="Ash Hu Music, music label, record label, artists, music production, albums, streaming">
+    <meta name="description" content="Ash Hu Music - Premier music label founded by Harshit Rao and Udghosh Rao, empowering artists and creating unforgettable musical experiences worldwide.">
+    <meta name="keywords" content="Ash Hu Music, Harshit Rao, Udghosh Rao, music label, record label, artists, music production">
     <meta name="author" content="Ash Hu Music">
     <meta property="og:title" content="Ash Hu Music - Amplifying Extraordinary Talent">
-    <meta property="og:description" content="Discover groundbreaking artists and exclusive releases.">
+    <meta property="og:description" content="Discover groundbreaking artists and exclusive releases from Ash Hu Music.">
     <title>Ash Hu Music - Amplifying Extraordinary Talent</title>
     
     <!-- Google Fonts -->
@@ -440,11 +440,136 @@
         }
 
         /* ========================================
+           ABOUT / FOUNDERS SECTION
+        ======================================== */
+        
+        #about {
+            background: rgba(26, 26, 26, 0.3);
+            border-radius: 30px;
+            padding: 7rem 3rem;
+            margin: 4rem auto;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto 5rem;
+            text-align: center;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            line-height: 2;
+            margin-bottom: 3rem;
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 4rem;
+            margin-top: 5rem;
+        }
+
+        .founder-card {
+            background: var(--card-bg);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            padding: 3rem 2.5rem;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.35);
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .founder-image-wrapper {
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid var(--primary);
+            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.4);
+            transition: var(--transition);
+        }
+
+        .founder-card:hover .founder-image-wrapper {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.6);
+        }
+
+        .founder-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .founder-info {
+            padding: 1rem 0;
+        }
+
+        .founder-name {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .founder-title {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .founder-bio {
+            color: var(--text-gray);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+        }
+
+        .founder-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .founder-social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        .founder-social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* ========================================
            FEATURED ARTISTS SECTION
         ======================================== */
         
         #artists {
-            background: rgba(26, 26, 26, 0.3);
+            background: rgba(26, 26, 26, 0.2);
             border-radius: 30px;
             padding: 7rem 3rem;
             margin: 4rem auto;
@@ -1549,6 +1674,11 @@
             .footer-about {
                 grid-column: 1 / -1;
             }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
         }
 
         @media (max-width: 768px) {
@@ -1633,6 +1763,10 @@
                 right: 2rem;
                 width: 50px;
                 height: 50px;
+            }
+
+            .founders-grid {
+                gap: 2.5rem;
             }
         }
 
@@ -1742,47 +1876,6 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--primary);
         }
-
-        /* ========================================
-           ACCESSIBILITY
-        ======================================== */
-        
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* ========================================
-           UTILITIES
-        ======================================== */
-        
-        .text-gradient {
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .fade-in {
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .no-scroll {
-            overflow: hidden;
-        }
     </style>
 </head>
 <body>
@@ -1806,6 +1899,7 @@
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#artists">Artists</a></li>
                 <li><a href="#releases">Releases</a></li>
                 <li><a href="#events">Events</a></li>
@@ -1829,14 +1923,69 @@
         <div class="hero-content">
             <div class="hero-badge">🎵 Premier Music Label</div>
             <h1>Amplifying Extraordinary Talent</h1>
-            <p>Where passion meets performance. Discover groundbreaking artists and exclusive releases that define the future of music.</p>
+            <p>Where passion meets performance. Discover groundbreaking artists and exclusive releases that define the future of music. Founded with vision, driven by excellence.</p>
             <div class="cta-buttons">
                 <a href="#artists" class="btn btn-primary">
                     Explore Artists <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#releases" class="btn btn-secondary">
-                    <i class="fas fa-play"></i> Latest Releases
+                <a href="#about" class="btn btn-secondary">
+                    <i class="fas fa-info-circle"></i> Our Story
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Founders Section -->
+    <section id="about">
+        <div class="section-header">
+            <div class="section-label">Our Story</div>
+            <h2 class="section-title">About Ash Hu Music</h2>
+            <p class="section-subtitle">A vision to revolutionize the music industry, one artist at a time</p>
+        </div>
+
+        <div class="about-content">
+            <p class="about-text">
+                Ash Hu Music was founded on the belief that exceptional talent deserves exceptional support. We're more than a label—we're a creative ecosystem where artists thrive, innovate, and connect with audiences worldwide. Our commitment to artistic integrity and commercial success has made us a trusted partner for emerging and established musicians alike.
+            </p>
+        </div>
+
+        <div class="founders-grid">
+            <!-- Founder 1 - Harshit Rao -->
+            <div class="founder-card">
+                <div class="founder-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Harshit Rao" class="founder-image">
+                </div>
+                <div class="founder-info">
+                    <h3 class="founder-name">Harshit Rao</h3>
+                    <p class="founder-title">Founder & CEO</p>
+                    <p class="founder-bio">
+                        Visionary entrepreneur with over 15 years in the music industry. Harshit's passion for discovering raw talent and transforming it into global phenomena has shaped Ash Hu Music's core philosophy. His innovative approach to artist development and strategic partnerships has established the label as an industry leader.
+                    </p>
+                    <div class="founder-social">
+                        <div class="founder-social-icon"><i class="fab fa-linkedin"></i></div>
+                        <div class="founder-social-icon"><i class="fab fa-twitter"></i></div>
+                        <div class="founder-social-icon"><i class="fab fa-instagram"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Founder 2 - Udghosh Rao -->
+            <div class="founder-card">
+                <div class="founder-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Udghosh Rao" class="founder-image">
+                </div>
+                <div class="founder-info">
+                    <h3 class="founder-name">Udghosh Rao</h3>
+                    <p class="founder-title">Co-Founder & Creative Director</p>
+                    <p class="founder-bio">
+                        Award-winning music producer and creative strategist. Udghosh brings unparalleled expertise in production, branding, and artistic direction. His deep understanding of musical trends and audience psychology has driven countless chart-topping releases and transformed artist careers across multiple genres.
+                    </p>
+                    <div class="founder-social">
+                        <div class="founder-social-icon"><i class="fab fa-linkedin"></i></div>
+                        <div class="founder-social-icon"><i class="fab fa-twitter"></i></div>
+                        <div class="founder-social-icon"><i class="fab fa-instagram"></i></div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1954,7 +2103,7 @@
                     <h3 class="release-title">Midnight Dreams</h3>
                     <p class="release-artist">Aria Chen</p>
                     <div class="release-meta">
-                        <span class="release-date">Jan 15, 2026</span>
+                        <span class="release-date">Jan 28, 2026</span>
                         <span class="release-duration">3:42</span>
                     </div>
                 </div>
@@ -1972,7 +2121,7 @@
                     <h3 class="release-title">Urban Legends</h3>
                     <p class="release-artist">Marcus Knight</p>
                     <div class="release-meta">
-                        <span class="release-date">Jan 10, 2026</span>
+                        <span class="release-date">Jan 24, 2026</span>
                         <span class="release-duration">4:18</span>
                     </div>
                 </div>
@@ -1990,7 +2139,7 @@
                     <h3 class="release-title">Echo Valley</h3>
                     <p class="release-artist">Luna Rivers</p>
                     <div class="release-meta">
-                        <span class="release-date">Jan 5, 2026</span>
+                        <span class="release-date">Jan 20, 2026</span>
                         <span class="release-duration">3:56</span>
                     </div>
                 </div>
@@ -2008,7 +2157,7 @@
                     <h3 class="release-title">Neon Pulse</h3>
                     <p class="release-artist">Aria Chen</p>
                     <div class="release-meta">
-                        <span class="release-date">Dec 28, 2025</span>
+                        <span class="release-date">Jan 15, 2026</span>
                         <span class="release-duration">3:29</span>
                     </div>
                 </div>
@@ -2261,7 +2410,7 @@
         <div class="testimonials-container">
             <div class="testimonial-card active">
                 <p class="testimonial-quote">
-                    "Working with Ash Hu Music has been transformative. They believed in my vision and helped me reach millions of listeners worldwide. The team's dedication is unmatched."
+                    "Working with Ash Hu Music has been transformative. Harshit and Udghosh believed in my vision and helped me reach millions of listeners worldwide. The team's dedication is unmatched."
                 </p>
                 <div class="testimonial-author">
                     <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=150&h=150&fit=crop" alt="Aria Chen" class="author-image">
@@ -2274,7 +2423,7 @@
 
             <div class="testimonial-card">
                 <p class="testimonial-quote">
-                    "Ash Hu Music gave me the platform and resources to express myself authentically. Their support has been invaluable in my artistic journey."
+                    "Ash Hu Music gave me the platform and resources to express myself authentically. Their support has been invaluable in my artistic journey. True partners in every sense."
                 </p>
                 <div class="testimonial-author">
                     <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=150&h=150&fit=crop" alt="Marcus Knight" class="author-image">
@@ -2287,7 +2436,7 @@
 
             <div class="testimonial-card">
                 <p class="testimonial-quote">
-                    "The creative freedom and professional guidance I've received here is incredible. Ash Hu Music understands what independent artists need to thrive."
+                    "The creative freedom and professional guidance I've received here is incredible. Ash Hu Music understands what independent artists need to thrive in today's industry."
                 </p>
                 <div class="testimonial-author">
                     <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=150&h=150&fit=crop" alt="Luna Rivers" class="author-image">
@@ -2388,7 +2537,7 @@
         <div class="footer-content">
             <div class="footer-about">
                 <h3>Ash Hu Music</h3>
-                <p>Empowering artists and creating unforgettable musical experiences. Join us in shaping the future of music.</p>
+                <p>Founded by Harshit Rao and Udghosh Rao, Ash Hu Music is dedicated to empowering artists and creating unforgettable musical experiences. Join us in shaping the future of music.</p>
                 <div class="footer-social">
                     <div class="footer-social-icon"><i class="fab fa-facebook-f"></i></div>
                     <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
@@ -2402,9 +2551,9 @@
                 <h4>Quick Links</h4>
                 <ul>
                     <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
                     <li><a href="#artists">Artists</a></li>
                     <li><a href="#releases">Releases</a></li>
-                    <li><a href="#events">Events</a></li>
                 </ul>
             </div>
 
@@ -2421,7 +2570,7 @@
             <div class="footer-links">
                 <h4>Company</h4>
                 <ul>
-                    <li><a href="#contact">About Us</a></li>
+                    <li><a href="#about">Our Story</a></li>
                     <li><a href="#contact">Careers</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="#contact">Press</a></li>
@@ -2430,7 +2579,7 @@
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2026 Ash Hu Music. All Rights Reserved.</p>
+            <p>&copy; 2026 Ash Hu Music. All Rights Reserved. Founded by Harshit Rao & Udghosh Rao.</p>
             <div class="footer-bottom-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
@@ -2640,19 +2789,16 @@
         }, observerOptions);
 
         // Observe all cards
-        document.querySelectorAll('.artist-card, .release-card, .service-card, .event-card, .stat-card').forEach(el => {
+        document.querySelectorAll('.artist-card, .release-card, .service-card, .event-card, .stat-card, .founder-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
 
-        // Prevent right-click context menu (optional)
-        // document.addEventListener('contextmenu', e => e.preventDefault());
-
         // Console Message
         console.log('%cAsh Hu Music', 'font-size: 40px; font-weight: bold; color: #ff4757;');
-        console.log('%cWelcome to our website! 🎵', 'font-size: 16px; color: #5f27cd;');
+        console.log('%cFounded by Harshit Rao & Udghosh Rao 🎵', 'font-size: 16px; color: #5f27cd;');
     </script>
 </body>
 </html>
