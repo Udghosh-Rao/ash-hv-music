@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - YouTube-first music label helping small artists grow through strategy, branding, and smart growth planning.">
-    <title>Ash Hu Music - YouTube-First Music Label</title>
+    <meta name="description" content="Ash Hu Music - YouTube-focused music label offering distribution, branding, marketing, and complete artist development services.">
+    <title>Ash Hu Music - YouTube-Focused Music Label</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,18 +24,22 @@
         :root {
             --primary: #ff4757;
             --secondary: #5f27cd;
+            --accent: #00d2d3;
             --dark-bg: #0a0a0a;
             --darker: #050505;
             --card-bg: #1a1a1a;
             --text-white: #ffffff;
             --text-gray: #b5b5b5;
             --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
-            --shadow-card: 0 15px 40px rgba(255, 71, 87, 0.25);
-            --transition: all 0.4s ease;
+            --gradient-purple: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
+            --gradient-blue: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%);
+            --shadow-glow: 0 0 60px rgba(255, 71, 87, 0.4);
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         body {
@@ -43,9 +47,15 @@
             background: var(--dark-bg);
             color: var(--text-white);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Animated Background */
+        ::selection {
+            background: var(--primary);
+            color: var(--text-white);
+        }
+
+        /* Advanced Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -54,34 +64,78 @@
             height: 100%;
             z-index: -1;
             background: var(--darker);
+            overflow: hidden;
         }
 
         .animated-bg::before {
             content: '';
             position: absolute;
-            width: 250%;
-            height: 250%;
+            width: 300%;
+            height: 300%;
             background: 
-                radial-gradient(circle at 25% 25%, rgba(255, 71, 87, 0.12) 0%, transparent 45%),
-                radial-gradient(circle at 75% 75%, rgba(95, 39, 205, 0.1) 0%, transparent 45%);
-            animation: bgFloat 30s ease-in-out infinite;
+                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.1) 0%, transparent 40%);
+            animation: backgroundFloat 25s ease-in-out infinite;
         }
 
-        @keyframes bgFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(-40px, -60px) rotate(180deg); }
+        @keyframes backgroundFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-100px, 100px) rotate(120deg) scale(1.1); }
+            66% { transform: translate(100px, -100px) rotate(240deg) scale(0.9); }
         }
 
-        /* Navigation */
+        /* Particle System */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 71, 87, 0.4);
+            border-radius: 50%;
+            animation: floatParticle 20s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { 
+                transform: translateY(0) translateX(0); 
+                opacity: 0; 
+            }
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { 
+                transform: translateY(-120vh) translateX(50px); 
+                opacity: 0; 
+            }
+        }
+
+        /* Navigation with Glass Effect */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(25px);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             z-index: 1000;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 1.3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.2);
         }
 
         .nav-container {
@@ -94,7 +148,7 @@
         }
 
         .logo {
-            font-size: 2.2rem;
+            font-size: 2.3rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
@@ -103,11 +157,24 @@
             display: flex;
             align-items: center;
             gap: 0.7rem;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
         .logo i {
             color: var(--primary);
             -webkit-text-fill-color: var(--primary);
+            animation: logoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: brightness(1.3);
         }
 
         .nav-links {
@@ -121,11 +188,30 @@
             text-decoration: none;
             font-weight: 500;
             transition: var(--transition);
-            font-size: 0.95rem;
+            position: relative;
+            font-size: 0.98rem;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            transition: var(--transition);
+            border-radius: 10px;
         }
 
         .nav-links a:hover {
             color: var(--primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .menu-toggle {
@@ -136,13 +222,26 @@
         }
 
         .menu-toggle span {
-            width: 28px;
+            width: 30px;
             height: 3px;
             background: var(--text-white);
-            border-radius: 2px;
+            border-radius: 3px;
+            transition: var(--transition);
         }
 
-        /* Hero Section */
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(9px, 9px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(9px, -9px);
+        }
+
+        /* Hero Section with Advanced Animations */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -150,75 +249,123 @@
             justify-content: center;
             text-align: center;
             padding: 10rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero-content {
-            max-width: 1000px;
-            animation: fadeInUp 1.2s ease-out;
+            max-width: 1100px;
+            z-index: 10;
+            animation: heroFadeIn 1.5s ease-out;
+        }
+
+        @keyframes heroFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .hero-badge {
             display: inline-block;
-            padding: 0.7rem 1.8rem;
-            background: rgba(255, 71, 87, 0.12);
-            border: 1px solid rgba(255, 71, 87, 0.3);
+            padding: 0.8rem 2rem;
+            background: rgba(255, 71, 87, 0.15);
+            border: 2px solid rgba(255, 71, 87, 0.4);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
             font-size: 0.9rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            animation: badgePulse 2s ease-in-out infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 71, 87, 0.6); }
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            100% { left: 200%; }
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 6rem);
+            font-size: clamp(3rem, 8vw, 7.5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.1;
+            letter-spacing: -2px;
+            animation: titleSlide 1s ease-out 0.3s backwards;
+        }
+
+        @keyframes titleSlide {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .hero p {
-            font-size: clamp(1.05rem, 2vw, 1.4rem);
+            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
             color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.8;
-            max-width: 800px;
+            margin-bottom: 3.5rem;
+            line-height: 1.9;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
+            animation: subtitleSlide 1s ease-out 0.5s backwards;
         }
 
-        .btn {
-            padding: 1.1rem 3rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.7rem;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--gradient-main);
-            color: var(--text-white);
-            box-shadow: 0 0 40px rgba(255, 71, 87, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
-        }
-
-        @keyframes fadeInUp {
+        @keyframes subtitleSlide {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: buttonsFade 1s ease-out 0.7s backwards;
+        }
+
+        @keyframes buttonsFade {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -226,35 +373,143 @@
             }
         }
 
+        .btn {
+            padding: 1.2rem 3.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            font-size: 1.05rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn i {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: var(--text-white);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+        }
+
+        /* Floating Music Icons */
+        .floating-icon {
+            position: absolute;
+            font-size: 4rem;
+            opacity: 0.06;
+            animation: iconFloat 10s ease-in-out infinite;
+            color: var(--primary);
+        }
+
+        .floating-icon:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-icon:nth-child(2) {
+            top: 60%;
+            right: 12%;
+            animation-delay: 3s;
+        }
+
+        .floating-icon:nth-child(3) {
+            bottom: 20%;
+            left: 18%;
+            animation-delay: 6s;
+        }
+
+        @keyframes iconFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(5deg); }
+            50% { transform: translateY(-60px) rotate(-5deg); }
+            75% { transform: translateY(-30px) rotate(5deg); }
+        }
+
         /* Section Styles */
         section {
-            padding: 6rem 2rem;
+            padding: 7rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
+            position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-label {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 71, 87, 0.1);
-            border: 1px solid rgba(255, 71, 87, 0.25);
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 71, 87, 0.12);
+            border: 1px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
             font-size: 0.85rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: labelGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes labelGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 71, 87, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(255, 71, 87, 0.4); }
         }
 
         .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
@@ -263,98 +518,176 @@
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             color: var(--text-gray);
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.9;
         }
 
-        /* About Section */
+        /* About Section with Glass Effect */
         #about {
-            background: rgba(26, 26, 26, 0.3);
-            border-radius: 30px;
-            padding: 6rem 3rem;
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 7rem 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .about-text {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             color: var(--text-gray);
-            line-height: 2;
-            margin-bottom: 3rem;
+            line-height: 2.1;
+            margin-bottom: 4rem;
             text-align: center;
-            max-width: 900px;
+            max-width: 950px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Services Section */
-        .services {
-            max-width: 900px;
-            margin: 3rem auto 4rem;
-            text-align: center;
-        }
-
-        .services-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Playfair Display', serif;
-        }
-
-        .services-list {
-            list-style: none;
-            padding: 0;
-            color: var(--text-gray);
-            font-size: 1.1rem;
-            line-height: 2.2;
-        }
-
-        .services-list li {
-            margin-bottom: 0.5rem;
-        }
-
-        .services-list li::before {
-            content: "✔ ";
+        .about-text strong {
             color: var(--primary);
-            font-weight: bold;
-            margin-right: 0.5rem;
+            font-weight: 700;
         }
 
-        /* Founders Grid */
-        .founders-grid {
+        /* Services Grid with Hover Effects */
+        .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
-        .founder-card {
+        .service-card {
             background: var(--card-bg);
             border-radius: 25px;
             padding: 3rem 2.5rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-main);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 60px rgba(255, 71, 87, 0.3);
+            border-color: var(--primary);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--gradient-main);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: var(--text-white);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
+        }
+
+        .service-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            color: var(--text-white);
+        }
+
+        .service-description {
+            color: var(--text-gray);
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        /* Founders Section with Advanced Cards */
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3.5rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 3.5rem 3rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: var(--transition);
         }
 
         .founder-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-card);
-            border-color: rgba(255, 71, 87, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.4);
+            border-color: rgba(255, 71, 87, 0.4);
+        }
+
+        .founder-card:hover::after {
+            opacity: 1;
+            animation: rotateBg 10s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .founder-image-wrapper {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 2rem;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2.5rem;
             border-radius: 50%;
             overflow: hidden;
             border: 5px solid var(--primary);
-            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .founder-card:hover .founder-image-wrapper {
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
         }
 
         .founder-image {
@@ -364,71 +697,80 @@
         }
 
         .founder-name {
-            font-size: 2rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Playfair Display', serif;
+            position: relative;
+            z-index: 1;
         }
 
         .founder-title {
             color: var(--text-gray);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .founder-subtitle {
-            color: var(--primary);
-            font-size: 0.95rem;
+            font-size: 1.3rem;
             margin-bottom: 1.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
         }
 
         .founder-bio {
             color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 1rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
             text-align: left;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Releases Section */
-        .note-text {
-            text-align: center;
-            color: #777;
-            font-size: 0.9rem;
-            margin-top: 1rem;
-            font-style: italic;
-        }
-
+        /* Releases Section with Advanced Cards */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .release-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 25px;
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
+            position: relative;
+        }
+
+        .release-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-purple);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
         }
 
         .release-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(95, 39, 205, 0.25);
-            border-color: rgba(95, 39, 205, 0.4);
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 0 30px 80px rgba(95, 39, 205, 0.4);
+            border-color: rgba(95, 39, 205, 0.5);
+        }
+
+        .release-card:hover::before {
+            opacity: 0.1;
         }
 
         .release-image-wrapper {
             position: relative;
             width: 100%;
-            height: 280px;
+            height: 320px;
             overflow: hidden;
         }
 
@@ -440,70 +782,65 @@
         }
 
         .release-card:hover .release-image {
-            transform: scale(1.08);
+            transform: scale(1.15);
+            filter: brightness(0.7);
         }
 
         .play-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            width: 70px;
-            height: 70px;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80px;
+            height: 80px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            opacity: 0;
             transition: var(--transition);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
         }
 
         .release-card:hover .play-overlay {
-            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .play-overlay i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-white);
-            margin-left: 4px;
+            margin-left: 5px;
         }
 
         .release-info {
-            padding: 1.8rem;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
         }
 
         .release-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.7rem;
         }
 
         .release-artist {
             color: var(--text-gray);
-            font-size: 1rem;
-        }
-
-        /* Contact Section */
-        .contact-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            color: var(--text-gray);
             font-size: 1.05rem;
-            line-height: 1.8;
         }
 
+        /* Contact Section with Form Animation */
         .contact-form-wrapper {
-            max-width: 700px;
+            max-width: 750px;
             margin: 0 auto;
         }
 
         .contact-form {
             background: var(--card-bg);
-            border-radius: 25px;
-            padding: 3rem;
+            border-radius: 30px;
+            padding: 3.5rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .form-group {
@@ -512,21 +849,23 @@
 
         .form-group label {
             display: block;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.8rem;
             font-weight: 600;
             color: var(--text-gray);
+            font-size: 1rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1rem 1.5rem;
+            padding: 1.2rem 1.8rem;
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
             color: var(--text-white);
             font-size: 1rem;
             font-family: 'Poppins', sans-serif;
+            transition: var(--transition);
         }
 
         .form-group input:focus,
@@ -534,67 +873,78 @@
             outline: none;
             border-color: var(--primary);
             background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1);
+            transform: translateY(-2px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1.3rem;
             background: var(--gradient-main);
             color: var(--text-white);
             border: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
         .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
         }
 
-        /* Footer */
+        .submit-btn:active {
+            transform: translateY(-2px);
+        }
+
+        /* Footer with Gradient */
         footer {
-            background: var(--darker);
-            padding: 4rem 3rem 2rem;
+            background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker) 100%);
+            padding: 5rem 3rem 2.5rem;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
         }
 
         .footer-content h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-content p {
             color: var(--text-gray);
-            margin-bottom: 2rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.8;
         }
 
         .footer-social {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .footer-social-icon {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
@@ -602,34 +952,142 @@
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
+            font-size: 1.2rem;
         }
 
         .footer-social-icon:hover {
             background: var(--primary);
-            transform: translateY(-5px);
+            transform: translateY(-8px) rotate(360deg);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
         }
 
         .footer-bottom {
-            padding-top: 2rem;
+            padding-top: 2.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-gray);
             font-size: 0.95rem;
         }
 
-        /* Responsive */
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-main);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            box-shadow: var(--shadow-glow);
+            z-index: 999;
+            font-size: 1.5rem;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-8px) rotate(360deg);
+            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Loading Animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-logo {
+            font-size: 4.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 2rem;
+            animation: loaderPulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes loaderPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .loader-spinner {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255, 71, 87, 0.2);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 14px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-main);
+            border-radius: 10px;
+            border: 2px solid var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary);
+        }
+
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-links {
                 position: fixed;
                 top: 0;
                 right: -100%;
                 height: 100vh;
-                width: 70%;
-                max-width: 400px;
+                width: 75%;
+                max-width: 450px;
                 background: rgba(13, 13, 13, 0.98);
+                backdrop-filter: blur(30px);
                 flex-direction: column;
                 justify-content: center;
                 gap: 3rem;
                 transition: var(--transition);
+                box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
             }
 
             .nav-links.active {
@@ -651,28 +1109,72 @@
             }
 
             section {
-                padding: 4rem 1.5rem;
+                padding: 5rem 1.5rem;
+            }
+
+            #about {
+                padding: 5rem 2.5rem;
             }
 
             .founders-grid,
-            .releases-grid {
+            .releases-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .scroll-top {
+                bottom: 2rem;
+                right: 2rem;
+                width: 55px;
+                height: 55px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero p {
-                font-size: 1rem;
+            .logo {
+                font-size: 1.8rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-form {
+                padding: 2.5rem 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-logo">Ash Hu Music</div>
+            <div class="loader-spinner"></div>
+        </div>
+    </div>
+
     <!-- Animated Background -->
     <div class="animated-bg"></div>
 
+    <!-- Particle System -->
+    <div class="particles" id="particles"></div>
+
     <!-- Navigation -->
-    <nav>
+    <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
                 <i class="fas fa-music"></i>
@@ -681,8 +1183,9 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#releases">Projects</a></li>
-                <li><a href="#submit">Submit Music</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -694,44 +1197,47 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <i class="fas fa-music floating-icon"></i>
+        <i class="fas fa-headphones floating-icon"></i>
+        <i class="fab fa-youtube floating-icon"></i>
+        
         <div class="hero-content">
-            <div class="hero-badge">YouTube-First · Growth Focused</div>
-            <h1>We Grow New Artists on YouTube</h1>
+            <div class="hero-badge">🎵 YouTube-Focused Music Label</div>
+            <h1>Amplifying Your Music Journey</h1>
             <p>
-                We help small artists build real audience through YouTube, Shorts, and branding.
-                Distribution comes later — only when numbers justify it.
+                We're a modern music label specializing in YouTube growth, branding, and strategic distribution. 
+                From channel optimization to global release, we provide complete artist development services.
             </p>
-            <a href="#submit" class="btn btn-primary">
-                Submit Your Music <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">
+                    <span>Get Started</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <span>Learn More</span>
+                    <i class="fas fa-play"></i>
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
         <div class="section-header">
-            <div class="section-label">Our Approach</div>
+            <div class="section-label">Who We Are</div>
             <h2 class="section-title">About Ash Hu Music</h2>
-            <p class="section-subtitle">A YouTube-first label for emerging independent artists</p>
+            <p class="section-subtitle">A YouTube-focused label with complete artist development services</p>
         </div>
 
         <p class="about-text">
-            Ash Hu Music is an independent, YouTube-first music label focused on emerging artists.
-            We help artists grow using thumbnails, Shorts, branding, and release planning.
-            We do NOT push paid distribution for small artists — we wait until growth is real.
+            <strong>Ash Hu Music</strong> is an independent music label founded by young entrepreneurs 
+            <strong>Harshit Rao</strong> and <strong>Udghosh Rao</strong>. While our primary focus is 
+            <strong>YouTube growth and content strategy</strong>, we offer comprehensive services including 
+            distribution, branding, marketing, and artist development. We believe in growing artists 
+            organically through smart content planning, professional branding, and strategic releases. 
+            Our approach combines modern digital strategies with traditional music industry expertise to 
+            help independent artists build sustainable careers.
         </p>
-
-        <!-- What We Do Section -->
-        <div class="services">
-            <h3 class="services-title">What We Do for Artists</h3>
-            <ul class="services-list">
-                <li>YouTube channel & release strategy</li>
-                <li>Thumbnail, title & branding support</li>
-                <li>YouTube Shorts & discovery planning</li>
-                <li>Growth tracking & analytics</li>
-                <li>Distribution only after real traction</li>
-            </ul>
-        </div>
 
         <!-- Founders Section -->
         <div class="founders-grid">
@@ -743,9 +1249,8 @@
                 <div class="founder-info">
                     <h3 class="founder-name">Harshit Rao</h3>
                     <p class="founder-title">Founder & CEO</p>
-                    <p class="founder-subtitle">Building a growth-first music label for independent artists</p>
                     <p class="founder-bio">
-                        Harshit Rao is the Founder & CEO of Ash Hu Music. He focuses on building a practical, artist-first label model where growth comes before monetization. Harshit works closely with artists on release planning, YouTube strategy, and long-term development. His approach is simple — help artists grow organically first, then introduce distribution only when it makes financial sense.
+                        Harshit Rao is the Founder & CEO of Ash Hu Music, bringing fresh perspectives to the music industry. He oversees label operations, artist partnerships, YouTube strategy, and release planning. Harshit's vision is to create a modern label that prioritizes artist growth and sustainable development through smart digital strategies and organic audience building.
                     </p>
                 </div>
             </div>
@@ -758,11 +1263,87 @@
                 <div class="founder-info">
                     <h3 class="founder-name">Udghosh Rao</h3>
                     <p class="founder-title">Co-Founder & Creative Director</p>
-                    <p class="founder-subtitle">Shaping visuals, branding, and artist identity</p>
                     <p class="founder-bio">
-                        Udghosh Rao leads the creative direction at Ash Hu Music. He is responsible for thumbnails, cover art, branding, and visual presentation of artists on YouTube and social platforms. Udghosh helps emerging artists look professional and clickable, focusing on designs that support growth rather than unnecessary hype.
+                        Udghosh Rao leads all creative aspects at Ash Hu Music as Co-Founder & Creative Director. He specializes in visual branding, thumbnail design, cover art, and artist identity development. Udghosh ensures every artist looks professional and stands out on YouTube and social media platforms through compelling visuals and strategic creative direction.
                     </p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-header">
+            <div class="section-label">What We Offer</div>
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Complete solutions for independent artists</p>
+        </div>
+
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <h3 class="service-title">YouTube Growth</h3>
+                <p class="service-description">
+                    Channel optimization, content strategy, Shorts planning, thumbnail design, and analytics tracking to grow your audience organically.
+                </p>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="service-title">Branding & Design</h3>
+                <p class="service-description">
+                    Professional cover art, thumbnails, logos, and visual identity that makes your music stand out across all platforms.
+                </p>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-compact-disc"></i>
+                </div>
+                <h3 class="service-title">Music Distribution</h3>
+                <p class="service-description">
+                    Global digital distribution to Spotify, Apple Music, Amazon Music, and all major streaming platforms worldwide.
+                </p>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3 class="service-title">Marketing & Promotion</h3>
+                <p class="service-description">
+                    Strategic social media campaigns, playlist pitching, influencer outreach, and targeted advertising to reach your audience.
+                </p>
+            </div>
+
+            <!-- Service 5 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3 class="service-title">Analytics & Strategy</h3>
+                <p class="service-description">
+                    Data-driven insights, growth tracking, audience analysis, and strategic planning for long-term success.
+                </p>
+            </div>
+
+            <!-- Service 6 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3 class="service-title">Artist Development</h3>
+                <p class="service-description">
+                    Comprehensive support including release planning, content creation guidance, and career development strategies.
+                </p>
             </div>
         </div>
     </section>
@@ -770,108 +1351,98 @@
     <!-- Releases Section -->
     <section id="releases">
         <div class="section-header">
-            <div class="section-label">Current Work</div>
-            <h2 class="section-title">Upcoming Projects</h2>
-            <p class="section-subtitle">Artists currently working with us</p>
-            <p class="note-text">Demo previews — official releases coming soon</p>
+            <div class="section-label">Latest Music</div>
+            <h2 class="section-title">Recent Releases</h2>
+            <p class="section-subtitle">Discover fresh tracks from our artists</p>
         </div>
 
         <div class="releases-grid">
             <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Project 1" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release 1" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
                     <h3 class="release-title">Midnight Dreams</h3>
-                    <p class="release-artist">Upcoming Release</p>
+                    <p class="release-artist">Featured Artist</p>
                 </div>
             </div>
 
             <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=600&fit=crop" alt="Project 2" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=600&fit=crop" alt="Release 2" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
                     <h3 class="release-title">Urban Legends</h3>
-                    <p class="release-artist">In Production</p>
+                    <p class="release-artist">Rising Star</p>
                 </div>
             </div>
 
             <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Project 3" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
                     <h3 class="release-title">Echo Valley</h3>
-                    <p class="release-artist">Planning Stage</p>
+                    <p class="release-artist">New Talent</p>
                 </div>
             </div>
 
             <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Project 4" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
                     <h3 class="release-title">Neon Pulse</h3>
-                    <p class="release-artist">Upcoming Release</p>
+                    <p class="release-artist">Breakout Hit</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact/Submit Section -->
-    <section id="submit">
+    <!-- Contact Section -->
+    <section id="contact">
         <div class="section-header">
-            <div class="section-label">Artist Submission</div>
-            <h2 class="section-title">Submit Your Music</h2>
-            <p class="section-subtitle">Tell us about your music and what help you need</p>
+            <div class="section-label">Get In Touch</div>
+            <h2 class="section-title">Work With Us</h2>
+            <p class="section-subtitle">Ready to take your music to the next level? Let's talk.</p>
         </div>
-
-        <p class="contact-intro">
-            We review all submissions carefully. If your profile matches our focus on YouTube growth and organic development, we will contact you within a few days.
-        </p>
 
         <div class="contact-form-wrapper">
             <div class="contact-form">
-                <form onsubmit="return handleArtistSubmit(event)">
+                <form onsubmit="return handleSubmit(event)">
                     <div class="form-group">
-                        <label for="artistName">Artist / Band Name</label>
-                        <input type="text" id="artistName" required>
+                        <label for="name">Artist / Band Name</label>
+                        <input type="text" id="name" required placeholder="Your name">
                     </div>
 
                     <div class="form-group">
-                        <label for="artistEmail">Email</label>
-                        <input type="email" id="artistEmail" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" required placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
-                        <label for="youtubeLink">YouTube Channel / Song Link</label>
-                        <input type="url" id="youtubeLink" placeholder="https://">
+                        <label for="youtube">YouTube Channel or Music Link</label>
+                        <input type="url" id="youtube" placeholder="https://youtube.com/...">
                     </div>
 
                     <div class="form-group">
-                        <label for="views">Approx Monthly Views</label>
-                        <input type="text" id="views" placeholder="e.g., 5000 or just starting">
+                        <label for="message">Tell Us About Your Music</label>
+                        <textarea id="message" required placeholder="What services are you interested in? Tell us about your music goals..."></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="message">What help do you want?</label>
-                        <textarea id="message" required placeholder="Tell us about your music and what support you're looking for..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Submit for Review</button>
+                    <button type="submit" class="submit-btn">Send Message</button>
                 </form>
             </div>
         </div>
@@ -881,11 +1452,14 @@
     <footer>
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
-            <p>Founded by Harshit Rao and Udghosh Rao. A YouTube-first label helping independent artists grow through smart strategy and authentic branding.</p>
+            <p>
+                Founded by Harshit Rao and Udghosh Rao. A YouTube-focused music label providing complete artist development, distribution, branding, and marketing services for independent musicians worldwide.
+            </p>
             
             <div class="footer-social">
                 <div class="footer-social-icon"><i class="fab fa-youtube"></i></div>
                 <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
+                <div class="footer-social-icon"><i class="fab fa-spotify"></i></div>
                 <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
                 <div class="footer-social-icon"><i class="fas fa-envelope"></i></div>
             </div>
@@ -896,27 +1470,86 @@
         </div>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <div class="scroll-top" id="scrollTop">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
     <!-- JavaScript -->
     <script>
+        // Create Particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        createParticles();
+
+        // Loading Screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1500);
+        });
+
         // Mobile Menu
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
         menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             });
         });
 
-        // Artist Submission Form
-        function handleArtistSubmit(e) {
-            e.preventDefault();
-            alert("Thanks! If your profile matches our focus, we will contact you within a few days.");
-            e.target.reset();
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form Submit
+        function handleSubmit(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            event.target.reset();
             return false;
         }
 
@@ -929,6 +1562,28 @@
                     target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
+        });
+
+        // Scroll Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card, .founder-card, .release-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(40px)';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(el);
         });
     </script>
 </body>
