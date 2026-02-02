@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - YouTube-focused music label offering distribution, branding, marketing, and complete artist development services.">
-    <title>Ash Hu Music - YouTube-Focused Music Label</title>
+    <meta name="description" content="Ash Hu Music - Independent music label offering distribution, branding, marketing, and complete artist development services.">
+    <title>Ash Hu Music - Independent Music Label</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,6 +48,7 @@
             color: var(--text-white);
             line-height: 1.6;
             overflow-x: hidden;
+            font-size: 15px;
         }
 
         ::selection {
@@ -127,14 +128,14 @@
             backdrop-filter: blur(30px);
             -webkit-backdrop-filter: blur(30px);
             z-index: 1000;
-            padding: 1.3rem 0;
+            padding: 1rem 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
         }
 
         nav.scrolled {
             background: rgba(10, 10, 10, 0.95);
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             box-shadow: 0 10px 40px rgba(255, 71, 87, 0.2);
         }
 
@@ -148,7 +149,7 @@
         }
 
         .logo {
-            font-size: 2.3rem;
+            font-size: 1.6rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
@@ -156,7 +157,7 @@
             font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
-            gap: 0.7rem;
+            gap: 0.5rem;
             cursor: pointer;
             transition: var(--transition);
         }
@@ -164,6 +165,7 @@
         .logo i {
             color: var(--primary);
             -webkit-text-fill-color: var(--primary);
+            font-size: 1.4rem;
             animation: logoFloat 3s ease-in-out infinite;
         }
 
@@ -180,7 +182,7 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2.5rem;
         }
 
         .nav-links a {
@@ -189,7 +191,7 @@
             font-weight: 500;
             transition: var(--transition);
             position: relative;
-            font-size: 0.98rem;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
         }
 
@@ -200,7 +202,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: 0;
-            height: 3px;
+            height: 2px;
             background: var(--gradient-main);
             transition: var(--transition);
             border-radius: 10px;
@@ -218,19 +220,19 @@
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 6px;
+            gap: 5px;
         }
 
         .menu-toggle span {
-            width: 30px;
-            height: 3px;
+            width: 26px;
+            height: 2.5px;
             background: var(--text-white);
             border-radius: 3px;
             transition: var(--transition);
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
+            transform: rotate(45deg) translate(8px, 8px);
         }
 
         .menu-toggle.active span:nth-child(2) {
@@ -238,7 +240,7 @@
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(9px, -9px);
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
         /* Hero Section with Advanced Animations */
@@ -248,13 +250,13 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 10rem 2rem 5rem;
+            padding: 9rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
         .hero-content {
-            max-width: 1100px;
+            max-width: 950px;
             z-index: 10;
             animation: heroFadeIn 1.5s ease-out;
         }
@@ -272,16 +274,16 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             background: rgba(255, 71, 87, 0.15);
             border: 2px solid rgba(255, 71, 87, 0.4);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 2.5rem;
+            font-size: 0.7rem;
+            margin-bottom: 1.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             animation: badgePulse 2s ease-in-out infinite;
             position: relative;
             overflow: hidden;
@@ -309,15 +311,15 @@
         }
 
         .hero h1 {
-            font-size: clamp(3rem, 8vw, 7.5rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 900;
-            margin-bottom: 2rem;
+            margin-bottom: 1.3rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             line-height: 1.1;
-            letter-spacing: -2px;
+            letter-spacing: -1.5px;
             animation: titleSlide 1s ease-out 0.3s backwards;
         }
 
@@ -333,11 +335,11 @@
         }
 
         .hero p {
-            font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+            font-size: 0.95rem;
             color: var(--text-gray);
-            margin-bottom: 3.5rem;
-            line-height: 1.9;
-            max-width: 850px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
             animation: subtitleSlide 1s ease-out 0.5s backwards;
@@ -356,7 +358,7 @@
 
         .cta-buttons {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
             animation: buttonsFade 1s ease-out 0.7s backwards;
@@ -374,15 +376,15 @@
         }
 
         .btn {
-            padding: 1.2rem 3.5rem;
+            padding: 0.9rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            font-size: 1.05rem;
+            gap: 0.6rem;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
@@ -414,6 +416,7 @@
         .btn i {
             position: relative;
             z-index: 1;
+            font-size: 0.75rem;
         }
 
         .btn-primary {
@@ -442,7 +445,7 @@
         /* Floating Music Icons */
         .floating-icon {
             position: absolute;
-            font-size: 4rem;
+            font-size: 3rem;
             opacity: 0.06;
             animation: iconFloat 10s ease-in-out infinite;
             color: var(--primary);
@@ -475,7 +478,7 @@
 
         /* Section Styles */
         section {
-            padding: 7rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -483,21 +486,21 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-label {
             display: inline-block;
-            padding: 0.6rem 1.8rem;
+            padding: 0.45rem 1.3rem;
             background: rgba(255, 71, 87, 0.12);
             border: 1px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 600;
-            font-size: 0.85rem;
-            margin-bottom: 1.8rem;
+            font-size: 0.7rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1.5px;
             animation: labelGlow 2s ease-in-out infinite;
         }
 
@@ -507,9 +510,9 @@
         }
 
         .section-title {
-            font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 900;
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.2rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
@@ -518,30 +521,30 @@
         }
 
         .section-subtitle {
-            font-size: 1.25rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            max-width: 750px;
+            max-width: 650px;
             margin: 0 auto;
-            line-height: 1.9;
+            line-height: 1.8;
         }
 
         /* About Section with Glass Effect */
         #about {
             background: rgba(26, 26, 26, 0.4);
             backdrop-filter: blur(20px);
-            border-radius: 40px;
-            padding: 7rem 4rem;
+            border-radius: 35px;
+            padding: 5rem 3.5rem;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .about-text {
-            font-size: 1.2rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            line-height: 2.1;
-            margin-bottom: 4rem;
+            line-height: 1.9;
+            margin-bottom: 3rem;
             text-align: center;
-            max-width: 950px;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -554,15 +557,15 @@
         /* Services Grid with Hover Effects */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
             background: var(--card-bg);
-            border-radius: 25px;
-            padding: 3rem 2.5rem;
+            border-radius: 22px;
+            padding: 2.2rem 1.8rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
@@ -576,14 +579,14 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 3px;
             background: var(--gradient-main);
             transform: scaleX(0);
             transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-15px);
+            transform: translateY(-12px);
             box-shadow: 0 25px 60px rgba(255, 71, 87, 0.3);
             border-color: var(--primary);
         }
@@ -593,50 +596,50 @@
         }
 
         .service-icon {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 2rem;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
             background: var(--gradient-main);
-            border-radius: 25px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.8rem;
+            font-size: 1.8rem;
             color: var(--text-white);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.4);
             transition: var(--transition);
         }
 
         .service-card:hover .service-icon {
             transform: rotateY(360deg) scale(1.1);
-            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
+            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.6);
         }
 
         .service-title {
-            font-size: 1.7rem;
+            font-size: 1.15rem;
             font-weight: 700;
-            margin-bottom: 1.2rem;
+            margin-bottom: 0.9rem;
             color: var(--text-white);
         }
 
         .service-description {
             color: var(--text-gray);
-            line-height: 1.9;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 0.85rem;
         }
 
         /* Founders Section with Advanced Cards */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3.5rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .founder-card {
             background: var(--card-bg);
-            border-radius: 30px;
-            padding: 3.5rem 3rem;
+            border-radius: 25px;
+            padding: 2.5rem 2.2rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
@@ -657,8 +660,8 @@
         }
 
         .founder-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.4);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.4);
             border-color: rgba(255, 71, 87, 0.4);
         }
 
@@ -673,13 +676,13 @@
         }
 
         .founder-image-wrapper {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 2.5rem;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.8rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid var(--primary);
-            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
+            border: 4px solid var(--primary);
+            box-shadow: 0 12px 40px rgba(255, 71, 87, 0.5);
             position: relative;
             z-index: 1;
             transition: var(--transition);
@@ -687,7 +690,7 @@
 
         .founder-card:hover .founder-image-wrapper {
             transform: scale(1.08) rotate(5deg);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.7);
         }
 
         .founder-image {
@@ -697,9 +700,9 @@
         }
 
         .founder-name {
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             font-weight: 800;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.5rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -710,8 +713,8 @@
 
         .founder-title {
             color: var(--text-gray);
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.2rem;
             font-weight: 600;
             position: relative;
             z-index: 1;
@@ -719,8 +722,8 @@
 
         .founder-bio {
             color: var(--text-gray);
-            line-height: 1.9;
-            font-size: 1.05rem;
+            line-height: 1.7;
+            font-size: 0.85rem;
             text-align: left;
             position: relative;
             z-index: 1;
@@ -729,14 +732,14 @@
         /* Releases Section with Advanced Cards */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2.2rem;
+            margin-top: 3rem;
         }
 
         .release-card {
             background: var(--card-bg);
-            border-radius: 25px;
+            border-radius: 22px;
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.05);
@@ -758,8 +761,8 @@
         }
 
         .release-card:hover {
-            transform: translateY(-15px) scale(1.03);
-            box-shadow: 0 30px 80px rgba(95, 39, 205, 0.4);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(95, 39, 205, 0.4);
             border-color: rgba(95, 39, 205, 0.5);
         }
 
@@ -770,7 +773,7 @@
         .release-image-wrapper {
             position: relative;
             width: 100%;
-            height: 320px;
+            height: 270px;
             overflow: hidden;
         }
 
@@ -791,15 +794,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 80px;
-            height: 80px;
+            width: 65px;
+            height: 65px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
+            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.6);
         }
 
         .release-card:hover .play-overlay {
@@ -807,63 +810,63 @@
         }
 
         .play-overlay i {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--text-white);
-            margin-left: 5px;
+            margin-left: 4px;
         }
 
         .release-info {
-            padding: 2rem;
+            padding: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         .release-title {
-            font-size: 1.5rem;
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.5rem;
         }
 
         .release-artist {
             color: var(--text-gray);
-            font-size: 1.05rem;
+            font-size: 0.85rem;
         }
 
         /* Contact Section with Form Animation */
         .contact-form-wrapper {
-            max-width: 750px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
         .contact-form {
             background: var(--card-bg);
-            border-radius: 30px;
-            padding: 3.5rem;
+            border-radius: 25px;
+            padding: 2.8rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
         }
 
         .form-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             font-weight: 600;
             color: var(--text-gray);
-            font-size: 1rem;
+            font-size: 0.85rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1.2rem 1.8rem;
+            padding: 0.9rem 1.3rem;
             background: rgba(255, 255, 255, 0.03);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 18px;
             color: var(--text-white);
-            font-size: 1rem;
+            font-size: 0.85rem;
             font-family: 'Poppins', sans-serif;
             transition: var(--transition);
         }
@@ -873,24 +876,24 @@
             outline: none;
             border-color: var(--primary);
             background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
             transform: translateY(-2px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 120px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.3rem;
+            padding: 1rem;
             background: var(--gradient-main);
             color: var(--text-white);
             border: none;
             border-radius: 50px;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
@@ -899,8 +902,8 @@
         }
 
         .submit-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 50px rgba(255, 71, 87, 0.6);
         }
 
         .submit-btn:active {
@@ -910,41 +913,42 @@
         /* Footer with Gradient */
         footer {
             background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker) 100%);
-            padding: 5rem 3rem 2.5rem;
+            padding: 4rem 3rem 2rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
         }
 
         .footer-content h3 {
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .footer-content p {
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
+            margin-bottom: 2rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
+            line-height: 1.7;
+            font-size: 0.85rem;
         }
 
         .footer-social {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             justify-content: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .footer-social-icon {
-            width: 50px;
-            height: 50px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.05);
             display: flex;
@@ -952,29 +956,29 @@
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 1.2rem;
+            font-size: 0.95rem;
         }
 
         .footer-social-icon:hover {
             background: var(--primary);
-            transform: translateY(-8px) rotate(360deg);
+            transform: translateY(-6px) rotate(360deg);
             box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
         }
 
         .footer-bottom {
-            padding-top: 2.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-gray);
-            font-size: 0.95rem;
+            font-size: 0.8rem;
         }
 
         /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
-            bottom: 3rem;
-            right: 3rem;
-            width: 60px;
-            height: 60px;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 50px;
+            height: 50px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
@@ -986,7 +990,7 @@
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
             z-index: 999;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
 
         .scroll-top.visible {
@@ -995,8 +999,8 @@
         }
 
         .scroll-top:hover {
-            transform: translateY(-8px) rotate(360deg);
-            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.6);
+            transform: translateY(-6px) rotate(360deg);
+            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.6);
         }
 
         /* Loading Animation */
@@ -1024,13 +1028,13 @@
         }
 
         .loader-logo {
-            font-size: 4.5rem;
+            font-size: 3rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             animation: loaderPulse 1.5s ease-in-out infinite;
         }
 
@@ -1040,9 +1044,9 @@
         }
 
         .loader-spinner {
-            width: 60px;
-            height: 60px;
-            border: 5px solid rgba(255, 71, 87, 0.2);
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 71, 87, 0.2);
             border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
@@ -1055,7 +1059,7 @@
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 14px;
+            width: 12px;
         }
 
         ::-webkit-scrollbar-track {
@@ -1079,13 +1083,13 @@
                 top: 0;
                 right: -100%;
                 height: 100vh;
-                width: 75%;
-                max-width: 450px;
+                width: 70%;
+                max-width: 400px;
                 background: rgba(13, 13, 13, 0.98);
                 backdrop-filter: blur(30px);
                 flex-direction: column;
                 justify-content: center;
-                gap: 3rem;
+                gap: 2.5rem;
                 transition: var(--transition);
                 box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
             }
@@ -1105,15 +1109,15 @@
             }
 
             .hero {
-                padding: 8rem 1.5rem 4rem;
+                padding: 7rem 1.5rem 3.5rem;
             }
 
             section {
-                padding: 5rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
 
             #about {
-                padding: 5rem 2.5rem;
+                padding: 4rem 2rem;
             }
 
             .founders-grid,
@@ -1134,26 +1138,26 @@
             .scroll-top {
                 bottom: 2rem;
                 right: 2rem;
-                width: 55px;
-                height: 55px;
+                width: 45px;
+                height: 45px;
             }
         }
 
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.8rem;
+                font-size: 1.4rem;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .section-title {
                 font-size: 2.2rem;
             }
 
+            .section-title {
+                font-size: 1.8rem;
+            }
+
             .contact-form {
-                padding: 2.5rem 2rem;
+                padding: 2rem 1.5rem;
             }
         }
     </style>
@@ -1199,14 +1203,15 @@
     <section class="hero" id="home">
         <i class="fas fa-music floating-icon"></i>
         <i class="fas fa-headphones floating-icon"></i>
-        <i class="fab fa-youtube floating-icon"></i>
+        <i class="fas fa-compact-disc floating-icon"></i>
         
         <div class="hero-content">
-            <div class="hero-badge">🎵 YouTube-Focused Music Label</div>
-            <h1>Amplifying Your Music Journey</h1>
+            <div class="hero-badge">🎵 Independent Music Label</div>
+            <h1>Empowering Artists Worldwide</h1>
             <p>
-                We're a modern music label specializing in YouTube growth, branding, and strategic distribution. 
-                From channel optimization to global release, we provide complete artist development services.
+                A modern music label offering complete artist development. From branding and distribution 
+                to marketing and strategic growth across all major platforms. We help independent artists 
+                build sustainable music careers.
             </p>
             <div class="cta-buttons">
                 <a href="#contact" class="btn btn-primary">
@@ -1226,17 +1231,15 @@
         <div class="section-header">
             <div class="section-label">Who We Are</div>
             <h2 class="section-title">About Ash Hu Music</h2>
-            <p class="section-subtitle">A YouTube-focused label with complete artist development services</p>
+            <p class="section-subtitle">Independent music label dedicated to artist success</p>
         </div>
 
         <p class="about-text">
             <strong>Ash Hu Music</strong> is an independent music label founded by young entrepreneurs 
-            <strong>Harshit Rao</strong> and <strong>Udghosh Rao</strong>. While our primary focus is 
-            <strong>YouTube growth and content strategy</strong>, we offer comprehensive services including 
-            distribution, branding, marketing, and artist development. We believe in growing artists 
-            organically through smart content planning, professional branding, and strategic releases. 
-            Our approach combines modern digital strategies with traditional music industry expertise to 
-            help independent artists build sustainable careers.
+            <strong>Harshit Rao</strong> and <strong>Udghosh Rao</strong>. We provide comprehensive services 
+            for independent artists including global distribution, professional branding, strategic marketing, 
+            and platform growth. Our approach combines data-driven strategies with creative excellence to help 
+            artists reach their full potential across streaming platforms, social media, and beyond.
         </p>
 
         <!-- Founders Section -->
@@ -1250,7 +1253,9 @@
                     <h3 class="founder-name">Harshit Rao</h3>
                     <p class="founder-title">Founder & CEO</p>
                     <p class="founder-bio">
-                        Harshit Rao is the Founder & CEO of Ash Hu Music, bringing fresh perspectives to the music industry. He oversees label operations, artist partnerships, YouTube strategy, and release planning. Harshit's vision is to create a modern label that prioritizes artist growth and sustainable development through smart digital strategies and organic audience building.
+                        Harshit Rao is the Founder & CEO of Ash Hu Music. He oversees label operations, artist partnerships, 
+                        release planning, and business development. Harshit's vision is to create a modern label that prioritizes 
+                        artist growth through smart strategies, organic audience building, and sustainable career development.
                     </p>
                 </div>
             </div>
@@ -1264,7 +1269,9 @@
                     <h3 class="founder-name">Udghosh Rao</h3>
                     <p class="founder-title">Co-Founder & Creative Director</p>
                     <p class="founder-bio">
-                        Udghosh Rao leads all creative aspects at Ash Hu Music as Co-Founder & Creative Director. He specializes in visual branding, thumbnail design, cover art, and artist identity development. Udghosh ensures every artist looks professional and stands out on YouTube and social media platforms through compelling visuals and strategic creative direction.
+                        Udghosh Rao leads all creative aspects at Ash Hu Music as Co-Founder & Creative Director. He specializes 
+                        in visual branding, cover art, promotional design, and artist identity development. Udghosh ensures every 
+                        artist presents professionally across all platforms through compelling visuals and strategic creative direction.
                     </p>
                 </div>
             </div>
@@ -1283,11 +1290,11 @@
             <!-- Service 1 -->
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fab fa-youtube"></i>
+                    <i class="fas fa-compact-disc"></i>
                 </div>
-                <h3 class="service-title">YouTube Growth</h3>
+                <h3 class="service-title">Music Distribution</h3>
                 <p class="service-description">
-                    Channel optimization, content strategy, Shorts planning, thumbnail design, and analytics tracking to grow your audience organically.
+                    Global digital distribution to Spotify, Apple Music, Amazon Music, and all major streaming platforms worldwide.
                 </p>
             </div>
 
@@ -1298,40 +1305,40 @@
                 </div>
                 <h3 class="service-title">Branding & Design</h3>
                 <p class="service-description">
-                    Professional cover art, thumbnails, logos, and visual identity that makes your music stand out across all platforms.
+                    Professional cover art, logos, promotional graphics, and complete visual identity that makes your music stand out.
                 </p>
             </div>
 
             <!-- Service 3 -->
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-compact-disc"></i>
+                    <i class="fas fa-bullhorn"></i>
                 </div>
-                <h3 class="service-title">Music Distribution</h3>
+                <h3 class="service-title">Marketing & Promotion</h3>
                 <p class="service-description">
-                    Global digital distribution to Spotify, Apple Music, Amazon Music, and all major streaming platforms worldwide.
+                    Strategic campaigns, playlist pitching, influencer outreach, and targeted advertising to reach your audience.
                 </p>
             </div>
 
             <!-- Service 4 -->
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-bullhorn"></i>
+                    <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="service-title">Marketing & Promotion</h3>
+                <h3 class="service-title">Platform Growth</h3>
                 <p class="service-description">
-                    Strategic social media campaigns, playlist pitching, influencer outreach, and targeted advertising to reach your audience.
+                    Content strategy, optimization, and audience building across streaming platforms and social media channels.
                 </p>
             </div>
 
             <!-- Service 5 -->
             <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-lightbulb"></i>
                 </div>
-                <h3 class="service-title">Analytics & Strategy</h3>
+                <h3 class="service-title">Strategic Planning</h3>
                 <p class="service-description">
-                    Data-driven insights, growth tracking, audience analysis, and strategic planning for long-term success.
+                    Data-driven insights, release strategies, audience analysis, and long-term career planning for sustainable growth.
                 </p>
             </div>
 
@@ -1342,7 +1349,7 @@
                 </div>
                 <h3 class="service-title">Artist Development</h3>
                 <p class="service-description">
-                    Comprehensive support including release planning, content creation guidance, and career development strategies.
+                    Comprehensive support including content guidance, brand positioning, and professional career development.
                 </p>
             </div>
         </div>
@@ -1433,8 +1440,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="youtube">YouTube Channel or Music Link</label>
-                        <input type="url" id="youtube" placeholder="https://youtube.com/...">
+                        <label for="music">Music or Social Link</label>
+                        <input type="url" id="music" placeholder="https://...">
                     </div>
 
                     <div class="form-group">
@@ -1453,13 +1460,14 @@
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
             <p>
-                Founded by Harshit Rao and Udghosh Rao. A YouTube-focused music label providing complete artist development, distribution, branding, and marketing services for independent musicians worldwide.
+                Founded by Harshit Rao and Udghosh Rao. An independent music label providing complete artist development, 
+                distribution, branding, and marketing services for musicians worldwide.
             </p>
             
             <div class="footer-social">
-                <div class="footer-social-icon"><i class="fab fa-youtube"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
                 <div class="footer-social-icon"><i class="fab fa-spotify"></i></div>
+                <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
+                <div class="footer-social-icon"><i class="fab fa-youtube"></i></div>
                 <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
                 <div class="footer-social-icon"><i class="fas fa-envelope"></i></div>
             </div>
