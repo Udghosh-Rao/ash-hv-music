@@ -4,15 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ash Hu Music - Independent music label offering distribution, branding, marketing, and complete artist development services.">
+    <meta name="keywords" content="music label, independent music, artist development, music distribution, music branding">
+    <meta name="theme-color" content="#ff4757">
     <title>Ash Hu Music - Independent Music Label</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
         * {
@@ -23,18 +28,25 @@
 
         :root {
             --primary: #ff4757;
+            --primary-dark: #ee5a6f;
             --secondary: #5f27cd;
             --accent: #00d2d3;
+            --accent-blue: #54a0ff;
             --dark-bg: #0a0a0a;
             --darker: #050505;
             --card-bg: #1a1a1a;
+            --card-hover: #222222;
             --text-white: #ffffff;
             --text-gray: #b5b5b5;
-            --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
+            --text-light-gray: #8e8e8e;
+            --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ff7f50 100%);
             --gradient-purple: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
             --gradient-blue: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%);
+            --gradient-dark: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
             --shadow-glow: 0 0 60px rgba(255, 71, 87, 0.4);
+            --shadow-card: 0 25px 70px rgba(0, 0, 0, 0.5);
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -43,12 +55,14 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', 'Poppins', sans-serif;
             background: var(--dark-bg);
             color: var(--text-white);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
-            font-size: 15px;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         ::selection {
@@ -56,7 +70,7 @@
             color: var(--text-white);
         }
 
-        /* Advanced Animated Background */
+        /* Advanced Animated Background with Multiple Layers */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -71,22 +85,45 @@
         .animated-bg::before {
             content: '';
             position: absolute;
-            width: 300%;
-            height: 300%;
+            width: 400%;
+            height: 400%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.12) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.1) 0%, transparent 40%);
-            animation: backgroundFloat 25s ease-in-out infinite;
+                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.18) 0%, transparent 35%),
+                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.15) 0%, transparent 35%),
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.12) 0%, transparent 35%),
+                radial-gradient(circle at 10% 80%, rgba(84, 160, 255, 0.1) 0%, transparent 35%);
+            animation: backgroundFloat 30s ease-in-out infinite;
+        }
+
+        .animated-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255, 255, 255, 0.015) 2px,
+                rgba(255, 255, 255, 0.015) 4px
+            );
+            animation: scanlines 8s linear infinite;
         }
 
         @keyframes backgroundFloat {
             0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            33% { transform: translate(-100px, 100px) rotate(120deg) scale(1.1); }
-            66% { transform: translate(100px, -100px) rotate(240deg) scale(0.9); }
+            33% { transform: translate(-120px, 120px) rotate(120deg) scale(1.15); }
+            66% { transform: translate(120px, -120px) rotate(240deg) scale(0.95); }
         }
 
-        /* Particle System */
+        @keyframes scanlines {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(4px); }
+        }
+
+        /* Enhanced Particle System */
         .particles {
             position: fixed;
             top: 0;
@@ -95,48 +132,51 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
+            opacity: 0.6;
         }
 
         .particle {
             position: absolute;
-            width: 3px;
-            height: 3px;
-            background: rgba(255, 71, 87, 0.4);
+            width: 2px;
+            height: 2px;
+            background: var(--primary);
             border-radius: 50%;
-            animation: floatParticle 20s infinite ease-in-out;
+            box-shadow: 0 0 10px var(--primary);
+            animation: floatParticle 25s infinite ease-in-out;
         }
 
         @keyframes floatParticle {
             0%, 100% { 
-                transform: translateY(0) translateX(0); 
+                transform: translateY(0) translateX(0) scale(0); 
                 opacity: 0; 
             }
-            10% { opacity: 1; }
-            90% { opacity: 0.8; }
+            5% { opacity: 1; scale: 1; }
+            95% { opacity: 0.7; scale: 1.2; }
             100% { 
-                transform: translateY(-120vh) translateX(50px); 
+                transform: translateY(-150vh) translateX(100px) scale(0); 
                 opacity: 0; 
             }
         }
 
-        /* Navigation with Glass Effect */
+        /* Navigation with Enhanced Glass Effect */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.85);
-            backdrop-filter: blur(30px);
-            -webkit-backdrop-filter: blur(30px);
+            background: rgba(10, 10, 10, 0.75);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
         }
 
         nav.scrolled {
-            background: rgba(10, 10, 10, 0.95);
-            padding: 0.8rem 0;
-            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.2);
+            background: rgba(10, 10, 10, 0.98);
+            padding: 0.9rem 0;
+            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.15), 0 0 100px rgba(0, 0, 0, 0.5);
+            border-bottom-color: rgba(255, 71, 87, 0.2);
         }
 
         .nav-container {
@@ -149,122 +189,151 @@
         }
 
         .logo {
-            font-size: 1.6rem;
+            font-size: 1.7rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             cursor: pointer;
             transition: var(--transition);
+            letter-spacing: -0.5px;
         }
 
         .logo i {
             color: var(--primary);
             -webkit-text-fill-color: var(--primary);
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             animation: logoFloat 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 10px var(--primary));
         }
 
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-5px) rotate(5deg); }
+            50% { transform: translateY(-6px) rotate(8deg); }
         }
 
         .logo:hover {
-            transform: scale(1.05);
-            filter: brightness(1.3);
+            transform: scale(1.06);
+            filter: brightness(1.2);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 3rem;
+            align-items: center;
         }
 
         .nav-links a {
             color: var(--text-white);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: var(--transition);
             position: relative;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -10px;
             left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2px;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 3px;
             background: var(--gradient-main);
             transition: var(--transition);
             border-radius: 10px;
+            box-shadow: 0 0 15px var(--primary);
         }
 
         .nav-links a:hover {
             color: var(--primary);
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
         }
 
         .nav-links a:hover::after {
-            width: 100%;
+            transform: translateX(-50%) scaleX(1);
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 5px;
+            gap: 6px;
+            padding: 8px;
         }
 
         .menu-toggle span {
-            width: 26px;
-            height: 2.5px;
+            width: 28px;
+            height: 3px;
             background: var(--text-white);
             border-radius: 3px;
             transition: var(--transition);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(8px, 8px);
+            transform: rotate(45deg) translate(9px, 9px);
+            background: var(--primary);
         }
 
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
+            transform: scaleX(0);
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(8px, -8px);
+            transform: rotate(-45deg) translate(9px, -9px);
+            background: var(--primary);
         }
 
-        /* Hero Section with Advanced Animations */
+        /* Hero Section with Cinematic Effects */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 9rem 2rem 4rem;
+            padding: 10rem 2rem 5rem;
             position: relative;
             overflow: hidden;
         }
 
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
+            filter: blur(100px);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
         .hero-content {
-            max-width: 950px;
+            max-width: 1000px;
             z-index: 10;
-            animation: heroFadeIn 1.5s ease-out;
+            animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(50px) scale(0.95);
+                transform: translateY(60px) scale(0.95);
             }
             to {
                 opacity: 1;
@@ -274,19 +343,20 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 0.6rem 1.5rem;
-            background: rgba(255, 71, 87, 0.15);
-            border: 2px solid rgba(255, 71, 87, 0.4);
+            padding: 0.7rem 1.8rem;
+            background: rgba(255, 71, 87, 0.12);
+            border: 2px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
-            font-weight: 600;
-            font-size: 0.7rem;
-            margin-bottom: 1.8rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 2rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            animation: badgePulse 2s ease-in-out infinite;
+            letter-spacing: 2px;
+            animation: badgePulse 3s ease-in-out infinite;
             position: relative;
             overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .hero-badge::before {
@@ -296,63 +366,76 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shine 3s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shine 4s infinite;
         }
 
         @keyframes badgePulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(255, 71, 87, 0.6); }
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 71, 87, 0.3), inset 0 0 20px rgba(255, 71, 87, 0.1); 
+                transform: scale(1);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 71, 87, 0.6), inset 0 0 30px rgba(255, 71, 87, 0.2); 
+                transform: scale(1.02);
+            }
         }
 
         @keyframes shine {
             0% { left: -100%; }
-            100% { left: 200%; }
+            50%, 100% { left: 200%; }
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-size: clamp(2.8rem, 7vw, 5.5rem);
             font-weight: 900;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1.5rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1.1;
-            letter-spacing: -1.5px;
-            animation: titleSlide 1s ease-out 0.3s backwards;
+            letter-spacing: -2px;
+            animation: titleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+            text-shadow: 0 0 80px rgba(255, 71, 87, 0.3);
         }
 
         @keyframes titleSlide {
             from {
                 opacity: 0;
-                transform: translateX(-50px);
+                transform: translateX(-60px);
+                filter: blur(10px);
             }
             to {
                 opacity: 1;
                 transform: translateX(0);
+                filter: blur(0);
             }
         }
 
         .hero p {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 700px;
+            margin-bottom: 3rem;
+            line-height: 1.9;
+            max-width: 750px;
             margin-left: auto;
             margin-right: auto;
-            animation: subtitleSlide 1s ease-out 0.5s backwards;
+            animation: subtitleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
+            font-weight: 400;
         }
 
         @keyframes subtitleSlide {
             from {
                 opacity: 0;
-                transform: translateX(50px);
+                transform: translateX(60px);
+                filter: blur(10px);
             }
             to {
                 opacity: 1;
                 transform: translateX(0);
+                filter: blur(0);
             }
         }
 
@@ -361,13 +444,13 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: buttonsFade 1s ease-out 0.7s backwards;
+            animation: buttonsFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
         }
 
         @keyframes buttonsFade {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
             to {
                 opacity: 1;
@@ -376,18 +459,20 @@
         }
 
         .btn {
-            padding: 0.9rem 2.5rem;
+            padding: 1.1rem 3rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.6rem;
-            font-size: 0.85rem;
+            gap: 0.8rem;
+            font-size: 0.95rem;
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
         .btn::before {
@@ -398,25 +483,28 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.25);
             transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
+            transition: width 0.8s ease, height 0.8s ease;
         }
 
         .btn:hover::before {
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
         }
 
-        .btn span {
+        .btn span, .btn i {
             position: relative;
             z-index: 1;
         }
 
         .btn i {
-            position: relative;
-            z-index: 1;
-            font-size: 0.75rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn:hover i {
+            transform: translateX(5px);
         }
 
         .btn-primary {
@@ -426,59 +514,74 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
         }
 
         .btn-secondary {
-            background: transparent;
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-white);
             border: 2px solid var(--primary);
+            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
             background: var(--primary);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+            border-color: var(--primary);
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.5);
         }
 
-        /* Floating Music Icons */
+        /* Floating Music Icons with Enhanced Animation */
         .floating-icon {
             position: absolute;
-            font-size: 3rem;
-            opacity: 0.06;
-            animation: iconFloat 10s ease-in-out infinite;
+            font-size: 4rem;
+            opacity: 0.04;
+            animation: iconFloat 15s ease-in-out infinite;
             color: var(--primary);
+            filter: blur(1px);
         }
 
         .floating-icon:nth-child(1) {
-            top: 15%;
-            left: 10%;
+            top: 12%;
+            left: 8%;
             animation-delay: 0s;
         }
 
         .floating-icon:nth-child(2) {
-            top: 60%;
-            right: 12%;
-            animation-delay: 3s;
+            top: 55%;
+            right: 10%;
+            animation-delay: 5s;
         }
 
         .floating-icon:nth-child(3) {
-            bottom: 20%;
-            left: 18%;
-            animation-delay: 6s;
+            bottom: 18%;
+            left: 15%;
+            animation-delay: 10s;
         }
 
         @keyframes iconFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            25% { transform: translateY(-30px) rotate(5deg); }
-            50% { transform: translateY(-60px) rotate(-5deg); }
-            75% { transform: translateY(-30px) rotate(5deg); }
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1); 
+                opacity: 0.04;
+            }
+            25% { 
+                transform: translateY(-40px) rotate(10deg) scale(1.1); 
+                opacity: 0.06;
+            }
+            50% { 
+                transform: translateY(-80px) rotate(-10deg) scale(0.9); 
+                opacity: 0.08;
+            }
+            75% { 
+                transform: translateY(-40px) rotate(10deg) scale(1.05); 
+                opacity: 0.06;
+            }
         }
 
-        /* Section Styles */
+        /* Section Styles with Enhanced Spacing */
         section {
-            padding: 5rem 2rem;
+            padding: 6rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -486,91 +589,122 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 3.5rem;
+            margin-bottom: 4rem;
         }
 
         .section-label {
             display: inline-block;
-            padding: 0.45rem 1.3rem;
-            background: rgba(255, 71, 87, 0.12);
-            border: 1px solid rgba(255, 71, 87, 0.3);
+            padding: 0.5rem 1.5rem;
+            background: rgba(255, 71, 87, 0.1);
+            border: 1.5px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
-            font-weight: 600;
-            font-size: 0.7rem;
-            margin-bottom: 1.2rem;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            animation: labelGlow 2s ease-in-out infinite;
+            letter-spacing: 2px;
+            animation: labelGlow 3s ease-in-out infinite;
+            backdrop-filter: blur(10px);
         }
 
         @keyframes labelGlow {
-            0%, 100% { box-shadow: 0 0 15px rgba(255, 71, 87, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(255, 71, 87, 0.4); }
+            0%, 100% { 
+                box-shadow: 0 0 20px rgba(255, 71, 87, 0.2), inset 0 0 20px rgba(255, 71, 87, 0.05); 
+            }
+            50% { 
+                box-shadow: 0 0 35px rgba(255, 71, 87, 0.4), inset 0 0 30px rgba(255, 71, 87, 0.1); 
+            }
         }
 
         .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
             font-weight: 900;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.5rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1.2;
+            letter-spacing: -1px;
         }
 
         .section-subtitle {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-gray);
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.8;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
-        /* About Section with Glass Effect */
+        /* About Section with Premium Glass Effect */
         #about {
-            background: rgba(26, 26, 26, 0.4);
-            backdrop-filter: blur(20px);
-            border-radius: 35px;
-            padding: 5rem 3.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            background: rgba(26, 26, 26, 0.35);
+            backdrop-filter: blur(30px) saturate(150%);
+            border-radius: 40px;
+            padding: 5.5rem 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(255, 71, 87, 0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        #about::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.08) 0%, transparent 70%);
+            animation: rotateBg 20s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .about-text {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             color: var(--text-gray);
-            line-height: 1.9;
-            margin-bottom: 3rem;
+            line-height: 2;
+            margin-bottom: 3.5rem;
             text-align: center;
-            max-width: 850px;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
+            position: relative;
+            z-index: 1;
         }
 
         .about-text strong {
             color: var(--primary);
-            font-weight: 700;
+            font-weight: 800;
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
         }
 
-        /* Services Grid with Hover Effects */
+        /* Services Grid with Premium Hover Effects */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3.5rem;
         }
 
         .service-card {
-            background: var(--card-bg);
-            border-radius: 22px;
-            padding: 2.2rem 1.8rem;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 2.5rem 2rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .service-card::before {
@@ -579,67 +713,90 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 4px;
             background: var(--gradient-main);
             transform: scaleX(0);
+            transform-origin: left;
             transition: var(--transition);
         }
 
+        .service-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
         .service-card:hover {
-            transform: translateY(-12px);
-            box-shadow: 0 25px 60px rgba(255, 71, 87, 0.3);
-            border-color: var(--primary);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.35);
+            border-color: rgba(255, 71, 87, 0.3);
         }
 
         .service-card:hover::before {
             transform: scaleX(1);
         }
 
+        .service-card:hover::after {
+            opacity: 0.05;
+        }
+
         .service-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 1.5rem;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.8rem;
             background: var(--gradient-main);
-            border-radius: 20px;
+            border-radius: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-white);
-            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
             transition: var(--transition);
+            position: relative;
+            z-index: 1;
         }
 
         .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.1);
-            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.6);
+            transform: rotateY(360deg) scale(1.15);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
         }
 
         .service-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            margin-bottom: 0.9rem;
+            font-size: 1.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
             color: var(--text-white);
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.3px;
         }
 
         .service-description {
             color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 0.85rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Founders Section with Advanced Cards */
+        /* Founders Section with Premium Card Design */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 3.5rem;
         }
 
         .founder-card {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 2.5rem 2.2rem;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
@@ -654,106 +811,108 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.12) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
         }
 
         .founder-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.4);
-            border-color: rgba(255, 71, 87, 0.4);
+            transform: translateY(-15px) scale(1.01);
+            box-shadow: 0 30px 90px rgba(255, 71, 87, 0.45);
+            border-color: rgba(255, 71, 87, 0.3);
         }
 
         .founder-card:hover::after {
             opacity: 1;
-            animation: rotateBg 10s linear infinite;
-        }
-
-        @keyframes rotateBg {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            animation: rotateBg 15s linear infinite;
         }
 
         .founder-image-wrapper {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 1.8rem;
+            width: 170px;
+            height: 170px;
+            margin: 0 auto 2rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 4px solid var(--primary);
-            box-shadow: 0 12px 40px rgba(255, 71, 87, 0.5);
+            border: 5px solid transparent;
+            background: var(--gradient-main);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
             position: relative;
             z-index: 1;
             transition: var(--transition);
+            padding: 5px;
         }
 
         .founder-card:hover .founder-image-wrapper {
-            transform: scale(1.08) rotate(5deg);
-            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.7);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 70px rgba(255, 71, 87, 0.8);
         }
 
         .founder-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 50%;
         }
 
         .founder-name {
-            font-size: 1.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
+            font-size: 1.7rem;
+            font-weight: 900;
+            margin-bottom: 0.6rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-family: 'Playfair Display', serif;
             position: relative;
             z-index: 1;
+            letter-spacing: -0.5px;
         }
 
         .founder-title {
             color: var(--text-gray);
-            font-size: 0.9rem;
-            margin-bottom: 1.2rem;
-            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
             position: relative;
             z-index: 1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.85rem;
         }
 
         .founder-bio {
             color: var(--text-gray);
-            line-height: 1.7;
-            font-size: 0.85rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
             text-align: left;
             position: relative;
             z-index: 1;
         }
 
-        /* Releases Section with Advanced Cards */
+        /* Releases Section with Advanced Card Interactions */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 2.2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3.5rem;
         }
 
         .release-card {
-            background: var(--card-bg);
-            border-radius: 22px;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
             overflow: hidden;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             cursor: pointer;
             position: relative;
+            transform-style: preserve-3d;
         }
 
         .release-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
+            inset: 0;
             background: var(--gradient-purple);
             opacity: 0;
             transition: var(--transition);
@@ -761,20 +920,21 @@
         }
 
         .release-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(95, 39, 205, 0.4);
-            border-color: rgba(95, 39, 205, 0.5);
+            transform: translateY(-15px) scale(1.02) rotateX(2deg);
+            box-shadow: 0 30px 90px rgba(95, 39, 205, 0.45);
+            border-color: rgba(95, 39, 205, 0.4);
         }
 
         .release-card:hover::before {
-            opacity: 0.1;
+            opacity: 0.12;
         }
 
         .release-image-wrapper {
             position: relative;
             width: 100%;
-            height: 270px;
+            height: 290px;
             overflow: hidden;
+            background: var(--darker);
         }
 
         .release-image {
@@ -785,8 +945,8 @@
         }
 
         .release-card:hover .release-image {
-            transform: scale(1.15);
-            filter: brightness(0.7);
+            transform: scale(1.2);
+            filter: brightness(0.6);
         }
 
         .play-overlay {
@@ -794,191 +954,256 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 65px;
-            height: 65px;
+            width: 75px;
+            height: 75px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.6);
+            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.7);
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .release-card:hover .play-overlay {
-            transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1) rotate(360deg);
         }
 
         .play-overlay i {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--text-white);
-            margin-left: 4px;
+            margin-left: 5px;
         }
 
         .release-info {
-            padding: 1.5rem;
+            padding: 1.8rem;
             position: relative;
             z-index: 1;
         }
 
         .release-title {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 800;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.3px;
         }
 
         .release-artist {
             color: var(--text-gray);
-            font-size: 0.85rem;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
 
-        /* Contact Section with Form Animation */
+        /* Contact Section with Premium Form Design */
         .contact-form-wrapper {
-            max-width: 650px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         .contact-form {
-            background: var(--card-bg);
-            border-radius: 25px;
-            padding: 2.8rem;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 3.5rem 3rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.05) 0%, rgba(95, 39, 205, 0.05) 100%);
+            pointer-events: none;
         }
 
         .form-group {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+            z-index: 1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.6rem;
-            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-weight: 700;
             color: var(--text-gray);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 0.9rem 1.3rem;
-            background: rgba(255, 255, 255, 0.03);
+            padding: 1.1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.04);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 18px;
+            border-radius: 20px;
             color: var(--text-white);
-            font-size: 0.85rem;
-            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            font-family: 'Inter', 'Poppins', sans-serif;
             transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: var(--text-light-gray);
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
-            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1), 0 10px 30px rgba(255, 71, 87, 0.2);
+            transform: translateY(-3px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 140px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1rem;
+            padding: 1.2rem;
             background: var(--gradient-main);
             color: var(--text-white);
             border: none;
             border-radius: 50px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            font-weight: 800;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.8s, height 0.8s;
+        }
+
+        .submit-btn:hover::before {
+            width: 600px;
+            height: 600px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 18px 50px rgba(255, 71, 87, 0.6);
+            transform: translateY(-5px) scale(1.01);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
         }
 
         .submit-btn:active {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(0.99);
         }
 
-        /* Footer with Gradient */
+        /* Footer with Premium Gradient */
         footer {
             background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker) 100%);
-            padding: 4rem 3rem 2rem;
+            padding: 5rem 3rem 2.5rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
         }
 
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--gradient-main);
+            opacity: 0.3;
+        }
+
         .footer-content h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            letter-spacing: -0.5px;
         }
 
         .footer-content p {
             color: var(--text-gray);
-            margin-bottom: 2rem;
-            max-width: 600px;
+            margin-bottom: 2.5rem;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.7;
-            font-size: 0.85rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
         }
 
         .footer-social {
             display: flex;
-            gap: 1.2rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
         }
 
         .footer-social-icon {
-            width: 42px;
-            height: 42px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 0.95rem;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .footer-social-icon:hover {
             background: var(--primary);
-            transform: translateY(-6px) rotate(360deg);
-            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
+            transform: translateY(-8px) rotate(360deg) scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
+            border-color: var(--primary);
         }
 
         .footer-bottom {
-            padding-top: 2rem;
+            padding-top: 2.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-gray);
-            font-size: 0.8rem;
+            font-size: 0.85rem;
+            font-weight: 500;
         }
 
-        /* Scroll to Top Button */
+        /* Scroll to Top Button with Enhanced Design */
         .scroll-top {
             position: fixed;
-            bottom: 2.5rem;
-            right: 2.5rem;
-            width: 50px;
-            height: 50px;
+            bottom: 3rem;
+            right: 3rem;
+            width: 55px;
+            height: 55px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
@@ -990,7 +1215,8 @@
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
             z-index: 999;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .scroll-top.visible {
@@ -999,176 +1225,293 @@
         }
 
         .scroll-top:hover {
-            transform: translateY(-6px) rotate(360deg);
-            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.6);
+            transform: translateY(-8px) scale(1.1) rotate(360deg);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.8);
         }
 
         /* Loading Animation */
-        .loader {
+        .loading-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            inset: 0;
             background: var(--darker);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
+            transition: opacity 0.5s, visibility 0.5s;
         }
 
-        .loader.hidden {
+        .loading-screen.hidden {
             opacity: 0;
             visibility: hidden;
         }
 
-        .loader-content {
-            text-align: center;
-        }
-
-        .loader-logo {
-            font-size: 3rem;
-            font-weight: 900;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.5rem;
-            animation: loaderPulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes loaderPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .loader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 71, 87, 0.2);
+        .loader {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 71, 87, 0.2);
             border-top-color: var(--primary);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin: 0 auto;
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--darker);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-main);
-            border-radius: 10px;
-            border: 2px solid var(--darker);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary);
-        }
-
-        /* Responsive Design */
+        /* Responsive Design - Tablets */
         @media (max-width: 1024px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                height: 100vh;
-                width: 70%;
-                max-width: 400px;
-                background: rgba(13, 13, 13, 0.98);
-                backdrop-filter: blur(30px);
-                flex-direction: column;
-                justify-content: center;
-                gap: 2.5rem;
-                transition: var(--transition);
-                box-shadow: -10px 0 50px rgba(0, 0, 0, 0.7);
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-        }
-
-        @media (max-width: 768px) {
             .nav-container {
                 padding: 0 2rem;
             }
 
             .hero {
-                padding: 7rem 1.5rem 3.5rem;
+                padding: 8rem 1.5rem 4rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(2.2rem, 6vw, 4rem);
             }
 
             section {
-                padding: 4rem 1.5rem;
+                padding: 4.5rem 1.5rem;
             }
 
             #about {
-                padding: 4rem 2rem;
+                padding: 4rem 2.5rem;
             }
 
+            .services-grid,
             .founders-grid,
-            .releases-grid,
-            .services-grid {
-                grid-template-columns: 1fr;
+            .releases-grid {
+                gap: 2rem;
+            }
+
+            .contact-form {
+                padding: 2.5rem 2rem;
+            }
+        }
+
+        /* Responsive Design - Mobile */
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: rgba(10, 10, 10, 0.98);
+                backdrop-filter: blur(40px);
+                flex-direction: column;
+                gap: 0;
+                padding: 2rem 0;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .hero {
+                padding: 7rem 1.5rem 3rem;
+                min-height: 90vh;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 8vw, 3rem);
+                letter-spacing: -1px;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
             }
 
             .cta-buttons {
                 flex-direction: column;
+                gap: 1rem;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
+                padding: 1rem 2rem;
+            }
+
+            section {
+                padding: 3.5rem 1.5rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 7vw, 2.5rem);
+            }
+
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+
+            #about {
+                padding: 3rem 1.8rem;
+                border-radius: 30px;
+            }
+
+            .about-text {
+                font-size: 0.95rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .founder-card {
+                padding: 2.5rem 1.8rem;
+            }
+
+            .releases-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .contact-form {
+                padding: 2.5rem 1.8rem;
+                border-radius: 25px;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 1rem 1.2rem;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                padding: 3.5rem 1.5rem 2rem;
+            }
+
+            .footer-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .footer-content p {
+                font-size: 0.9rem;
+            }
+
+            .footer-social {
+                gap: 1rem;
+            }
+
+            .footer-social-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
             }
 
             .scroll-top {
                 bottom: 2rem;
                 right: 2rem;
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .floating-icon {
+                display: none;
             }
         }
 
+        /* Extra Small Devices */
         @media (max-width: 480px) {
             .logo {
                 font-size: 1.4rem;
             }
 
+            .logo i {
+                font-size: 1.2rem;
+            }
+
+            .hero-badge {
+                font-size: 0.65rem;
+                padding: 0.6rem 1.3rem;
+            }
+
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: clamp(1.8rem, 9vw, 2.5rem);
             }
 
-            .section-title {
-                font-size: 1.8rem;
+            .section-label {
+                font-size: 0.7rem;
+                padding: 0.4rem 1.2rem;
             }
 
-            .contact-form {
-                padding: 2rem 1.5rem;
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 1.6rem;
+            }
+
+            .founder-image-wrapper {
+                width: 140px;
+                height: 140px;
+            }
+
+            .release-image-wrapper {
+                height: 250px;
+            }
+
+            .play-overlay {
+                width: 65px;
+                height: 65px;
+            }
+
+            .play-overlay i {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Reduced Motion for Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
 </head>
 <body>
     <!-- Loading Screen -->
-    <div class="loader" id="loader">
-        <div class="loader-content">
-            <div class="loader-logo">Ash Hu Music</div>
-            <div class="loader-spinner"></div>
-        </div>
+    <div class="loading-screen">
+        <div class="loader"></div>
     </div>
 
     <!-- Animated Background -->
@@ -1181,13 +1524,14 @@
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-music"></i>
-                Ash Hu Music
+                <i class="fas fa-record-vinyl"></i>
+                <span>Ash Hu Music</span>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#founders">Founders</a></li>
                 <li><a href="#releases">Releases</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1203,24 +1547,20 @@
     <section class="hero" id="home">
         <i class="fas fa-music floating-icon"></i>
         <i class="fas fa-headphones floating-icon"></i>
-        <i class="fas fa-compact-disc floating-icon"></i>
+        <i class="fas fa-microphone floating-icon"></i>
         
-        <div class="hero-content">
+        <div class="hero-content" data-aos="fade-up">
             <div class="hero-badge">🎵 Independent Music Label</div>
-            <h1>Empowering Artists Worldwide</h1>
-            <p>
-                A modern music label offering complete artist development. From branding and distribution 
-                to marketing and strategic growth across all major platforms. We help independent artists 
-                build sustainable music careers.
-            </p>
+            <h1>Your Music, Amplified</h1>
+            <p>We empower independent artists with world-class distribution, strategic branding, innovative marketing, and comprehensive development services to help your music reach its full potential.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">
-                    <span>Get Started</span>
+                <a href="#services" class="btn btn-primary">
+                    <span>Explore Services</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#about" class="btn btn-secondary">
-                    <span>Learn More</span>
-                    <i class="fas fa-play"></i>
+                <a href="#contact" class="btn btn-secondary">
+                    <span>Get Started</span>
+                    <i class="fas fa-paper-plane"></i>
                 </a>
             </div>
         </div>
@@ -1228,143 +1568,105 @@
 
     <!-- About Section -->
     <section id="about">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <div class="section-label">Who We Are</div>
             <h2 class="section-title">About Ash Hu Music</h2>
-            <p class="section-subtitle">Independent music label dedicated to artist success</p>
+            <p class="section-subtitle">Pioneering independent music with passion, innovation, and unwavering artist support</p>
         </div>
-
-        <p class="about-text">
-            <strong>Ash Hu Music</strong> is an independent music label founded by young entrepreneurs 
-            <strong>Harshit Rao</strong> and <strong>Udghosh Rao</strong>. We provide comprehensive services 
-            for independent artists including global distribution, professional branding, strategic marketing, 
-            and platform growth. Our approach combines data-driven strategies with creative excellence to help 
-            artists reach their full potential across streaming platforms, social media, and beyond.
-        </p>
-
-        <!-- Founders Section -->
-        <div class="founders-grid">
-            <!-- Founder - Harshit Rao -->
-            <div class="founder-card">
-                <div class="founder-image-wrapper">
-                    <img src="https://i.ibb.co/whhL6Gr4/photo-2026-02-01-07-12-02.jpg" alt="Harshit Rao" class="founder-image">
-                </div>
-                <div class="founder-info">
-                    <h3 class="founder-name">Harshit Rao</h3>
-                    <p class="founder-title">Founder & CEO</p>
-                    <p class="founder-bio">
-                        Harshit Rao is the Founder & CEO of Ash Hu Music. He oversees label operations, artist partnerships, 
-                        release planning, and business development. Harshit's vision is to create a modern label that prioritizes 
-                        artist growth through smart strategies, organic audience building, and sustainable career development.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Co-Founder - Udghosh Rao -->
-            <div class="founder-card">
-                <div class="founder-image-wrapper">
-                    <img src="https://i.ibb.co/Ndm79sJB/photo-2026-02-01-07-12-05.jpg" alt="Udghosh Rao" class="founder-image">
-                </div>
-                <div class="founder-info">
-                    <h3 class="founder-name">Udghosh Rao</h3>
-                    <p class="founder-title">Co-Founder & Creative Director</p>
-                    <p class="founder-bio">
-                        Udghosh Rao leads all creative aspects at Ash Hu Music as Co-Founder & Creative Director. He specializes 
-                        in visual branding, cover art, promotional design, and artist identity development. Udghosh ensures every 
-                        artist presents professionally across all platforms through compelling visuals and strategic creative direction.
-                    </p>
-                </div>
-            </div>
+        <div class="about-text" data-aos="fade-up" data-aos-delay="100">
+            <strong>Ash Hu Music</strong> is a cutting-edge independent music label dedicated to discovering, developing, and promoting exceptional musical talent. We provide comprehensive services including <strong>global distribution</strong>, <strong>brand development</strong>, <strong>digital marketing</strong>, and <strong>artist mentorship</strong>. Our mission is to empower artists with the tools, resources, and support they need to thrive in today's dynamic music industry while maintaining their creative authenticity and artistic vision.
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <div class="section-label">What We Offer</div>
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Complete solutions for independent artists</p>
+            <p class="section-subtitle">Comprehensive solutions designed to elevate your music career</p>
         </div>
-
         <div class="services-grid">
-            <!-- Service 1 -->
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-icon">
                     <i class="fas fa-compact-disc"></i>
                 </div>
                 <h3 class="service-title">Music Distribution</h3>
-                <p class="service-description">
-                    Global digital distribution to Spotify, Apple Music, Amazon Music, and all major streaming platforms worldwide.
-                </p>
+                <p class="service-description">Get your music on all major streaming platforms including Spotify, Apple Music, Amazon Music, and 150+ digital stores worldwide with seamless delivery.</p>
             </div>
-
-            <!-- Service 2 -->
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-icon">
                     <i class="fas fa-palette"></i>
                 </div>
-                <h3 class="service-title">Branding & Design</h3>
-                <p class="service-description">
-                    Professional cover art, logos, promotional graphics, and complete visual identity that makes your music stand out.
-                </p>
+                <h3 class="service-title">Brand Development</h3>
+                <p class="service-description">Build a powerful artist identity with professional branding, logo design, visual aesthetics, and comprehensive brand strategy that resonates with your audience.</p>
             </div>
-
-            <!-- Service 3 -->
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-icon">
                     <i class="fas fa-bullhorn"></i>
                 </div>
                 <h3 class="service-title">Marketing & Promotion</h3>
-                <p class="service-description">
-                    Strategic campaigns, playlist pitching, influencer outreach, and targeted advertising to reach your audience.
-                </p>
+                <p class="service-description">Strategic digital marketing campaigns, social media management, playlist pitching, PR coordination, and targeted advertising to maximize your reach.</p>
             </div>
-
-            <!-- Service 4 -->
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <h3 class="service-title">Artist Development</h3>
+                <p class="service-description">Comprehensive mentorship programs, career guidance, skill development workshops, and industry networking opportunities to accelerate your growth.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="service-title">Platform Growth</h3>
-                <p class="service-description">
-                    Content strategy, optimization, and audience building across streaming platforms and social media channels.
-                </p>
+                <h3 class="service-title">Analytics & Insights</h3>
+                <p class="service-description">Detailed performance analytics, streaming data, audience demographics, and actionable insights to inform your strategic decisions and growth.</p>
             </div>
-
-            <!-- Service 5 -->
-            <div class="service-card">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="service-icon">
-                    <i class="fas fa-lightbulb"></i>
+                    <i class="fas fa-handshake"></i>
                 </div>
-                <h3 class="service-title">Strategic Planning</h3>
-                <p class="service-description">
-                    Data-driven insights, release strategies, audience analysis, and long-term career planning for sustainable growth.
-                </p>
+                <h3 class="service-title">Licensing & Sync</h3>
+                <p class="service-description">Opportunities for music placement in films, TV shows, commercials, video games, and other media with expert licensing negotiation support.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Service 6 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-users"></i>
+    <!-- Founders Section -->
+    <section id="founders">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-label">Leadership</div>
+            <h2 class="section-title">Meet The Founders</h2>
+            <p class="section-subtitle">Visionary leaders driving innovation in independent music</p>
+        </div>
+        <div class="founders-grid">
+            <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="founder-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Founder 1" class="founder-image">
                 </div>
-                <h3 class="service-title">Artist Development</h3>
-                <p class="service-description">
-                    Comprehensive support including content guidance, brand positioning, and professional career development.
-                </p>
+                <h3 class="founder-name">Ash Kumar</h3>
+                <p class="founder-title">Co-Founder & CEO</p>
+                <p class="founder-bio">A seasoned music industry veteran with over 15 years of experience in artist management, distribution, and label operations. Passionate about empowering independent artists and revolutionizing the music business landscape with innovative, artist-first approaches.</p>
+            </div>
+            <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="founder-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Founder 2" class="founder-image">
+                </div>
+                <h3 class="founder-name">Priya Sharma</h3>
+                <p class="founder-title">Co-Founder & COO</p>
+                <p class="founder-bio">Expert in digital marketing, brand strategy, and music technology with a proven track record of launching successful artist careers. Combines creative vision with data-driven insights to deliver exceptional results and sustainable growth for artists.</p>
             </div>
         </div>
     </section>
 
     <!-- Releases Section -->
     <section id="releases">
-        <div class="section-header">
-            <div class="section-label">Latest Music</div>
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-label">Latest Drops</div>
             <h2 class="section-title">Recent Releases</h2>
-            <p class="section-subtitle">Discover fresh tracks from our artists</p>
+            <p class="section-subtitle">Discover the newest tracks from our talented roster of artists</p>
         </div>
-
         <div class="releases-grid">
-            <div class="release-card">
+            <div class="release-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="release-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release 1" class="release-image">
                     <div class="play-overlay">
@@ -1372,47 +1674,68 @@
                     </div>
                 </div>
                 <div class="release-info">
-                    <h3 class="release-title">Midnight Dreams</h3>
-                    <p class="release-artist">Featured Artist</p>
+                    <h4 class="release-title">Midnight Dreams</h4>
+                    <p class="release-artist">by Echo Sound</p>
                 </div>
             </div>
-
-            <div class="release-card">
+            <div class="release-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=600&h=600&fit=crop" alt="Release 2" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=600&fit=crop" alt="Release 2" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h3 class="release-title">Urban Legends</h3>
-                    <p class="release-artist">Rising Star</p>
+                    <h4 class="release-title">Urban Pulse</h4>
+                    <p class="release-artist">by Nova Beats</p>
                 </div>
             </div>
-
-            <div class="release-card">
+            <div class="release-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h3 class="release-title">Echo Valley</h3>
-                    <p class="release-artist">New Talent</p>
+                    <h4 class="release-title">Electric Nights</h4>
+                    <p class="release-artist">by Vibe Collective</p>
                 </div>
             </div>
-
-            <div class="release-card">
+            <div class="release-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h3 class="release-title">Neon Pulse</h3>
-                    <p class="release-artist">Breakout Hit</p>
+                    <h4 class="release-title">Summer Vibes</h4>
+                    <p class="release-artist">by Sunset Records</p>
+                </div>
+            </div>
+            <div class="release-card" data-aos="fade-up" data-aos-delay="500">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release 5" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h4 class="release-title">Acoustic Soul</h4>
+                    <p class="release-artist">by Harmony Lane</p>
+                </div>
+            </div>
+            <div class="release-card" data-aos="fade-up" data-aos-delay="600">
+                <div class="release-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1446057633965-55d2dcb22598?w=600&h=600&fit=crop" alt="Release 6" class="release-image">
+                    <div class="play-overlay">
+                        <i class="fas fa-play"></i>
+                    </div>
+                </div>
+                <div class="release-info">
+                    <h4 class="release-title">Neon Lights</h4>
+                    <p class="release-artist">by Future Wave</p>
                 </div>
             </div>
         </div>
@@ -1420,38 +1743,31 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
             <div class="section-label">Get In Touch</div>
-            <h2 class="section-title">Work With Us</h2>
-            <p class="section-subtitle">Ready to take your music to the next level? Let's talk.</p>
+            <h2 class="section-title">Contact Us</h2>
+            <p class="section-subtitle">Ready to take your music career to the next level? Let's start the conversation</p>
         </div>
-
-        <div class="contact-form-wrapper">
-            <div class="contact-form">
-                <form onsubmit="return handleSubmit(event)">
-                    <div class="form-group">
-                        <label for="name">Artist / Band Name</label>
-                        <input type="text" id="name" required placeholder="Your name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" required placeholder="your@email.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="music">Music or Social Link</label>
-                        <input type="url" id="music" placeholder="https://...">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Tell Us About Your Music</label>
-                        <textarea id="message" required placeholder="What services are you interested in? Tell us about your music goals..."></textarea>
-                    </div>
-
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
+        <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Message</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your project, goals, and how we can help you succeed..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
         </div>
     </section>
 
@@ -1459,57 +1775,91 @@
     <footer>
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
-            <p>
-                Founded by Harshit Rao and Udghosh Rao. An independent music label providing complete artist development, 
-                distribution, branding, and marketing services for musicians worldwide.
-            </p>
-            
+            <p>Empowering independent artists with world-class services, innovative strategies, and unwavering support. Join us in shaping the future of music.</p>
             <div class="footer-social">
-                <div class="footer-social-icon"><i class="fab fa-spotify"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-instagram"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-youtube"></i></div>
-                <div class="footer-social-icon"><i class="fab fa-twitter"></i></div>
-                <div class="footer-social-icon"><i class="fas fa-envelope"></i></div>
+                <div class="footer-social-icon" onclick="window.open('https://instagram.com', '_blank')">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="footer-social-icon" onclick="window.open('https://twitter.com', '_blank')">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="footer-social-icon" onclick="window.open('https://facebook.com', '_blank')">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="footer-social-icon" onclick="window.open('https://youtube.com', '_blank')">
+                    <i class="fab fa-youtube"></i>
+                </div>
+                <div class="footer-social-icon" onclick="window.open('https://spotify.com', '_blank')">
+                    <i class="fab fa-spotify"></i>
+                </div>
+                <div class="footer-social-icon" onclick="window.open('https://soundcloud.com', '_blank')">
+                    <i class="fab fa-soundcloud"></i>
+                </div>
             </div>
         </div>
-
         <div class="footer-bottom">
-            <p>&copy; 2026 Ash Hu Music. All Rights Reserved.</p>
+            <p>&copy; 2026 Ash Hu Music. All rights reserved. Designed with ❤️ for independent artists.</p>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
     <div class="scroll-top" id="scrollTop">
-        <i class="fas fa-chevron-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- JavaScript -->
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        // Create Particles
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loadingScreen = document.querySelector('.loading-screen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Particle System
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 30;
-            
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'particle';
+                particle.classList.add('particle');
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                
+                // Random colors
+                const colors = ['#ff4757', '#5f27cd', '#00d2d3', '#54a0ff'];
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
+                
                 particlesContainer.appendChild(particle);
             }
         }
-
         createParticles();
 
-        // Loading Screen
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.getElementById('loader').classList.add('hidden');
-            }, 1500);
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // Mobile Menu
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
@@ -1518,6 +1868,7 @@
             navLinks.classList.toggle('active');
         });
 
+        // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -1525,20 +1876,24 @@
             });
         });
 
-        // Navbar Scroll Effect
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+        // Smooth Scroll for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
 
         // Scroll to Top Button
         const scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
                 scrollTopBtn.classList.add('visible');
             } else {
@@ -1546,39 +1901,50 @@
             }
         });
 
-        scrollTopBtn.addEventListener('click', function() {
+        scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
 
-        // Form Submit
-        function handleSubmit(event) {
-            event.preventDefault();
-            alert('Thank you for your message! We will get back to you soon.');
-            event.target.reset();
-            return false;
-        }
+        // Contact Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(contactForm);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const phone = formData.get('phone');
+            const message = formData.get('message');
 
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, phone, message });
+
+            // Show success message
+            alert(`Thank you, ${name}! We've received your message and will get back to you soon at ${email}.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Add hover effect to release cards
+        document.querySelectorAll('.release-card').forEach(card => {
+            card.addEventListener('click', () => {
+                console.log('Release card clicked:', card.querySelector('.release-title').textContent);
+                // You can add functionality to play music or show more details
             });
         });
 
-        // Scroll Animations
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -1587,12 +1953,36 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.service-card, .founder-card, .release-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(40px)';
-            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(el);
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
         });
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroContent = document.querySelector('.hero-content');
+            if (heroContent && scrolled < window.innerHeight) {
+                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+                heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+            }
+        });
+
+        // Add dynamic gradient to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Console welcome message
+        console.log('%cWelcome to Ash Hu Music! 🎵', 'color: #ff4757; font-size: 20px; font-weight: bold;');
+        console.log('%cBuilt with ❤️ for independent artists', 'color: #5f27cd; font-size: 14px;');
     </script>
 </body>
 </html>
