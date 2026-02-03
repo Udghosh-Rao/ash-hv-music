@@ -3,15 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - Independent music label offering distribution, branding, marketing, and complete artist development services.">
-    <meta name="keywords" content="music label, independent music, artist development, music distribution, music branding">
+    <meta name="description" content="Ash Hu Music - Premium independent music label offering world-class distribution, artist development, and music production services.">
+    <meta name="keywords" content="music label, independent music, artist development, music distribution, music production">
     <meta name="theme-color" content="#ff4757">
-    <title>Ash Hu Music - Independent Music Label</title>
+    <meta property="og:title" content="Ash Hu Music - Premium Independent Music Label">
+    <meta property="og:description" content="Empowering artists worldwide with cutting-edge music services">
+    <meta property="og:type" content="website">
+    <title>Ash Hu Music - Premium Independent Music Label</title>
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -29,9 +32,13 @@
         :root {
             --primary: #ff4757;
             --primary-dark: #ee5a6f;
+            --primary-light: #ff6b81;
             --secondary: #5f27cd;
+            --secondary-dark: #341f97;
             --accent: #00d2d3;
             --accent-blue: #54a0ff;
+            --accent-purple: #a29bfe;
+            --accent-gold: #feca57;
             --dark-bg: #0a0a0a;
             --darker: #050505;
             --card-bg: #1a1a1a;
@@ -39,14 +46,19 @@
             --text-white: #ffffff;
             --text-gray: #b5b5b5;
             --text-light-gray: #8e8e8e;
+            --text-dark-gray: #666666;
             --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ff7f50 100%);
             --gradient-purple: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
             --gradient-blue: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%);
+            --gradient-gold: linear-gradient(135deg, #feca57 0%, #ff9ff3 100%);
             --gradient-dark: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
+            --gradient-overlay: linear-gradient(135deg, rgba(255, 71, 87, 0.1) 0%, rgba(95, 39, 205, 0.1) 100%);
             --shadow-glow: 0 0 60px rgba(255, 71, 87, 0.4);
-            --shadow-card: 0 25px 70px rgba(0, 0, 0, 0.5);
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --shadow-glow-strong: 0 0 100px rgba(255, 71, 87, 0.6);
+            --shadow-card: 0 30px 90px rgba(0, 0, 0, 0.6);
+            --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         html {
@@ -63,6 +75,7 @@
             font-size: 16px;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            cursor: none;
         }
 
         ::selection {
@@ -70,7 +83,39 @@
             color: var(--text-white);
         }
 
-        /* Advanced Animated Background with Multiple Layers */
+        /* Custom Cursor */
+        .custom-cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.1s ease;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 10000;
+            transition: all 0.15s ease;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .custom-cursor.active {
+            transform: translate(-50%, -50%) scale(1.5);
+            background: rgba(255, 71, 87, 0.2);
+        }
+
+        /* Advanced Animated Background */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -85,14 +130,15 @@
         .animated-bg::before {
             content: '';
             position: absolute;
-            width: 400%;
-            height: 400%;
+            width: 500%;
+            height: 500%;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.18) 0%, transparent 35%),
-                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.15) 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.12) 0%, transparent 35%),
-                radial-gradient(circle at 10% 80%, rgba(84, 160, 255, 0.1) 0%, transparent 35%);
-            animation: backgroundFloat 30s ease-in-out infinite;
+                radial-gradient(circle at 25% 25%, rgba(255, 71, 87, 0.2) 0%, transparent 30%),
+                radial-gradient(circle at 75% 75%, rgba(95, 39, 205, 0.18) 0%, transparent 30%),
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.15) 0%, transparent 30%),
+                radial-gradient(circle at 15% 85%, rgba(84, 160, 255, 0.12) 0%, transparent 30%),
+                radial-gradient(circle at 85% 15%, rgba(254, 202, 87, 0.1) 0%, transparent 30%);
+            animation: backgroundFloat 40s ease-in-out infinite;
         }
 
         .animated-bg::after {
@@ -102,25 +148,43 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(255, 255, 255, 0.015) 2px,
-                rgba(255, 255, 255, 0.015) 4px
-            );
-            animation: scanlines 8s linear infinite;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255, 255, 255, 0.01) 2px, rgba(255, 255, 255, 0.01) 4px);
+            animation: scanlines 10s linear infinite;
+            pointer-events: none;
         }
 
         @keyframes backgroundFloat {
             0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            33% { transform: translate(-120px, 120px) rotate(120deg) scale(1.15); }
-            66% { transform: translate(120px, -120px) rotate(240deg) scale(0.95); }
+            25% { transform: translate(-150px, 150px) rotate(90deg) scale(1.2); }
+            50% { transform: translate(150px, -150px) rotate(180deg) scale(0.9); }
+            75% { transform: translate(-150px, -150px) rotate(270deg) scale(1.1); }
         }
 
         @keyframes scanlines {
             0% { transform: translateY(0); }
             100% { transform: translateY(4px); }
+        }
+
+        /* Video Background Effect */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            opacity: 0.03;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080"><rect fill="%23ff4757" width="100%" height="100%"/></svg>');
+            background-size: cover;
+            filter: blur(100px);
+            animation: videoGlow 8s ease-in-out infinite;
+        }
+
+        @keyframes videoGlow {
+            0%, 100% { opacity: 0.03; filter: blur(100px) hue-rotate(0deg); }
+            50% { opacity: 0.06; filter: blur(80px) hue-rotate(45deg); }
         }
 
         /* Enhanced Particle System */
@@ -132,7 +196,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.6;
+            opacity: 0.7;
         }
 
         .particle {
@@ -141,8 +205,8 @@
             height: 2px;
             background: var(--primary);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-            animation: floatParticle 25s infinite ease-in-out;
+            box-shadow: 0 0 15px currentColor;
+            animation: floatParticle 30s infinite ease-in-out;
         }
 
         @keyframes floatParticle {
@@ -150,37 +214,69 @@
                 transform: translateY(0) translateX(0) scale(0); 
                 opacity: 0; 
             }
-            5% { opacity: 1; scale: 1; }
-            95% { opacity: 0.7; scale: 1.2; }
+            5% { opacity: 1; transform: scale(1); }
+            95% { opacity: 0.8; transform: scale(1.5); }
             100% { 
-                transform: translateY(-150vh) translateX(100px) scale(0); 
+                transform: translateY(-180vh) translateX(150px) scale(0); 
                 opacity: 0; 
             }
         }
 
-        /* Navigation with Enhanced Glass Effect */
+        /* Audio Visualizer Bars */
+        .audio-visualizer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            gap: 4px;
+            padding: 0 20px;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .visualizer-bar {
+            flex: 1;
+            max-width: 8px;
+            background: linear-gradient(to top, var(--primary), var(--secondary));
+            border-radius: 4px 4px 0 0;
+            animation: visualizerPulse 0.8s ease-in-out infinite;
+        }
+
+        .visualizer-bar:nth-child(odd) { animation-delay: 0s; }
+        .visualizer-bar:nth-child(even) { animation-delay: 0.4s; }
+
+        @keyframes visualizerPulse {
+            0%, 100% { height: 20%; }
+            50% { height: 80%; }
+        }
+
+        /* Navigation with Advanced Effects */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            background: rgba(10, 10, 10, 0.7);
+            backdrop-filter: blur(50px) saturate(200%);
+            -webkit-backdrop-filter: blur(50px) saturate(200%);
             z-index: 1000;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.3rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
             transition: var(--transition);
         }
 
         nav.scrolled {
             background: rgba(10, 10, 10, 0.98);
-            padding: 0.9rem 0;
-            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.15), 0 0 100px rgba(0, 0, 0, 0.5);
-            border-bottom-color: rgba(255, 71, 87, 0.2);
+            padding: 1rem 0;
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.2), 0 0 150px rgba(0, 0, 0, 0.6);
+            border-bottom-color: rgba(255, 71, 87, 0.3);
         }
 
         .nav-container {
-            max-width: 1400px;
+            max-width: 1500px;
             margin: 0 auto;
             padding: 0 3rem;
             display: flex;
@@ -189,43 +285,46 @@
         }
 
         .logo {
-            font-size: 1.7rem;
+            font-size: 1.8rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', serif;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.7rem;
             cursor: pointer;
             transition: var(--transition);
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .logo i {
             color: var(--primary);
             -webkit-text-fill-color: var(--primary);
-            font-size: 1.5rem;
-            animation: logoFloat 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px var(--primary));
+            font-size: 1.6rem;
+            animation: logoFloat 4s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px var(--primary));
         }
 
         @keyframes logoFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-6px) rotate(8deg); }
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+            25% { transform: translateY(-8px) rotate(5deg) scale(1.05); }
+            50% { transform: translateY(0) rotate(0deg) scale(1); }
+            75% { transform: translateY(-8px) rotate(-5deg) scale(1.05); }
         }
 
         .logo:hover {
-            transform: scale(1.06);
-            filter: brightness(1.2);
+            transform: scale(1.08);
+            filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 71, 87, 0.5));
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 3.5rem;
             align-items: center;
         }
 
@@ -235,14 +334,16 @@
             font-weight: 600;
             transition: var(--transition);
             position: relative;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
         }
 
-        .nav-links a::after {
+        .nav-links a::before {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%) scaleX(0);
             width: 100%;
@@ -250,16 +351,59 @@
             background: var(--gradient-main);
             transition: var(--transition);
             border-radius: 10px;
-            box-shadow: 0 0 15px var(--primary);
+            box-shadow: 0 0 20px var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            background: rgba(255, 71, 87, 0.1);
+            border-radius: 50%;
+            transition: var(--transition-fast);
+            z-index: -1;
         }
 
         .nav-links a:hover {
             color: var(--primary);
-            text-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+            text-shadow: 0 0 25px rgba(255, 71, 87, 0.6);
+        }
+
+        .nav-links a:hover::before {
+            transform: translateX(-50%) scaleX(1);
         }
 
         .nav-links a:hover::after {
-            transform: translateX(-50%) scaleX(1);
+            width: 120%;
+            height: 200%;
+        }
+
+        .nav-cta {
+            padding: 0.7rem 1.8rem;
+            background: var(--gradient-main);
+            border-radius: 50px;
+            color: var(--text-white) !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-glow);
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-cta::before {
+            display: none;
         }
 
         .menu-toggle {
@@ -267,20 +411,23 @@
             flex-direction: column;
             cursor: pointer;
             gap: 6px;
-            padding: 8px;
+            padding: 10px;
+            background: rgba(255, 71, 87, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 71, 87, 0.3);
         }
 
         .menu-toggle span {
-            width: 28px;
+            width: 30px;
             height: 3px;
             background: var(--text-white);
             border-radius: 3px;
             transition: var(--transition);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
+            transform: rotate(45deg) translate(10px, 10px);
             background: var(--primary);
         }
 
@@ -290,18 +437,18 @@
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(9px, -9px);
+            transform: rotate(-45deg) translate(10px, -10px);
             background: var(--primary);
         }
 
-        /* Hero Section with Cinematic Effects */
+        /* Hero Section with Ultra-Premium Design */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 10rem 2rem 5rem;
+            padding: 11rem 2rem 6rem;
             position: relative;
             overflow: hidden;
         }
@@ -312,51 +459,61 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
-            filter: blur(100px);
-            animation: pulseGlow 4s ease-in-out infinite;
+            width: 90%;
+            height: 90%;
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.2) 0%, rgba(95, 39, 205, 0.1) 50%, transparent 70%);
+            filter: blur(120px);
+            animation: pulseGlow 5s ease-in-out infinite;
         }
 
         @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
+            0%, 100% { 
+                opacity: 0.6; 
+                transform: translate(-50%, -50%) scale(1); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: translate(-50%, -50%) scale(1.15); 
+            }
         }
 
         .hero-content {
-            max-width: 1000px;
+            max-width: 1100px;
             z-index: 10;
-            animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: heroFadeIn 1.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(60px) scale(0.95);
+                transform: translateY(80px) scale(0.95);
+                filter: blur(20px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+                filter: blur(0);
             }
         }
 
         .hero-badge {
-            display: inline-block;
-            padding: 0.7rem 1.8rem;
-            background: rgba(255, 71, 87, 0.12);
-            border: 2px solid rgba(255, 71, 87, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.8rem 2rem;
+            background: rgba(255, 71, 87, 0.1);
+            border: 2px solid rgba(255, 71, 87, 0.4);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 700;
-            font-size: 0.75rem;
-            margin-bottom: 2rem;
+            font-size: 0.8rem;
+            margin-bottom: 2.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: badgePulse 3s ease-in-out infinite;
+            animation: badgePulse 4s ease-in-out infinite;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         .hero-badge::before {
@@ -366,18 +523,23 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shine 4s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shine 5s infinite;
+        }
+
+        .hero-badge i {
+            font-size: 1rem;
+            animation: spin 3s linear infinite;
         }
 
         @keyframes badgePulse {
             0%, 100% { 
-                box-shadow: 0 0 20px rgba(255, 71, 87, 0.3), inset 0 0 20px rgba(255, 71, 87, 0.1); 
+                box-shadow: 0 0 25px rgba(255, 71, 87, 0.4), inset 0 0 25px rgba(255, 71, 87, 0.1); 
                 transform: scale(1);
             }
             50% { 
-                box-shadow: 0 0 40px rgba(255, 71, 87, 0.6), inset 0 0 30px rgba(255, 71, 87, 0.2); 
-                transform: scale(1.02);
+                box-shadow: 0 0 50px rgba(255, 71, 87, 0.7), inset 0 0 40px rgba(255, 71, 87, 0.2); 
+                transform: scale(1.03);
             }
         }
 
@@ -386,93 +548,108 @@
             50%, 100% { left: 200%; }
         }
 
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(3rem, 8vw, 6.5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.8rem;
+            font-family: 'Montserrat', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: 1.1;
-            letter-spacing: -2px;
-            animation: titleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
-            text-shadow: 0 0 80px rgba(255, 71, 87, 0.3);
+            line-height: 1.05;
+            letter-spacing: -3px;
+            animation: titleSlide 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
+            text-shadow: 0 0 100px rgba(255, 71, 87, 0.4);
+            text-transform: uppercase;
         }
 
         @keyframes titleSlide {
             from {
                 opacity: 0;
-                transform: translateX(-60px);
-                filter: blur(10px);
+                transform: translateX(-80px) rotateX(20deg);
+                filter: blur(15px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) rotateX(0);
                 filter: blur(0);
             }
         }
 
-        .hero p {
-            font-size: 1.05rem;
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.4rem);
             color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.9;
-            max-width: 750px;
+            margin-bottom: 3.5rem;
+            line-height: 2;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
-            animation: subtitleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
+            animation: subtitleSlide 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
             font-weight: 400;
+        }
+
+        .hero-subtitle strong {
+            color: var(--primary);
+            font-weight: 800;
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
         }
 
         @keyframes subtitleSlide {
             from {
                 opacity: 0;
-                transform: translateX(60px);
-                filter: blur(10px);
+                transform: translateX(80px) rotateX(-20deg);
+                filter: blur(15px);
             }
             to {
                 opacity: 1;
-                transform: translateX(0);
+                transform: translateX(0) rotateX(0);
                 filter: blur(0);
             }
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: buttonsFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
+            animation: buttonsFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
         }
 
         @keyframes buttonsFade {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(50px);
+                filter: blur(10px);
             }
             to {
                 opacity: 1;
                 transform: translateY(0);
+                filter: blur(0);
             }
         }
 
         .btn {
-            padding: 1.1rem 3rem;
+            padding: 1.3rem 3.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
+            gap: 1rem;
+            font-size: 1rem;
+            letter-spacing: 1px;
             position: relative;
             overflow: hidden;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
+            border: 2px solid transparent;
         }
 
         .btn::before {
@@ -483,14 +660,14 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
-            transition: width 0.8s ease, height 0.8s ease;
+            transition: width 1s ease, height 1s ease;
         }
 
         .btn:hover::before {
-            width: 500px;
-            height: 500px;
+            width: 600px;
+            height: 600px;
         }
 
         .btn span, .btn i {
@@ -499,154 +676,278 @@
         }
 
         .btn i {
-            font-size: 0.9rem;
+            font-size: 1rem;
             transition: var(--transition);
         }
 
         .btn:hover i {
-            transform: translateX(5px);
+            transform: translateX(8px) scale(1.2);
         }
 
         .btn-primary {
             background: var(--gradient-main);
             color: var(--text-white);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--shadow-glow-strong);
         }
 
         .btn-primary:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.8), 0 0 120px rgba(255, 71, 87, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03);
             color: var(--text-white);
             border: 2px solid var(--primary);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         .btn-secondary:hover {
             background: var(--primary);
             border-color: var(--primary);
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.5);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 71, 87, 0.6);
         }
 
-        /* Floating Music Icons with Enhanced Animation */
+        .btn-outline {
+            background: transparent;
+            color: var(--text-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-white);
+            color: var(--dark-bg);
+            border-color: var(--text-white);
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 60px rgba(255, 255, 255, 0.4);
+        }
+
+        /* Floating Elements */
         .floating-icon {
             position: absolute;
-            font-size: 4rem;
-            opacity: 0.04;
-            animation: iconFloat 15s ease-in-out infinite;
+            font-size: 5rem;
+            opacity: 0.03;
+            animation: iconFloat 20s ease-in-out infinite;
             color: var(--primary);
-            filter: blur(1px);
+            filter: blur(2px);
         }
 
         .floating-icon:nth-child(1) {
-            top: 12%;
-            left: 8%;
+            top: 10%;
+            left: 5%;
             animation-delay: 0s;
+            font-size: 6rem;
         }
 
         .floating-icon:nth-child(2) {
-            top: 55%;
-            right: 10%;
-            animation-delay: 5s;
+            top: 50%;
+            right: 8%;
+            animation-delay: 7s;
         }
 
         .floating-icon:nth-child(3) {
-            bottom: 18%;
-            left: 15%;
-            animation-delay: 10s;
+            bottom: 15%;
+            left: 12%;
+            animation-delay: 14s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 25%;
+            right: 15%;
+            animation-delay: 3s;
+            font-size: 4rem;
         }
 
         @keyframes iconFloat {
             0%, 100% { 
                 transform: translateY(0) rotate(0deg) scale(1); 
-                opacity: 0.04;
+                opacity: 0.03;
             }
             25% { 
-                transform: translateY(-40px) rotate(10deg) scale(1.1); 
+                transform: translateY(-50px) rotate(15deg) scale(1.2); 
                 opacity: 0.06;
             }
             50% { 
-                transform: translateY(-80px) rotate(-10deg) scale(0.9); 
+                transform: translateY(-100px) rotate(-15deg) scale(0.9); 
                 opacity: 0.08;
             }
             75% { 
-                transform: translateY(-40px) rotate(10deg) scale(1.05); 
+                transform: translateY(-50px) rotate(15deg) scale(1.1); 
                 opacity: 0.06;
             }
         }
 
-        /* Section Styles with Enhanced Spacing */
-        section {
-            padding: 6rem 2rem;
+        /* Stats Counter Section */
+        .stats-section {
+            padding: 5rem 2rem;
+            background: var(--gradient-overlay);
+            backdrop-filter: blur(30px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            opacity: 0.5;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
             max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(255, 71, 87, 0.3);
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-gray);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 7rem 2rem;
+            max-width: 1500px;
             margin: 0 auto;
             position: relative;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-label {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 71, 87, 0.1);
-            border: 1.5px solid rgba(255, 71, 87, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.6rem 1.8rem;
+            background: rgba(255, 71, 87, 0.08);
+            border: 2px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
             font-weight: 700;
-            font-size: 0.75rem;
-            margin-bottom: 1.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 1.8rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            animation: labelGlow 3s ease-in-out infinite;
-            backdrop-filter: blur(10px);
+            animation: labelGlow 4s ease-in-out infinite;
+            backdrop-filter: blur(15px);
+        }
+
+        .section-label i {
+            font-size: 0.9rem;
         }
 
         @keyframes labelGlow {
             0%, 100% { 
-                box-shadow: 0 0 20px rgba(255, 71, 87, 0.2), inset 0 0 20px rgba(255, 71, 87, 0.05); 
+                box-shadow: 0 0 25px rgba(255, 71, 87, 0.3), inset 0 0 25px rgba(255, 71, 87, 0.05); 
             }
             50% { 
-                box-shadow: 0 0 35px rgba(255, 71, 87, 0.4), inset 0 0 30px rgba(255, 71, 87, 0.1); 
+                box-shadow: 0 0 45px rgba(255, 71, 87, 0.5), inset 0 0 35px rgba(255, 71, 87, 0.1); 
             }
         }
 
         .section-title {
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
-            font-family: 'Playfair Display', serif;
+            margin-bottom: 1.8rem;
+            font-family: 'Montserrat', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
+            text-transform: uppercase;
         }
 
         .section-subtitle {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--text-gray);
-            max-width: 700px;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: 1.9;
+            line-height: 2;
             font-weight: 400;
         }
 
-        /* About Section with Premium Glass Effect */
+        /* About Section */
         #about {
-            background: rgba(26, 26, 26, 0.35);
-            backdrop-filter: blur(30px) saturate(150%);
-            border-radius: 40px;
-            padding: 5.5rem 4rem;
+            background: rgba(26, 26, 26, 0.3);
+            backdrop-filter: blur(40px) saturate(150%);
+            border-radius: 45px;
+            padding: 6rem 5rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(255, 71, 87, 0.02);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.7), inset 0 0 150px rgba(255, 71, 87, 0.02);
             position: relative;
             overflow: hidden;
         }
@@ -658,8 +959,19 @@
             right: -50%;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.08) 0%, transparent 70%);
-            animation: rotateBg 20s linear infinite;
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
+            animation: rotateBg 25s linear infinite;
+        }
+
+        #about::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(95, 39, 205, 0.08) 0%, transparent 70%);
+            animation: rotateBg 30s linear infinite reverse;
         }
 
         @keyframes rotateBg {
@@ -668,12 +980,12 @@
         }
 
         .about-text {
-            font-size: 1.05rem;
+            font-size: 1.15rem;
             color: var(--text-gray);
-            line-height: 2;
-            margin-bottom: 3.5rem;
+            line-height: 2.1;
+            margin-bottom: 4rem;
             text-align: center;
-            max-width: 900px;
+            max-width: 950px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
@@ -682,23 +994,23 @@
 
         .about-text strong {
             color: var(--primary);
-            font-weight: 800;
-            text-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+            font-weight: 900;
+            text-shadow: 0 0 25px rgba(255, 71, 87, 0.4);
         }
 
-        /* Services Grid with Premium Hover Effects */
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .service-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2.5rem 2rem;
+            background: rgba(26, 26, 26, 0.5);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.06);
             transition: var(--transition);
@@ -731,9 +1043,9 @@
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.35);
-            border-color: rgba(255, 71, 87, 0.3);
+            transform: translateY(-18px) scale(1.02) rotateX(5deg);
+            box-shadow: 0 35px 100px rgba(255, 71, 87, 0.4);
+            border-color: rgba(255, 71, 87, 0.4);
         }
 
         .service-card:hover::before {
@@ -741,62 +1053,173 @@
         }
 
         .service-card:hover::after {
-            opacity: 0.05;
+            opacity: 0.06;
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.8rem;
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 2rem;
             background: var(--gradient-main);
-            border-radius: 22px;
+            border-radius: 25px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--text-white);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.5);
             transition: var(--transition);
             position: relative;
             z-index: 1;
         }
 
         .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.15);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
+            transform: rotateY(360deg) scale(1.2);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.8);
         }
 
         .service-title {
-            font-size: 1.25rem;
+            font-size: 1.35rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
             color: var(--text-white);
             position: relative;
             z-index: 1;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
 
         .service-description {
             color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
+            line-height: 1.9;
+            font-size: 1rem;
             position: relative;
             z-index: 1;
         }
 
-        /* Founders Section with Premium Card Design */
+        /* Artists Roster Section */
+        .artists-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .artist-card {
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+            height: 400px;
+            background: var(--card-bg);
+        }
+
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .artist-card:hover::before {
+            background: linear-gradient(180deg, transparent 30%, rgba(255, 71, 87, 0.8) 100%);
+        }
+
+        .artist-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+
+        .artist-card:hover .artist-image {
+            transform: scale(1.15);
+            filter: brightness(0.7);
+        }
+
+        .artist-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            z-index: 2;
+            transform: translateY(0);
+            transition: var(--transition);
+        }
+
+        .artist-card:hover .artist-info {
+            transform: translateY(-10px);
+        }
+
+        .artist-name {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .artist-genre {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .artist-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .artist-card:hover .artist-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .artist-social a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-white);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .artist-social a:hover {
+            background: var(--primary);
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.6);
+        }
+
+        /* Founders Section */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3.5rem;
+            margin-top: 4rem;
         }
 
         .founder-card {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(25px);
-            border-radius: 28px;
-            padding: 3rem 2.5rem;
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 3.5rem 3rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
@@ -811,40 +1234,40 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.12) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.15) 0%, transparent 60%);
             opacity: 0;
             transition: var(--transition);
         }
 
         .founder-card:hover {
-            transform: translateY(-15px) scale(1.01);
-            box-shadow: 0 30px 90px rgba(255, 71, 87, 0.45);
-            border-color: rgba(255, 71, 87, 0.3);
+            transform: translateY(-18px) scale(1.01);
+            box-shadow: 0 35px 110px rgba(255, 71, 87, 0.5);
+            border-color: rgba(255, 71, 87, 0.4);
         }
 
         .founder-card:hover::after {
             opacity: 1;
-            animation: rotateBg 15s linear infinite;
+            animation: rotateBg 18s linear infinite;
         }
 
         .founder-image-wrapper {
-            width: 170px;
-            height: 170px;
-            margin: 0 auto 2rem;
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 2.5rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid transparent;
+            border: 6px solid transparent;
             background: var(--gradient-main);
-            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
             position: relative;
             z-index: 1;
             transition: var(--transition);
-            padding: 5px;
+            padding: 6px;
         }
 
         .founder-card:hover .founder-image-wrapper {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 70px rgba(255, 71, 87, 0.8);
+            transform: scale(1.12) rotate(5deg);
+            box-shadow: 0 25px 80px rgba(255, 71, 87, 0.9);
         }
 
         .founder-image {
@@ -855,52 +1278,53 @@
         }
 
         .founder-name {
-            font-size: 1.7rem;
+            font-size: 1.9rem;
             font-weight: 900;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', serif;
             position: relative;
             z-index: 1;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .founder-title {
             color: var(--text-gray);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            margin-bottom: 1.8rem;
             font-weight: 700;
             position: relative;
             z-index: 1;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.85rem;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
         }
 
         .founder-bio {
             color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
+            line-height: 1.9;
+            font-size: 1rem;
             text-align: left;
             position: relative;
             z-index: 1;
         }
 
-        /* Releases Section with Advanced Card Interactions */
+        /* Releases Section */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .release-card {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(25px);
+            border-radius: 28px;
             overflow: hidden;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -920,19 +1344,19 @@
         }
 
         .release-card:hover {
-            transform: translateY(-15px) scale(1.02) rotateX(2deg);
-            box-shadow: 0 30px 90px rgba(95, 39, 205, 0.45);
-            border-color: rgba(95, 39, 205, 0.4);
+            transform: translateY(-18px) scale(1.02) rotateX(3deg);
+            box-shadow: 0 35px 110px rgba(95, 39, 205, 0.5);
+            border-color: rgba(95, 39, 205, 0.5);
         }
 
         .release-card:hover::before {
-            opacity: 0.12;
+            opacity: 0.15;
         }
 
         .release-image-wrapper {
             position: relative;
             width: 100%;
-            height: 290px;
+            height: 310px;
             overflow: hidden;
             background: var(--darker);
         }
@@ -941,12 +1365,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: var(--transition);
+            transition: var(--transition-slow);
         }
 
         .release-card:hover .release-image {
-            transform: scale(1.2);
-            filter: brightness(0.6);
+            transform: scale(1.25) rotate(3deg);
+            filter: brightness(0.5);
         }
 
         .play-overlay {
@@ -954,16 +1378,16 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 75px;
-            height: 75px;
+            width: 85px;
+            height: 85px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.7);
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.8);
+            border: 3px solid rgba(255, 255, 255, 0.3);
         }
 
         .release-card:hover .play-overlay {
@@ -971,43 +1395,288 @@
         }
 
         .play-overlay i {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-white);
-            margin-left: 5px;
+            margin-left: 6px;
         }
 
         .release-info {
-            padding: 1.8rem;
+            padding: 2rem;
             position: relative;
             z-index: 1;
         }
 
         .release-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-            letter-spacing: -0.3px;
+            font-size: 1.3rem;
+            font-weight: 900;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
         }
 
         .release-artist {
             color: var(--text-gray);
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 1rem;
+            font-weight: 600;
         }
 
-        /* Contact Section with Premium Form Design */
+        /* Pricing Section */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .pricing-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(30px);
+            border-radius: 30px;
+            padding: 3rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+            box-shadow: 0 30px 100px rgba(255, 71, 87, 0.4);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-main);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: var(--primary);
+            box-shadow: 0 35px 110px rgba(255, 71, 87, 0.5);
+        }
+
+        .pricing-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 0.5rem 1.2rem;
+            background: var(--gradient-main);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
+        }
+
+        .pricing-title {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-gray);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2.5rem;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pricing-features li i {
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial-card {
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(30px);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            font-size: 10rem;
+            color: rgba(255, 71, 87, 0.1);
+            font-family: 'Georgia', serif;
+            line-height: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 90px rgba(255, 71, 87, 0.3);
+            border-color: rgba(255, 71, 87, 0.3);
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            font-style: italic;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.4);
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-info p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-rating {
+            display: flex;
+            gap: 0.3rem;
+            margin-top: 0.5rem;
+        }
+
+        .testimonial-rating i {
+            color: var(--accent-gold);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(25px);
+            border-radius: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: var(--transition);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.3);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-main);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--text-white);
+            flex-shrink: 0;
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.5);
+        }
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-details p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
         .contact-form-wrapper {
-            max-width: 700px;
-            margin: 0 auto;
+            position: relative;
         }
 
         .contact-form {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(30px);
-            border-radius: 30px;
-            padding: 3.5rem 3rem;
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(35px);
+            border-radius: 32px;
+            padding: 4rem 3.5rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6);
             position: relative;
             overflow: hidden;
         }
@@ -1019,22 +1688,22 @@
             left: 0;
             right: 0;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255, 71, 87, 0.05) 0%, rgba(95, 39, 205, 0.05) 100%);
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.06) 0%, rgba(95, 39, 205, 0.06) 100%);
             pointer-events: none;
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
+            margin-bottom: 2rem;
             position: relative;
             z-index: 1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             font-weight: 700;
             color: var(--text-gray);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -1042,12 +1711,12 @@
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 1.1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.04);
+            padding: 1.2rem 1.8rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 22px;
             color: var(--text-white);
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-family: 'Inter', 'Poppins', sans-serif;
             transition: var(--transition);
             font-weight: 500;
@@ -1063,31 +1732,32 @@
             outline: none;
             border-color: var(--primary);
             background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1), 0 10px 30px rgba(255, 71, 87, 0.2);
-            transform: translateY(-3px);
+            box-shadow: 0 0 0 5px rgba(255, 71, 87, 0.1), 0 15px 40px rgba(255, 71, 87, 0.2);
+            transform: translateY(-4px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 150px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1.4rem;
             background: var(--gradient-main);
             color: var(--text-white);
             border: none;
             border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 900;
+            font-size: 1rem;
             cursor: pointer;
             transition: var(--transition);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--shadow-glow-strong);
             letter-spacing: 2px;
             text-transform: uppercase;
             position: relative;
             overflow: hidden;
+            border: 2px solid transparent;
         }
 
         .submit-btn::before {
@@ -1100,27 +1770,118 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.3);
             transform: translate(-50%, -50%);
-            transition: width 0.8s, height 0.8s;
+            transition: width 1s, height 1s;
         }
 
         .submit-btn:hover::before {
-            width: 600px;
-            height: 600px;
+            width: 700px;
+            height: 700px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: 0 30px 90px rgba(255, 71, 87, 0.8), 0 0 150px rgba(255, 71, 87, 0.5);
+            border-color: rgba(255, 255, 255, 0.3);
         }
 
         .submit-btn:active {
-            transform: translateY(-2px) scale(0.99);
+            transform: translateY(-3px) scale(0.99);
         }
 
-        /* Footer with Premium Gradient */
+        /* Newsletter Section */
+        .newsletter-section {
+            padding: 5rem 2rem;
+            background: var(--gradient-overlay);
+            backdrop-filter: blur(30px);
+            border-radius: 40px;
+            margin: 4rem auto;
+            max-width: 1200px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .newsletter-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
+            animation: pulseGlow 6s ease-in-out infinite;
+        }
+
+        .newsletter-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .newsletter-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .newsletter-subtitle {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 1.2rem 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            color: var(--text-white);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1);
+        }
+
+        .newsletter-btn {
+            padding: 1.2rem 3rem;
+            background: var(--gradient-main);
+            border: none;
+            border-radius: 50px;
+            color: var(--text-white);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
+        }
+
+        /* Footer */
         footer {
             background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker) 100%);
-            padding: 5rem 3rem 2.5rem;
+            padding: 6rem 3rem 3rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -1132,78 +1893,102 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 1px;
+            height: 2px;
             background: var(--gradient-main);
-            opacity: 0.3;
+            opacity: 0.4;
         }
 
         .footer-content h3 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.5px;
+            font-family: 'Montserrat', serif;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-transform: uppercase;
         }
 
         .footer-content p {
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
+            margin-bottom: 3rem;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
-            font-size: 0.95rem;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
         }
 
         .footer-social {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.8rem;
             justify-content: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
             flex-wrap: wrap;
         }
 
         .footer-social-icon {
-            width: 50px;
-            height: 50px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .footer-social-icon:hover {
             background: var(--primary);
-            transform: translateY(-8px) rotate(360deg) scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
+            transform: translateY(-10px) rotate(360deg) scale(1.15);
+            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.7);
             border-color: var(--primary);
         }
 
         .footer-bottom {
-            padding-top: 2.5rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-gray);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 500;
         }
 
-        /* Scroll to Top Button with Enhanced Design */
+        /* Scroll to Top Button */
         .scroll-top {
             position: fixed;
-            bottom: 3rem;
-            right: 3rem;
-            width: 55px;
-            height: 55px;
+            bottom: 3.5rem;
+            right: 3.5rem;
+            width: 60px;
+            height: 60px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
@@ -1213,10 +1998,10 @@
             opacity: 0;
             visibility: hidden;
             transition: var(--transition);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--shadow-glow-strong);
             z-index: 999;
-            font-size: 1.3rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         .scroll-top.visible {
@@ -1225,20 +2010,21 @@
         }
 
         .scroll-top:hover {
-            transform: translateY(-8px) scale(1.1) rotate(360deg);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.8);
+            transform: translateY(-10px) scale(1.15) rotate(360deg);
+            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.9);
         }
 
-        /* Loading Animation */
+        /* Loading Screen */
         .loading-screen {
             position: fixed;
             inset: 0;
             background: var(--darker);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
+            transition: opacity 0.8s, visibility 0.8s;
         }
 
         .loading-screen.hidden {
@@ -1247,52 +2033,73 @@
         }
 
         .loader {
-            width: 80px;
-            height: 80px;
-            border: 5px solid rgba(255, 71, 87, 0.2);
+            width: 100px;
+            height: 100px;
+            border: 6px solid rgba(255, 71, 87, 0.2);
             border-top-color: var(--primary);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
+            animation: spin 1.2s linear infinite;
+            box-shadow: 0 0 40px rgba(255, 71, 87, 0.5);
         }
 
         @keyframes spin {
             to { transform: rotate(360deg); }
         }
 
-        /* Responsive Design - Tablets */
+        .loading-text {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: fadeInOut 2s ease-in-out infinite;
+        }
+
+        @keyframes fadeInOut {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+
         @media (max-width: 1024px) {
+            body {
+                cursor: auto;
+            }
+
+            .custom-cursor,
+            .cursor-follower {
+                display: none;
+            }
+
             .nav-container {
                 padding: 0 2rem;
             }
 
             .hero {
-                padding: 8rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.2rem, 6vw, 4rem);
+                padding: 9rem 1.5rem 5rem;
             }
 
             section {
-                padding: 4.5rem 1.5rem;
+                padding: 5rem 1.5rem;
             }
 
             #about {
-                padding: 4rem 2.5rem;
+                padding: 4.5rem 3rem;
             }
 
-            .services-grid,
-            .founders-grid,
-            .releases-grid {
-                gap: 2rem;
-            }
-
-            .contact-form {
-                padding: 2.5rem 2rem;
+            .newsletter-form {
+                flex-direction: column;
             }
         }
 
-        /* Responsive Design - Mobile */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 1.5rem;
@@ -1300,18 +2107,18 @@
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 85px;
                 left: 0;
                 width: 100%;
                 background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(40px);
+                backdrop-filter: blur(50px);
                 flex-direction: column;
                 gap: 0;
-                padding: 2rem 0;
-                transform: translateY(-150%);
+                padding: 2.5rem 0;
+                transform: translateY(-200%);
                 transition: var(--transition);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+                box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
             }
 
             .nav-links.active {
@@ -1321,12 +2128,18 @@
             .nav-links li {
                 width: 100%;
                 text-align: center;
-                padding: 1rem 0;
+                padding: 1.2rem 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
+            .nav-links a::before,
             .nav-links a::after {
                 display: none;
+            }
+
+            .nav-cta {
+                margin-top: 1rem;
+                display: inline-block;
             }
 
             .menu-toggle {
@@ -1334,169 +2147,145 @@
             }
 
             .hero {
-                padding: 7rem 1.5rem 3rem;
-                min-height: 90vh;
+                padding: 8rem 1.5rem 4rem;
+                min-height: 85vh;
             }
 
             .hero h1 {
-                font-size: clamp(2rem, 8vw, 3rem);
-                letter-spacing: -1px;
+                font-size: clamp(2.2rem, 9vw, 3.5rem);
+                letter-spacing: -1.5px;
             }
 
-            .hero p {
-                font-size: 0.95rem;
+            .hero-subtitle {
+                font-size: 1rem;
             }
 
             .cta-buttons {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 1.2rem;
             }
 
             .btn {
                 width: 100%;
                 justify-content: center;
-                padding: 1rem 2rem;
+                padding: 1.2rem 2.5rem;
             }
 
             section {
-                padding: 3.5rem 1.5rem;
+                padding: 4rem 1.5rem;
             }
 
             .section-title {
-                font-size: clamp(1.8rem, 7vw, 2.5rem);
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
+                font-size: clamp(2rem, 8vw, 3rem);
             }
 
             #about {
-                padding: 3rem 1.8rem;
-                border-radius: 30px;
+                padding: 3.5rem 2rem;
+                border-radius: 35px;
             }
 
-            .about-text {
-                font-size: 0.95rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .founders-grid {
+            .services-grid,
+            .artists-grid,
+            .founders-grid,
+            .releases-grid,
+            .pricing-grid,
+            .testimonials-grid {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
 
-            .founder-card {
-                padding: 2.5rem 1.8rem;
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
             }
 
-            .releases-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .founder-card,
+            .pricing-card {
+                padding: 3rem 2rem;
             }
 
-            .contact-form {
-                padding: 2.5rem 1.8rem;
-                border-radius: 25px;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 1rem 1.2rem;
-                font-size: 0.9rem;
+            .newsletter-section {
+                padding: 4rem 2rem;
+                margin: 3rem 1rem;
             }
 
             footer {
-                padding: 3.5rem 1.5rem 2rem;
+                padding: 4.5rem 1.5rem 2.5rem;
             }
 
-            .footer-content h3 {
-                font-size: 1.6rem;
-            }
-
-            .footer-content p {
-                font-size: 0.9rem;
-            }
-
-            .footer-social {
-                gap: 1rem;
-            }
-
-            .footer-social-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
+            .footer-links {
+                flex-direction: column;
+                gap: 1.5rem;
             }
 
             .scroll-top {
-                bottom: 2rem;
-                right: 2rem;
-                width: 50px;
-                height: 50px;
+                bottom: 2.5rem;
+                right: 2.5rem;
+                width: 55px;
+                height: 55px;
             }
 
             .floating-icon {
                 display: none;
             }
+
+            .audio-visualizer {
+                display: none;
+            }
         }
 
-        /* Extra Small Devices */
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.4rem;
+                font-size: 1.5rem;
             }
 
             .logo i {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
 
             .hero-badge {
-                font-size: 0.65rem;
-                padding: 0.6rem 1.3rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
+                font-size: 0.7rem;
+                padding: 0.7rem 1.5rem;
             }
 
             .section-label {
-                font-size: 0.7rem;
-                padding: 0.4rem 1.2rem;
+                font-size: 0.75rem;
+                padding: 0.5rem 1.4rem;
             }
 
             .service-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.6rem;
+                width: 75px;
+                height: 75px;
+                font-size: 2rem;
             }
 
             .founder-image-wrapper {
-                width: 140px;
-                height: 140px;
+                width: 160px;
+                height: 160px;
             }
 
             .release-image-wrapper {
-                height: 250px;
+                height: 270px;
             }
 
             .play-overlay {
-                width: 65px;
-                height: 65px;
+                width: 70px;
+                height: 70px;
             }
 
             .play-overlay i {
-                font-size: 1.5rem;
+                font-size: 1.6rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
             }
         }
 
-        /* Reduced Motion for Accessibility */
         @media (prefers-reduced-motion: reduce) {
             *,
             *::before,
@@ -1509,16 +2298,25 @@
     </style>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- Loading Screen -->
     <div class="loading-screen">
         <div class="loader"></div>
+        <div class="loading-text">Loading...</div>
     </div>
 
     <!-- Animated Background -->
     <div class="animated-bg"></div>
+    <div class="video-bg"></div>
 
     <!-- Particle System -->
     <div class="particles" id="particles"></div>
+
+    <!-- Audio Visualizer -->
+    <div class="audio-visualizer" id="visualizer"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
@@ -1531,9 +2329,10 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#founders">Founders</a></li>
+                <li><a href="#artists">Artists</a></li>
                 <li><a href="#releases">Releases</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
                 <span></span>
@@ -1548,20 +2347,56 @@
         <i class="fas fa-music floating-icon"></i>
         <i class="fas fa-headphones floating-icon"></i>
         <i class="fas fa-microphone floating-icon"></i>
+        <i class="fas fa-guitar floating-icon"></i>
         
         <div class="hero-content" data-aos="fade-up">
-            <div class="hero-badge">🎵 Independent Music Label</div>
-            <h1>Your Music, Amplified</h1>
-            <p>We empower independent artists with world-class distribution, strategic branding, innovative marketing, and comprehensive development services to help your music reach its full potential.</p>
+            <div class="hero-badge">
+                <i class="fas fa-compact-disc"></i>
+                Premium Music Label
+            </div>
+            <h1>Amplify Your Sound</h1>
+            <p class="hero-subtitle">
+                <strong>Elite independent music label</strong> empowering artists worldwide with cutting-edge distribution, strategic branding, innovative marketing, and comprehensive development services. Transform your passion into a thriving music career with industry-leading support.
+            </p>
             <div class="cta-buttons">
                 <a href="#services" class="btn btn-primary">
                     <span>Explore Services</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <span>Get Started</span>
+                <a href="#pricing" class="btn btn-secondary">
+                    <span>View Pricing</span>
+                    <i class="fas fa-tag"></i>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <span>Contact Us</span>
                     <i class="fas fa-paper-plane"></i>
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-users stat-icon"></i>
+                <div class="stat-number" data-target="500">0</div>
+                <div class="stat-label">Active Artists</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-music stat-icon"></i>
+                <div class="stat-number" data-target="10000">0</div>
+                <div class="stat-label">Tracks Released</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-globe-americas stat-icon"></i>
+                <div class="stat-number" data-target="150">0</div>
+                <div class="stat-label">Countries Reached</div>
+            </div>
+            <div class="stat-card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-stream stat-icon"></i>
+                <div class="stat-number" data-target="50">0</div>
+                <div class="stat-label">M+ Streams</div>
             </div>
         </div>
     </section>
@@ -1569,64 +2404,132 @@
     <!-- About Section -->
     <section id="about">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Who We Are</div>
+            <div class="section-label">
+                <i class="fas fa-info-circle"></i>
+                Who We Are
+            </div>
             <h2 class="section-title">About Ash Hu Music</h2>
-            <p class="section-subtitle">Pioneering independent music with passion, innovation, and unwavering artist support</p>
+            <p class="section-subtitle">Leading the independent music revolution with innovation, passion, and artist-first values</p>
         </div>
         <div class="about-text" data-aos="fade-up" data-aos-delay="100">
-            <strong>Ash Hu Music</strong> is a cutting-edge independent music label dedicated to discovering, developing, and promoting exceptional musical talent. We provide comprehensive services including <strong>global distribution</strong>, <strong>brand development</strong>, <strong>digital marketing</strong>, and <strong>artist mentorship</strong>. Our mission is to empower artists with the tools, resources, and support they need to thrive in today's dynamic music industry while maintaining their creative authenticity and artistic vision.
+            <strong>Ash Hu Music</strong> is a premium independent music label revolutionizing the industry with cutting-edge technology and artist-centric services. We provide <strong>comprehensive global distribution</strong>, <strong>strategic brand development</strong>, <strong>advanced digital marketing</strong>, and <strong>expert artist mentorship</strong>. Our mission transcends traditional label services—we're dedicated to empowering musicians with the tools, resources, and unwavering support needed to thrive in today's competitive music landscape while preserving creative authenticity and artistic integrity. Join our growing community of successful artists making waves globally.
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-label">What We Offer</div>
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive solutions designed to elevate your music career</p>
+            <div class="section-label">
+                <i class="fas fa-sparkles"></i>
+                What We Offer
+            </div>
+            <h2 class="section-title">Premium Services</h2>
+            <p class="section-subtitle">World-class solutions engineered to elevate every aspect of your music career</p>
         </div>
         <div class="services-grid">
             <div class="service-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="service-icon">
                     <i class="fas fa-compact-disc"></i>
                 </div>
-                <h3 class="service-title">Music Distribution</h3>
-                <p class="service-description">Get your music on all major streaming platforms including Spotify, Apple Music, Amazon Music, and 150+ digital stores worldwide with seamless delivery.</p>
+                <h3 class="service-title">Distribution</h3>
+                <p class="service-description">Seamless delivery to 200+ digital platforms including Spotify, Apple Music, Amazon, YouTube Music, and all major streaming services worldwide with lightning-fast processing.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="service-icon">
                     <i class="fas fa-palette"></i>
                 </div>
-                <h3 class="service-title">Brand Development</h3>
-                <p class="service-description">Build a powerful artist identity with professional branding, logo design, visual aesthetics, and comprehensive brand strategy that resonates with your audience.</p>
+                <h3 class="service-title">Brand Strategy</h3>
+                <p class="service-description">Build an unforgettable artist identity with premium branding, professional logo design, visual storytelling, and comprehensive brand architecture that captivates audiences.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="service-icon">
                     <i class="fas fa-bullhorn"></i>
                 </div>
-                <h3 class="service-title">Marketing & Promotion</h3>
-                <p class="service-description">Strategic digital marketing campaigns, social media management, playlist pitching, PR coordination, and targeted advertising to maximize your reach.</p>
+                <h3 class="service-title">Marketing & PR</h3>
+                <p class="service-description">Strategic campaigns, social media mastery, playlist pitching, press coverage, influencer partnerships, and targeted advertising to maximize your global reach and engagement.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="service-icon">
                     <i class="fas fa-user-graduate"></i>
                 </div>
                 <h3 class="service-title">Artist Development</h3>
-                <p class="service-description">Comprehensive mentorship programs, career guidance, skill development workshops, and industry networking opportunities to accelerate your growth.</p>
+                <p class="service-description">Personalized mentorship, career strategy, skill workshops, performance coaching, and industry networking to accelerate your professional growth and success.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="service-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="service-title">Analytics & Insights</h3>
-                <p class="service-description">Detailed performance analytics, streaming data, audience demographics, and actionable insights to inform your strategic decisions and growth.</p>
+                <h3 class="service-title">Analytics Hub</h3>
+                <p class="service-description">Advanced performance tracking, real-time streaming data, audience insights, demographic analytics, and AI-powered recommendations for data-driven decision making.</p>
             </div>
             <div class="service-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="service-icon">
                     <i class="fas fa-handshake"></i>
                 </div>
-                <h3 class="service-title">Licensing & Sync</h3>
-                <p class="service-description">Opportunities for music placement in films, TV shows, commercials, video games, and other media with expert licensing negotiation support.</p>
+                <h3 class="service-title">Sync Licensing</h3>
+                <p class="service-description">Premium opportunities for music placement in films, TV series, commercials, video games, and digital media with expert licensing negotiation and contract management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Roster -->
+    <section id="artists">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-label">
+                <i class="fas fa-star"></i>
+                Our Talent
+            </div>
+            <h2 class="section-title">Artist Roster</h2>
+            <p class="section-subtitle">Discover the extraordinary musicians and creators shaping the future of music</p>
+        </div>
+        <div class="artists-grid">
+            <div class="artist-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=800&fit=crop" alt="Artist" class="artist-image">
+                <div class="artist-info">
+                    <h3 class="artist-name">Luna Ray</h3>
+                    <p class="artist-genre">Electronic / Pop</p>
+                    <div class="artist-social">
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="artist-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=800&h=800&fit=crop" alt="Artist" class="artist-image">
+                <div class="artist-info">
+                    <h3 class="artist-name">Echo Storm</h3>
+                    <p class="artist-genre">Hip Hop / R&B</p>
+                    <div class="artist-social">
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="artist-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=800&h=800&fit=crop" alt="Artist" class="="artist-image">
+                <div class="artist-info">
+                    <h3 class="artist-name">Neon Pulse</h3>
+                    <p class="artist-genre">EDM / House</p>
+                    <div class="artist-social">
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="artist-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=800&h=800&fit=crop" alt="Artist" class="artist-image">
+                <div class="artist-info">
+                    <h3 class="artist-name">Vibe Collective</h3>
+                    <p class="artist-genre">Indie / Alternative</p>
+                    <div class="artist-social">
+                        <a href="#"><i class="fab fa-spotify"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1634,26 +2537,29 @@
     <!-- Founders Section -->
     <section id="founders">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Leadership</div>
+            <div class="section-label">
+                <i class="fas fa-crown"></i>
+                Leadership
+            </div>
             <h2 class="section-title">Meet The Founders</h2>
-            <p class="section-subtitle">Visionary leaders driving innovation in independent music</p>
+            <p class="section-subtitle">Visionary industry leaders revolutionizing independent music</p>
         </div>
         <div class="founders-grid">
             <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Founder 1" class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Founder" class="founder-image">
                 </div>
                 <h3 class="founder-name">Ash Kumar</h3>
                 <p class="founder-title">Co-Founder & CEO</p>
-                <p class="founder-bio">A seasoned music industry veteran with over 15 years of experience in artist management, distribution, and label operations. Passionate about empowering independent artists and revolutionizing the music business landscape with innovative, artist-first approaches.</p>
+                <p class="founder-bio">Visionary music industry veteran with 15+ years revolutionizing artist management, distribution, and label operations. Passionate advocate for independent artists, combining business acumen with creative innovation to build sustainable music careers.</p>
             </div>
             <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Founder 2" class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Founder" class="founder-image">
                 </div>
                 <h3 class="founder-name">Priya Sharma</h3>
                 <p class="founder-title">Co-Founder & COO</p>
-                <p class="founder-bio">Expert in digital marketing, brand strategy, and music technology with a proven track record of launching successful artist careers. Combines creative vision with data-driven insights to deliver exceptional results and sustainable growth for artists.</p>
+                <p class="founder-bio">Strategic mastermind in digital marketing, brand architecture, and music technology. Expert in launching breakthrough artist careers through data-driven insights, creative campaigns, and innovative growth strategies that deliver exceptional results.</p>
             </div>
         </div>
     </section>
@@ -1661,14 +2567,17 @@
     <!-- Releases Section -->
     <section id="releases">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Latest Drops</div>
+            <div class="section-label">
+                <i class="fas fa-fire"></i>
+                Latest Drops
+            </div>
             <h2 class="section-title">Recent Releases</h2>
-            <p class="section-subtitle">Discover the newest tracks from our talented roster of artists</p>
+            <p class="section-subtitle">Stream the hottest tracks from our exceptional roster of artists</p>
         </div>
         <div class="releases-grid">
             <div class="release-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release 1" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1680,7 +2589,7 @@
             </div>
             <div class="release-card" data-aos="fade-up" data-aos-delay="200">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=600&fit=crop" alt="Release 2" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1692,7 +2601,7 @@
             </div>
             <div class="release-card" data-aos="fade-up" data-aos-delay="300">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1704,7 +2613,7 @@
             </div>
             <div class="release-card" data-aos="fade-up" data-aos-delay="400">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1716,7 +2625,7 @@
             </div>
             <div class="release-card" data-aos="fade-up" data-aos-delay="500">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release 5" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1728,7 +2637,7 @@
             </div>
             <div class="release-card" data-aos="fade-up" data-aos-delay="600">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1446057633965-55d2dcb22598?w=600&h=600&fit=crop" alt="Release 6" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1446057633965-55d2dcb22598?w=600&h=600&fit=crop" alt="Release" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
@@ -1741,41 +2650,259 @@
         </div>
     </section>
 
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-label">
+                <i class="fas fa-tag"></i>
+                Pricing Plans
+            </div>
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Flexible packages designed for artists at every stage of their journey</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                <h3 class="pricing-title">Starter</h3>
+                <div class="pricing-price">$29</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i> Distribution to 50+ platforms</li>
+                    <li><i class="fas fa-check-circle"></i> Basic analytics dashboard</li>
+                    <li><i class="fas fa-check-circle"></i> Email support</li>
+                    <li><i class="fas fa-check-circle"></i> Monthly royalty payments</li>
+                    <li><i class="fas fa-check-circle"></i> Keep 85% of royalties</li>
+                </ul>
+                <a href="#contact" class="btn btn-outline" style="width: 100%;">
+                    <span>Get Started</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                <div class="pricing-badge">Most Popular</div>
+                <h3 class="pricing-title">Professional</h3>
+                <div class="pricing-price">$79</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i> Distribution to 200+ platforms</li>
+                    <li><i class="fas fa-check-circle"></i> Advanced analytics & insights</li>
+                    <li><i class="fas fa-check-circle"></i> Priority support 24/7</li>
+                    <li><i class="fas fa-check-circle"></i> Weekly royalty payments</li>
+                    <li><i class="fas fa-check-circle"></i> Keep 90% of royalties</li>
+                    <li><i class="fas fa-check-circle"></i> Playlist pitching service</li>
+                    <li><i class="fas fa-check-circle"></i> Social media marketing</li>
+                </ul>
+                <a href="#contact" class="btn btn-primary" style="width: 100%;">
+                    <span>Get Started</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="pricing-title">Enterprise</h3>
+                <div class="pricing-price">$199</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li><i class="fas fa-check-circle"></i> Unlimited distribution</li>
+                    <li><i class="fas fa-check-circle"></i> AI-powered analytics</li>
+                    <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
+                    <li><i class="fas fa-check-circle"></i> Daily royalty tracking</li>
+                    <li><i class="fas fa-check-circle"></i> Keep 95% of royalties</li>
+                    <li><i class="fas fa-check-circle"></i> Full marketing campaigns</li>
+                    <li><i class="fas fa-check-circle"></i> Sync licensing support</li>
+                    <li><i class="fas fa-check-circle"></i> Brand development</li>
+                </ul>
+                <a href="#contact" class="btn btn-secondary" style="width: 100%;">
+                    <span>Get Started</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-header" data-aos="fade-up">
+            <div class="section-label">
+                <i class="fas fa-quote-right"></i>
+                Testimonials
+            </div>
+            <h2 class="section-title">What Artists Say</h2>
+            <p class="section-subtitle">Real success stories from musicians transforming their careers</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+                <p class="testimonial-text">"Ash Hu Music transformed my career! Their distribution network and marketing expertise helped me reach over 2 million streams in just 6 months. The team is incredibly supportive and genuinely cares about my success."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Artist" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Sarah Mitchell</h4>
+                        <p>Electronic Artist</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <p class="testimonial-text">"Best decision I ever made! The analytics dashboard alone is worth every penny. I can track my performance across all platforms in real-time and make data-driven decisions for my music career."</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" alt="Artist" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Marcus Johnson</h4>
+                        <p>Hip Hop Producer</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <p class="testimonial-text">"The artist development program is phenomenal! I've learned so much about the industry, branding, and marketing. My monthly streams have grown 400
+% since joining!"</p>
+                <div class="testimonial-author">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Artist" class="testimonial-avatar">
+                    <div class="testimonial-info">
+                        <h4>Emma Rodriguez</h4>
+                        <p>Indie Singer-Songwriter</p>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Get In Touch</div>
+            <div class="section-label">
+                <i class="fas fa-envelope"></i>
+                Get In Touch
+            </div>
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Ready to take your music career to the next level? Let's start the conversation</p>
+            <p class="section-subtitle">Ready to elevate your music career? Let's start your success story today</p>
         </div>
-        <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="100">
-            <form class="contact-form" id="contactForm">
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <div class="contact-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Visit Us</h3>
+                        <p>123 Music Street, Jaipur<br>Rajasthan, India 302001</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                <div class="contact-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Call Us</h3>
+                        <p>+91 98765 43210<br>Mon-Fri: 9AM - 6PM IST</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                <div class="contact-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Email Us</h3>
+                        <p>info@ashhumusic.com<br>support@ashhumusic.com</p>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project, goals, and how we can help you succeed..." required></textarea>
+                <div class="contact-item" data-aos="fade-right" data-aos-delay="400">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="contact-details">
+                        <h3>Business Hours</h3>
+                        <p>Monday - Saturday<br>9:00 AM - 6:00 PM IST</p>
+                    </div>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            </div>
+            <div class="contact-form-wrapper" data-aos="fade-left" data-aos-delay="100">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interest</label>
+                        <select id="service" name="service" style="width: 100%; padding: 1.2rem 1.8rem; background: rgba(255, 255, 255, 0.03); border: 2px solid rgba(255, 255, 255, 0.1); border-radius: 22px; color: var(--text-white); font-size: 1rem; font-family: 'Inter', 'Poppins', sans-serif; transition: var(--transition); font-weight: 500;">
+                            <option value="">Select a service</option>
+                            <option value="distribution">Music Distribution</option>
+                            <option value="marketing">Marketing & Promotion</option>
+                            <option value="branding">Brand Development</option>
+                            <option value="development">Artist Development</option>
+                            <option value="licensing">Sync Licensing</option>
+                            <option value="other">Other Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your music, goals, and how we can help you succeed..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        Send Message
+                        <i class="fas fa-paper-plane" style="position: relative; z-index: 1; margin-left: 10px;"></i>
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
+
+    <!-- Newsletter Section -->
+    <div class="newsletter-section" data-aos="fade-up">
+        <div class="newsletter-content">
+            <h3 class="newsletter-title">Stay Updated</h3>
+            <p class="newsletter-subtitle">Subscribe to our newsletter for exclusive releases, industry insights, and special offers</p>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+                <button type="submit" class="newsletter-btn">
+                    Subscribe
+                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
-            <p>Empowering independent artists with world-class services, innovative strategies, and unwavering support. Join us in shaping the future of music.</p>
+            <p>Empowering independent artists worldwide with cutting-edge services, strategic innovation, and unwavering support. Join our community and transform your music career today.</p>
+            
+            <div class="footer-links">
+                <a href="#about">About Us</a>
+                <a href="#services">Services</a>
+                <a href="#artists">Artists</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
             <div class="footer-social">
                 <div class="footer-social-icon" onclick="window.open('https://instagram.com', '_blank')">
                     <i class="fab fa-instagram"></i>
@@ -1795,10 +2922,13 @@
                 <div class="footer-social-icon" onclick="window.open('https://soundcloud.com', '_blank')">
                     <i class="fab fa-soundcloud"></i>
                 </div>
+                <div class="footer-social-icon" onclick="window.open('https://tiktok.com', '_blank')">
+                    <i class="fab fa-tiktok"></i>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Ash Hu Music. All rights reserved. Designed with ❤️ for independent artists.</p>
+            <p>&copy; 2026 Ash Hu Music. All rights reserved. Designed with <i class="fas fa-heart" style="color: var(--primary);"></i> for independent artists worldwide.</p>
         </div>
     </footer>
 
@@ -1813,10 +2943,11 @@
     <script>
         // Initialize AOS
         AOS.init({
-            duration: 1000,
+            duration: 1200,
             easing: 'ease-out-cubic',
             once: true,
-            offset: 100
+            offset: 100,
+            delay: 50
         });
 
         // Loading Screen
@@ -1824,30 +2955,68 @@
             const loadingScreen = document.querySelector('.loading-screen');
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
-            }, 1000);
+            }, 1500);
+        });
+
+        // Custom Cursor
+        const cursor = document.querySelector('.custom-cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+            
+            setTimeout(() => {
+                cursorFollower.style.left = e.clientX + 'px';
+                cursorFollower.style.top = e.clientY + 'px';
+            }, 50);
+        });
+
+        document.querySelectorAll('a, button, .service-card, .release-card, .artist-card').forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('active');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('active');
+            });
         });
 
         // Particle System
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            const particleCount = 30;
+            const particleCount = 40;
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.classList.add('particle');
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                particle.style.animationDuration = (15 + Math.random() * 10) + 's';
+                particle.style.animationDelay = Math.random() * 30 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 15) + 's';
                 
-                // Random colors
-                const colors = ['#ff4757', '#5f27cd', '#00d2d3', '#54a0ff'];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
+                const colors = ['#ff4757', '#5f27cd', '#00d2d3', '#54a0ff', '#feca57'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
+                particle.style.boxShadow = `0 0 15px ${color}`;
                 
                 particlesContainer.appendChild(particle);
             }
         }
         createParticles();
+
+        // Audio Visualizer Bars
+        function createVisualizer() {
+            const visualizer = document.getElementById('visualizer');
+            const barCount = 60;
+
+            for (let i = 0; i < barCount; i++) {
+                const bar = document.createElement('div');
+                bar.classList.add('visualizer-bar');
+                bar.style.animationDelay = (i * 0.05) + 's';
+                bar.style.animationDuration = (0.5 + Math.random() * 0.8) + 's';
+                visualizer.appendChild(bar);
+            }
+        }
+        createVisualizer();
 
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
@@ -1866,6 +3035,7 @@
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
         });
 
         // Close mobile menu when clicking on a link
@@ -1873,10 +3043,11 @@
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
 
-        // Smooth Scroll for Navigation Links
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1894,7 +3065,7 @@
         // Scroll to Top Button
         const scrollTopBtn = document.getElementById('scrollTop');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
+            if (window.scrollY > 600) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
@@ -1908,81 +3079,311 @@
             });
         });
 
+        // Stats Counter Animation
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current) + (element.textContent.includes('M+') ? 'M+' : '+');
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target + (element.textContent.includes('M+') ? 'M+' : '+');
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Intersection Observer for Stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('.stat-number');
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+
         // Contact Form Submission
         const contactForm = document.getElementById('contactForm');
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
             const phone = formData.get('phone');
+            const service = formData.get('service');
             const message = formData.get('message');
 
-            // Here you would typically send the data to a server
-            console.log('Form submitted:', { name, email, phone, message });
+            console.log('Contact Form:', { name, email, phone, service, message });
 
-            // Show success message
-            alert(`Thank you, ${name}! We've received your message and will get back to you soon at ${email}.`);
+            // Success animation
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent!';
+            submitBtn.style.background = 'linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%)';
+
+            setTimeout(() => {
+                alert(`Thank you, ${name}! 🎵\n\nWe've received your message and will get back to you at ${email} within 24 hours. Get ready to amplify your sound!`);
+                contactForm.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+            }, 1500);
+        });
+
+        // Newsletter Form
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input').value;
             
-            // Reset form
-            contactForm.reset();
+            const btn = newsletterForm.querySelector('.newsletter-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check-circle"></i> Subscribed!';
+            
+            setTimeout(() => {
+                alert(`🎉 Welcome to Ash Hu Music!\n\nYou're now subscribed at ${email}. Get ready for exclusive content, early releases, and industry insights!`);
+                newsletterForm.reset();
+                btn.innerHTML = originalText;
+            }, 1500);
         });
 
         // Add hover effect to release cards
         document.querySelectorAll('.release-card').forEach(card => {
             card.addEventListener('click', () => {
-                console.log('Release card clicked:', card.querySelector('.release-title').textContent);
-                // You can add functionality to play music or show more details
+                const title = card.querySelector('.release-title').textContent;
+                const artist = card.querySelector('.release-artist').textContent;
+                console.log('Playing:', title, artist);
+                alert(`🎵 Now Playing: ${title}\n${artist}\n\nThis would open your music player!`);
             });
         });
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Add parallax effect to hero section
+        // Parallax Effect
         window.addEventListener('scroll', () => {
             const scrolled = window.pageYOffset;
             const heroContent = document.querySelector('.hero-content');
+            const parallaxElements = document.querySelectorAll('.floating-icon');
+            
             if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-                heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
+                heroContent.style.transform = `translateY(${scrolled * 0.4}px)`;
+                heroContent.style.opacity = Math.max(0, 1 - (scrolled / window.innerHeight) * 1.5);
             }
+
+            parallaxElements.forEach((el, index) => {
+                const speed = 0.3 + (index * 0.1);
+                el.style.transform = `translateY(${scrolled * speed}px)`;
+            });
         });
 
-        // Add dynamic gradient to service cards
-        document.querySelectorAll('.service-card').forEach(card => {
+        // Add dynamic gradient to cards on mouse move
+        document.querySelectorAll('.service-card, .founder-card, .pricing-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                
+                card.style.background = `radial-gradient(circle at ${x}% ${y}%, rgba(255, 71, 87, 0.15), rgba(26, 26, 26, 0.5))`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.background = '';
+            });
+        });
+
+        // Typing Effect for Hero
+        function typeEffect(element, text, speed = 100) {
+            let i = 0;
+            element.textContent = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
+        }
+
+        // Add 3D tilt effect to cards
+        document.querySelectorAll('.service-card, .release-card, .pricing-card').forEach(card => {
             card.addEventListener('mousemove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-15px) scale(1.02)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
             });
         });
 
-        // Console welcome message
-        console.log('%cWelcome to Ash Hu Music! 🎵', 'color: #ff4757; font-size: 20px; font-weight: bold;');
-        console.log('%cBuilt with ❤️ for independent artists', 'color: #5f27cd; font-size: 14px;');
+        // Console Art
+        console.log('%c🎵 ASH HU MUSIC 🎵', 'color: #ff4757; font-size: 40px; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);');
+        console.log('%c🚀 Premium Independent Music Label', 'color: #5f27cd; font-size: 20px; font-weight: bold;');
+        console.log('%c💎 Empowering Artists Worldwide', 'color: #00d2d3; font-size: 16px;');
+        console.log('%c\n🎼 Website Features:\n- Custom Cursor\n- Particle System\n- Audio Visualizer\n- Advanced Animations\n- Responsive Design\n- AOS Library\n- 3D Card Effects\n\n✨ Built with passion for independent artists! ✨', 'color: #54a0ff; font-size: 14px; line-height: 1.8;');
+        
+        // Easter Egg - Konami Code
+        let konamiCode = [];
+        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+        
+        document.addEventListener('keydown', (e) => {
+            konamiCode.push(e.key);
+            konamiCode = konamiCode.slice(-10);
+            
+            if (konamiCode.join(',') === konamiSequence.join(',')) {
+                alert('🎉 EASTER EGG UNLOCKED! 🎉\n\nYou found the secret! You are now a VIP member of Ash Hu Music! 🎵✨');
+                document.body.style.animation = 'rainbow 2s linear infinite';
+            }
+        });
+
+        // Add rainbow animation to styles
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes rainbow {
+                0% { filter: hue-rotate(0deg); }
+                100% { filter: hue-rotate(360deg); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Performance Monitoring
+        window.addEventListener('load', () => {
+            const loadTime = performance.now();
+            console.log(`%c⚡ Page loaded in ${loadTime.toFixed(2)}ms`, 'color: #feca57; font-size: 14px; font-weight: bold;');
+        });
+
+        // Add ripple effect on button click
+        document.querySelectorAll('.btn, .submit-btn, .newsletter-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    position: absolute;
+                    width: ${size}px;
+                    height: ${size}px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.5);
+                    left: ${x}px;
+                    top: ${y}px;
+                    pointer-events: none;
+                    animation: ripple-effect 0.8s ease-out;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => ripple.remove(), 800);
+            });
+        });
+
+        // Add ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple-effect {
+                from {
+                    transform: scale(0);
+                    opacity: 1;
+                }
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Service select dropdown styling fix
+        const serviceSelect = document.getElementById('service');
+        if (serviceSelect) {
+            serviceSelect.style.cursor = 'pointer';
+            serviceSelect.querySelectorAll('option').forEach(option => {
+                option.style.background = '#1a1a1a';
+                option.style.color = '#ffffff';
+            });
+        }
+
+        // Lazy load images for better performance
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src || img.src;
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Add success message display
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 30px;
+                background: linear-gradient(135deg, #00d2d3, #54a0ff);
+                color: white;
+                padding: 20px 30px;
+                border-radius: 15px;
+                box-shadow: 0 10px 40px rgba(0, 210, 211, 0.5);
+                z-index: 10001;
+                animation: slideInRight 0.5s ease-out;
+                font-weight: 600;
+            `;
+            successDiv.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            document.body.appendChild(successDiv);
+
+            setTimeout(() => {
+                successDiv.style.animation = 'slideOutRight 0.5s ease-out';
+                setTimeout(() => successDiv.remove(), 500);
+            }, 3000);
+        }
+
+        // Add slide animations
+        const slideStyle = document.createElement('style');
+        slideStyle.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(400px); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(400px); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(slideStyle);
     </script>
 </body>
 </html>
