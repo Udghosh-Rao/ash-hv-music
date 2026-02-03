@@ -3,66 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - Independent music label offering distribution, branding, marketing, and complete artist development services.">
-    <meta name="keywords" content="music label, independent music, artist development, music distribution, music branding">
-    <meta name="theme-color" content="#ff4757">
-    <title>Ash Hu Music - Independent Music Label</title>
-    
+    <meta name="description" content="Ash Hu Music - Independent music label founded by Harshit & Udghosh, offering distribution, branding, marketing, and complete artist development services.">
+    <meta name="keywords" content="independent music label, music distribution, artist development, music marketing, sync licensing, audio mastering">
+    <meta name="author" content="Harshit & Udghosh - Ash Hu Music Founders">
+    <title>Ash Hu Music - Independent Music Label | Founded by Harshit & Udghosh</title>
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
+
     <style>
+        /* ==================== RESET & BASE STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* ==================== CSS VARIABLES ==================== */
         :root {
+            /* Primary Colors - Based on Your Original Design */
             --primary: #ff4757;
+            --primary-light: #ff6348;
             --primary-dark: #ee5a6f;
             --secondary: #5f27cd;
+            --secondary-light: #341f97;
+            --secondary-dark: #48149c;
             --accent: #00d2d3;
-            --accent-blue: #54a0ff;
+            --accent-light: #54a0ff;
+            --accent-dark: #00a8a9;
+            
+            /* Background Colors */
             --dark-bg: #0a0a0a;
             --darker: #050505;
             --card-bg: #1a1a1a;
-            --card-hover: #222222;
+            --card-bg-light: #222222;
+            
+            /* Text Colors */
             --text-white: #ffffff;
             --text-gray: #b5b5b5;
-            --text-light-gray: #8e8e8e;
-            --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 50%, #ff7f50 100%);
+            --text-dark-gray: #888888;
+            
+            /* Gradients */
+            --gradient-main: linear-gradient(135deg, #ff4757 0%, #ff6348 100%);
             --gradient-purple: linear-gradient(135deg, #5f27cd 0%, #341f97 100%);
             --gradient-blue: linear-gradient(135deg, #00d2d3 0%, #54a0ff 100%);
-            --gradient-dark: linear-gradient(180deg, rgba(10, 10, 10, 0.95) 0%, rgba(5, 5, 5, 0.98) 100%);
+            --gradient-warm: linear-gradient(135deg, #ff6348 0%, #ff4757 50%, #5f27cd 100%);
+            
+            /* Shadows */
             --shadow-glow: 0 0 60px rgba(255, 71, 87, 0.4);
-            --shadow-card: 0 25px 70px rgba(0, 0, 0, 0.5);
+            --shadow-glow-strong: 0 0 80px rgba(255, 71, 87, 0.6);
+            --shadow-card: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --shadow-card-hover: 0 25px 70px rgba(255, 71, 87, 0.4);
+            
+            /* Transitions */
             --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
+            --transition-slow: all 0.6s ease;
         }
 
+        /* ==================== HTML & BODY ==================== */
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
         body {
-            font-family: 'Inter', 'Poppins', sans-serif;
+            font-family: 'Poppins', sans-serif;
             background: var(--dark-bg);
             color: var(--text-white);
-            line-height: 1.7;
+            line-height: 1.6;
             overflow-x: hidden;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            font-size: 15px;
         }
 
         ::selection {
@@ -70,7 +91,31 @@
             color: var(--text-white);
         }
 
-        /* Advanced Animated Background with Multiple Layers */
+        ::-moz-selection {
+            background: var(--primary);
+            color: var(--text-white);
+        }
+
+        /* ==================== SCROLLBAR STYLING ==================== */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-main);
+            border-radius: 10px;
+            border: 2px solid var(--darker);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-light);
+        }
+
+        /* ==================== ANIMATED BACKGROUND ==================== */
         .animated-bg {
             position: fixed;
             top: 0;
@@ -85,45 +130,36 @@
         .animated-bg::before {
             content: '';
             position: absolute;
-            width: 400%;
-            height: 400%;
-            background: 
-                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.18) 0%, transparent 35%),
-                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.15) 0%, transparent 35%),
-                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.12) 0%, transparent 35%),
-                radial-gradient(circle at 10% 80%, rgba(84, 160, 255, 0.1) 0%, transparent 35%);
-            animation: backgroundFloat 30s ease-in-out infinite;
+            width: 300%;
+            height: 300%;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 71, 87, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(95, 39, 205, 0.12) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(0, 210, 211, 0.1) 0%, transparent 40%);
+            animation: backgroundFloat 25s ease-in-out infinite;
+        }
+
+        @keyframes backgroundFloat {
+            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(-100px, 100px) rotate(120deg) scale(1.1); }
+            66% { transform: translate(100px, -100px) rotate(240deg) scale(0.9); }
         }
 
         .animated-bg::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 2px,
-                rgba(255, 255, 255, 0.015) 2px,
-                rgba(255, 255, 255, 0.015) 4px
-            );
-            animation: scanlines 8s linear infinite;
+            inset: 0;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(255, 71, 87, 0.03) 50%, transparent 100%);
+            animation: scanline 8s linear infinite;
         }
 
-        @keyframes backgroundFloat {
-            0%, 100% { transform: translate(0, 0) rotate(0deg) scale(1); }
-            33% { transform: translate(-120px, 120px) rotate(120deg) scale(1.15); }
-            66% { transform: translate(120px, -120px) rotate(240deg) scale(0.95); }
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
         }
 
-        @keyframes scanlines {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(4px); }
-        }
-
-        /* Enhanced Particle System */
+        /* ==================== PARTICLE SYSTEM ==================== */
         .particles {
             position: fixed;
             top: 0;
@@ -132,51 +168,50 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            opacity: 0.6;
         }
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
-            background: var(--primary);
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 71, 87, 0.4);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--primary);
-            animation: floatParticle 25s infinite ease-in-out;
+            animation: floatParticle 20s infinite ease-in-out;
+            box-shadow: 0 0 8px rgba(255, 71, 87, 0.6);
         }
 
         @keyframes floatParticle {
-            0%, 100% { 
-                transform: translateY(0) translateX(0) scale(0); 
-                opacity: 0; 
+            0%, 100% {
+                transform: translateY(0) translateX(0);
+                opacity: 0;
             }
-            5% { opacity: 1; scale: 1; }
-            95% { opacity: 0.7; scale: 1.2; }
-            100% { 
-                transform: translateY(-150vh) translateX(100px) scale(0); 
-                opacity: 0; 
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% {
+                transform: translateY(-120vh) translateX(50px);
+                opacity: 0;
             }
         }
 
-        /* Navigation with Enhanced Glass Effect */
+        /* ==================== NAVIGATION ==================== */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(10, 10, 10, 0.75);
-            backdrop-filter: blur(40px) saturate(180%);
-            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
             z-index: 1000;
-            padding: 1.2rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
         }
 
         nav.scrolled {
-            background: rgba(10, 10, 10, 0.98);
-            padding: 0.9rem 0;
-            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.15), 0 0 100px rgba(0, 0, 0, 0.5);
-            border-bottom-color: rgba(255, 71, 87, 0.2);
+            background: rgba(10, 10, 10, 0.95);
+            padding: 0.8rem 0;
+            box-shadow: 0 10px 40px rgba(255, 71, 87, 0.2);
+            border-bottom-color: rgba(255, 71, 87, 0.3);
         }
 
         .nav-container {
@@ -189,151 +224,132 @@
         }
 
         .logo {
-            font-size: 1.7rem;
+            font-size: 1.6rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             font-family: 'Playfair Display', serif;
             display: flex;
             align-items: center;
-            gap: 0.6rem;
+            gap: 0.5rem;
             cursor: pointer;
             transition: var(--transition);
-            letter-spacing: -0.5px;
         }
 
         .logo i {
             color: var(--primary);
             -webkit-text-fill-color: var(--primary);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             animation: logoFloat 3s ease-in-out infinite;
-            filter: drop-shadow(0 0 10px var(--primary));
         }
 
         @keyframes logoFloat {
             0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-6px) rotate(8deg); }
+            50% { transform: translateY(-5px) rotate(5deg); }
         }
 
         .logo:hover {
-            transform: scale(1.06);
-            filter: brightness(1.2);
+            transform: scale(1.05);
+            filter: brightness(1.3);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 3rem;
+            gap: 2.5rem;
             align-items: center;
         }
 
         .nav-links a {
             color: var(--text-white);
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 500;
             transition: var(--transition);
             position: relative;
-            font-size: 0.9rem;
-            letter-spacing: 0.3px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: -8px;
             left: 50%;
-            transform: translateX(-50%) scaleX(0);
-            width: 100%;
-            height: 3px;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
             background: var(--gradient-main);
             transition: var(--transition);
             border-radius: 10px;
-            box-shadow: 0 0 15px var(--primary);
         }
 
         .nav-links a:hover {
             color: var(--primary);
-            text-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+            text-shadow: 0 0 20px rgba(255, 71, 87, 0.6);
         }
 
         .nav-links a:hover::after {
-            transform: translateX(-50%) scaleX(1);
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 6px;
-            padding: 8px;
+            gap: 5px;
         }
 
         .menu-toggle span {
-            width: 28px;
-            height: 3px;
+            width: 26px;
+            height: 2.5px;
             background: var(--text-white);
             border-radius: 3px;
             transition: var(--transition);
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .menu-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(9px, 9px);
-            background: var(--primary);
+            transform: rotate(45deg) translate(8px, 8px);
         }
 
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
-            transform: scaleX(0);
         }
 
         .menu-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(9px, -9px);
-            background: var(--primary);
+            transform: rotate(-45deg) translate(8px, -8px);
         }
 
-        /* Hero Section with Cinematic Effects */
+        /* ==================== HERO SECTION ==================== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 10rem 2rem 5rem;
+            padding: 9rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            height: 80%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.15) 0%, transparent 70%);
-            filter: blur(100px);
-            animation: pulseGlow 4s ease-in-out infinite;
-        }
-
-        @keyframes pulseGlow {
-            0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
-            50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.1); }
-        }
-
         .hero-content {
-            max-width: 1000px;
+            max-width: 950px;
             z-index: 10;
-            animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: heroFadeIn 1.5s ease-out;
         }
 
         @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(60px) scale(0.95);
+                transform: translateY(50px) scale(0.95);
             }
             to {
                 opacity: 1;
@@ -343,20 +359,19 @@
 
         .hero-badge {
             display: inline-block;
-            padding: 0.7rem 1.8rem;
-            background: rgba(255, 71, 87, 0.12);
-            border: 2px solid rgba(255, 71, 87, 0.3);
+            padding: 0.6rem 1.5rem;
+            background: rgba(255, 71, 87, 0.15);
+            border: 2px solid rgba(255, 71, 87, 0.4);
             border-radius: 50px;
             color: var(--primary);
-            font-weight: 700;
-            font-size: 0.75rem;
-            margin-bottom: 2rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-bottom: 1.8rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: badgePulse 3s ease-in-out infinite;
+            letter-spacing: 1.5px;
+            animation: badgePulse 2s ease-in-out infinite;
             position: relative;
             overflow: hidden;
-            backdrop-filter: blur(10px);
         }
 
         .hero-badge::before {
@@ -366,76 +381,63 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            animation: shine 4s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
         }
 
         @keyframes badgePulse {
-            0%, 100% { 
-                box-shadow: 0 0 20px rgba(255, 71, 87, 0.3), inset 0 0 20px rgba(255, 71, 87, 0.1); 
-                transform: scale(1);
-            }
-            50% { 
-                box-shadow: 0 0 40px rgba(255, 71, 87, 0.6), inset 0 0 30px rgba(255, 71, 87, 0.2); 
-                transform: scale(1.02);
-            }
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 71, 87, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 71, 87, 0.6); }
         }
 
         @keyframes shine {
             0% { left: -100%; }
-            50%, 100% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .hero h1 {
-            font-size: clamp(2.8rem, 7vw, 5.5rem);
+            font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.3rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             line-height: 1.1;
-            letter-spacing: -2px;
-            animation: titleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s backwards;
-            text-shadow: 0 0 80px rgba(255, 71, 87, 0.3);
+            letter-spacing: -1.5px;
+            animation: titleSlide 1s ease-out 0.3s backwards;
         }
 
         @keyframes titleSlide {
             from {
                 opacity: 0;
-                transform: translateX(-60px);
-                filter: blur(10px);
+                transform: translateX(-50px);
             }
             to {
                 opacity: 1;
                 transform: translateX(0);
-                filter: blur(0);
             }
         }
 
         .hero p {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            margin-bottom: 3rem;
-            line-height: 1.9;
-            max-width: 750px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            animation: subtitleSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s backwards;
-            font-weight: 400;
+            animation: subtitleSlide 1s ease-out 0.5s backwards;
         }
 
         @keyframes subtitleSlide {
             from {
                 opacity: 0;
-                transform: translateX(60px);
-                filter: blur(10px);
+                transform: translateX(50px);
             }
             to {
                 opacity: 1;
                 transform: translateX(0);
-                filter: blur(0);
             }
         }
 
@@ -444,13 +446,14 @@
             gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            animation: buttonsFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
+            animation: buttonsFade 1s ease-out 0.7s backwards;
+            margin-bottom: 3rem;
         }
 
         @keyframes buttonsFade {
             from {
                 opacity: 0;
-                transform: translateY(40px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -459,20 +462,20 @@
         }
 
         .btn {
-            padding: 1.1rem 3rem;
+            padding: 0.9rem 2.5rem;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: 0.8rem;
-            font-size: 0.95rem;
+            gap: 0.6rem;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
             position: relative;
             overflow: hidden;
-            text-transform: uppercase;
-            font-size: 0.85rem;
+            border: none;
+            cursor: pointer;
         }
 
         .btn::before {
@@ -483,28 +486,30 @@
             width: 0;
             height: 0;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.2);
             transform: translate(-50%, -50%);
-            transition: width 0.8s ease, height 0.8s ease;
+            transition: width 0.6s, height 0.6s;
         }
 
         .btn:hover::before {
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
         }
 
-        .btn span, .btn i {
+        .btn span {
             position: relative;
             z-index: 1;
         }
 
         .btn i {
-            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            font-size: 0.75rem;
             transition: var(--transition);
         }
 
         .btn:hover i {
-            transform: translateX(5px);
+            transform: translateX(4px);
         }
 
         .btn-primary {
@@ -514,74 +519,108 @@
         }
 
         .btn-primary:hover {
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.6);
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
+            background: transparent;
             color: var(--text-white);
             border: 2px solid var(--primary);
-            backdrop-filter: blur(10px);
         }
 
         .btn-secondary:hover {
             background: var(--primary);
-            border-color: var(--primary);
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 20px 50px rgba(255, 71, 87, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
         }
 
-        /* Floating Music Icons with Enhanced Animation */
+        /* Hero Stats */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            animation: statsFade 1s ease-out 0.9s backwards;
+        }
+
+        @keyframes statsFade {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* ==================== FLOATING MUSIC ICONS ==================== */
         .floating-icon {
             position: absolute;
-            font-size: 4rem;
-            opacity: 0.04;
-            animation: iconFloat 15s ease-in-out infinite;
+            font-size: 3rem;
+            opacity: 0.06;
+            animation: iconFloat 10s ease-in-out infinite;
             color: var(--primary);
-            filter: blur(1px);
         }
 
         .floating-icon:nth-child(1) {
-            top: 12%;
-            left: 8%;
+            top: 15%;
+            left: 10%;
             animation-delay: 0s;
         }
 
         .floating-icon:nth-child(2) {
-            top: 55%;
-            right: 10%;
-            animation-delay: 5s;
+            top: 60%;
+            right: 12%;
+            animation-delay: 3s;
         }
 
         .floating-icon:nth-child(3) {
-            bottom: 18%;
-            left: 15%;
-            animation-delay: 10s;
+            bottom: 20%;
+            left: 18%;
+            animation-delay: 6s;
+        }
+
+        .floating-icon:nth-child(4) {
+            top: 35%;
+            right: 20%;
+            animation-delay: 2s;
         }
 
         @keyframes iconFloat {
-            0%, 100% { 
-                transform: translateY(0) rotate(0deg) scale(1); 
-                opacity: 0.04;
-            }
-            25% { 
-                transform: translateY(-40px) rotate(10deg) scale(1.1); 
-                opacity: 0.06;
-            }
-            50% { 
-                transform: translateY(-80px) rotate(-10deg) scale(0.9); 
-                opacity: 0.08;
-            }
-            75% { 
-                transform: translateY(-40px) rotate(10deg) scale(1.05); 
-                opacity: 0.06;
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-30px) rotate(5deg); }
+            50% { transform: translateY(-60px) rotate(-5deg); }
+            75% { transform: translateY(-30px) rotate(5deg); }
         }
 
-        /* Section Styles with Enhanced Spacing */
+        /* ==================== SECTION STYLES ==================== */
         section {
-            padding: 6rem 2rem;
+            padding: 5rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -589,122 +628,92 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3.5rem;
         }
 
         .section-label {
             display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(255, 71, 87, 0.1);
-            border: 1.5px solid rgba(255, 71, 87, 0.3);
+            padding: 0.45rem 1.3rem;
+            background: rgba(255, 71, 87, 0.12);
+            border: 1px solid rgba(255, 71, 87, 0.3);
             border-radius: 50px;
             color: var(--primary);
-            font-weight: 700;
-            font-size: 0.75rem;
-            margin-bottom: 1.5rem;
+            font-weight: 600;
+            font-size: 0.7rem;
+            margin-bottom: 1.2rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: labelGlow 3s ease-in-out infinite;
-            backdrop-filter: blur(10px);
+            letter-spacing: 1.5px;
+            animation: labelGlow 2s ease-in-out infinite;
         }
 
         @keyframes labelGlow {
-            0%, 100% { 
-                box-shadow: 0 0 20px rgba(255, 71, 87, 0.2), inset 0 0 20px rgba(255, 71, 87, 0.05); 
-            }
-            50% { 
-                box-shadow: 0 0 35px rgba(255, 71, 87, 0.4), inset 0 0 30px rgba(255, 71, 87, 0.1); 
-            }
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 71, 87, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(255, 71, 87, 0.4); }
         }
 
         .section-title {
-            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 900;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             font-family: 'Playfair Display', serif;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             line-height: 1.2;
-            letter-spacing: -1px;
         }
 
         .section-subtitle {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
-            line-height: 1.9;
-            font-weight: 400;
+            line-height: 1.8;
         }
 
-        /* About Section with Premium Glass Effect */
+        /* ==================== ABOUT SECTION ==================== */
         #about {
-            background: rgba(26, 26, 26, 0.35);
-            backdrop-filter: blur(30px) saturate(150%);
-            border-radius: 40px;
-            padding: 5.5rem 4rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6), inset 0 0 100px rgba(255, 71, 87, 0.02);
-            position: relative;
-            overflow: hidden;
-        }
-
-        #about::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.08) 0%, transparent 70%);
-            animation: rotateBg 20s linear infinite;
-        }
-
-        @keyframes rotateBg {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            background: rgba(26, 26, 26, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 35px;
+            padding: 5rem 3.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: var(--shadow-card);
         }
 
         .about-text {
-            font-size: 1.05rem;
+            font-size: 0.95rem;
             color: var(--text-gray);
-            line-height: 2;
-            margin-bottom: 3.5rem;
+            line-height: 1.9;
+            margin-bottom: 3rem;
             text-align: center;
-            max-width: 900px;
+            max-width: 850px;
             margin-left: auto;
             margin-right: auto;
-            position: relative;
-            z-index: 1;
         }
 
         .about-text strong {
             color: var(--primary);
-            font-weight: 800;
-            text-shadow: 0 0 20px rgba(255, 71, 87, 0.3);
+            font-weight: 700;
         }
 
-        /* Services Grid with Premium Hover Effects */
+        /* ==================== SERVICES GRID ==================== */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .service-card {
-            background: rgba(26, 26, 26, 0.6);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 2.5rem 2rem;
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 2.2rem 1.8rem;
             text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
         .service-card::before {
@@ -713,10 +722,9 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 3px;
             background: var(--gradient-main);
             transform: scaleX(0);
-            transform-origin: left;
             transition: var(--transition);
         }
 
@@ -724,16 +732,15 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: var(--gradient-main);
+            background: radial-gradient(circle at 50% 50%, rgba(255, 71, 87, 0.1), transparent);
             opacity: 0;
             transition: var(--transition);
-            z-index: 0;
         }
 
         .service-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 30px 80px rgba(255, 71, 87, 0.35);
-            border-color: rgba(255, 71, 87, 0.3);
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-card-hover);
+            border-color: var(--primary);
         }
 
         .service-card:hover::before {
@@ -741,62 +748,54 @@
         }
 
         .service-card:hover::after {
-            opacity: 0.05;
+            opacity: 1;
         }
 
         .service-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.8rem;
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
             background: var(--gradient-main);
-            border-radius: 22px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--text-white);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.4);
+            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.4);
             transition: var(--transition);
-            position: relative;
-            z-index: 1;
         }
 
         .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.15);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.7);
+            transform: rotateY(360deg) scale(1.1);
+            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.6);
         }
 
         .service-title {
-            font-size: 1.25rem;
-            font-weight: 800;
-            margin-bottom: 1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.9rem;
             color: var(--text-white);
-            position: relative;
-            z-index: 1;
-            letter-spacing: -0.3px;
         }
 
         .service-description {
             color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
-            position: relative;
-            z-index: 1;
+            line-height: 1.7;
+            font-size: 0.85rem;
         }
 
-        /* Founders Section with Premium Card Design */
+        /* ==================== FOUNDERS SECTION ==================== */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
         }
 
         .founder-card {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(25px);
-            border-radius: 28px;
-            padding: 3rem 2.5rem;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 2.5rem 2.2rem;
             text-align: center;
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: var(--transition);
@@ -811,108 +810,146 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255, 71, 87, 0.12) 0%, transparent 60%);
+            background: radial-gradient(circle, rgba(255, 71, 87, 0.1) 0%, transparent 70%);
             opacity: 0;
             transition: var(--transition);
         }
 
         .founder-card:hover {
-            transform: translateY(-15px) scale(1.01);
-            box-shadow: 0 30px 90px rgba(255, 71, 87, 0.45);
-            border-color: rgba(255, 71, 87, 0.3);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: var(--shadow-card-hover);
+            border-color: rgba(255, 71, 87, 0.4);
         }
 
         .founder-card:hover::after {
             opacity: 1;
-            animation: rotateBg 15s linear infinite;
+            animation: rotateBg 10s linear infinite;
+        }
+
+        @keyframes rotateBg {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .founder-image-wrapper {
-            width: 170px;
-            height: 170px;
-            margin: 0 auto 2rem;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.8rem;
             border-radius: 50%;
             overflow: hidden;
-            border: 5px solid transparent;
-            background: var(--gradient-main);
-            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.5);
+            border: 4px solid var(--primary);
+            box-shadow: 0 12px 40px rgba(255, 71, 87, 0.5);
             position: relative;
             z-index: 1;
             transition: var(--transition);
-            padding: 5px;
         }
 
         .founder-card:hover .founder-image-wrapper {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 20px 70px rgba(255, 71, 87, 0.8);
+            transform: scale(1.08) rotate(5deg);
+            box-shadow: 0 15px 50px rgba(255, 71, 87, 0.7);
         }
 
         .founder-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 50%;
         }
 
         .founder-name {
-            font-size: 1.7rem;
-            font-weight: 900;
-            margin-bottom: 0.6rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             font-family: 'Playfair Display', serif;
             position: relative;
             z-index: 1;
-            letter-spacing: -0.5px;
         }
 
         .founder-title {
-            color: var(--text-gray);
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
             position: relative;
             z-index: 1;
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-size: 0.85rem;
         }
 
-        .founder-bio {
+        .founder-role {
             color: var(--text-gray);
-            line-height: 1.8;
-            font-size: 0.95rem;
-            text-align: left;
+            font-size: 0.8rem;
+            margin-bottom: 1.2rem;
+            font-weight: 500;
             position: relative;
             z-index: 1;
         }
 
-        /* Releases Section with Advanced Card Interactions */
+        .founder-bio {
+            color: var(--text-gray);
+            line-height: 1.7;
+            font-size: 0.85rem;
+            text-align: left;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .founder-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-social a {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-gray);
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+
+        .founder-social a:hover {
+            background: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-5px) rotate(360deg);
+            box-shadow: 0 8px 25px rgba(255, 71, 87, 0.5);
+        }
+
+        /* ==================== RELEASES SECTION ==================== */
         .releases-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2.2rem;
+            margin-top: 3rem;
         }
 
         .release-card {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
+            background: var(--card-bg);
+            border-radius: 22px;
             overflow: hidden;
             transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.05);
             cursor: pointer;
             position: relative;
-            transform-style: preserve-3d;
         }
 
         .release-card::before {
             content: '';
             position: absolute;
-            inset: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: var(--gradient-purple);
             opacity: 0;
             transition: var(--transition);
@@ -920,21 +957,20 @@
         }
 
         .release-card:hover {
-            transform: translateY(-15px) scale(1.02) rotateX(2deg);
-            box-shadow: 0 30px 90px rgba(95, 39, 205, 0.45);
-            border-color: rgba(95, 39, 205, 0.4);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 70px rgba(95, 39, 205, 0.4);
+            border-color: rgba(95, 39, 205, 0.5);
         }
 
         .release-card:hover::before {
-            opacity: 0.12;
+            opacity: 0.1;
         }
 
         .release-image-wrapper {
             position: relative;
             width: 100%;
-            height: 290px;
+            height: 270px;
             overflow: hidden;
-            background: var(--darker);
         }
 
         .release-image {
@@ -945,8 +981,8 @@
         }
 
         .release-card:hover .release-image {
-            transform: scale(1.2);
-            filter: brightness(0.6);
+            transform: scale(1.15);
+            filter: brightness(0.7);
         }
 
         .play-overlay {
@@ -954,173 +990,129 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0);
-            width: 75px;
-            height: 75px;
+            width: 65px;
+            height: 65px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
-            box-shadow: 0 15px 45px rgba(255, 71, 87, 0.7);
-            border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 12px 35px rgba(255, 71, 87, 0.6);
         }
 
         .release-card:hover .play-overlay {
-            transform: translate(-50%, -50%) scale(1) rotate(360deg);
+            transform: translate(-50%, -50%) scale(1);
         }
 
         .play-overlay i {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--text-white);
-            margin-left: 5px;
+            margin-left: 4px;
         }
 
         .release-info {
-            padding: 1.8rem;
+            padding: 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         .release-title {
-            font-size: 1.2rem;
-            font-weight: 800;
-            margin-bottom: 0.6rem;
-            letter-spacing: -0.3px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
         }
 
         .release-artist {
             color: var(--text-gray);
-            font-size: 0.95rem;
-            font-weight: 500;
+            font-size: 0.85rem;
         }
 
-        /* Contact Section with Premium Form Design */
+        /* ==================== CONTACT FORM ==================== */
         .contact-form-wrapper {
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
         }
 
         .contact-form {
-            background: rgba(26, 26, 26, 0.5);
-            backdrop-filter: blur(30px);
-            border-radius: 30px;
-            padding: 3.5rem 3rem;
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 2.8rem;
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-form::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 71, 87, 0.05) 0%, rgba(95, 39, 205, 0.05) 100%);
-            pointer-events: none;
+            box-shadow: var(--shadow-card);
         }
 
         .form-group {
-            margin-bottom: 1.8rem;
-            position: relative;
-            z-index: 1;
+            margin-bottom: 1.5rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.8rem;
-            font-weight: 700;
+            margin-bottom: 0.6rem;
+            font-weight: 600;
             color: var(--text-gray);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 0.85rem;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 1.1rem 1.5rem;
-            background: rgba(255, 255, 255, 0.04);
+            padding: 0.9rem 1.3rem;
+            background: rgba(255, 255, 255, 0.03);
             border: 2px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            border-radius: 18px;
             color: var(--text-white);
-            font-size: 0.95rem;
-            font-family: 'Inter', 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            font-family: 'Poppins', sans-serif;
             transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: var(--text-light-gray);
         }
 
         .form-group input:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            background: rgba(255, 255, 255, 0.06);
-            box-shadow: 0 0 0 4px rgba(255, 71, 87, 0.1), 0 10px 30px rgba(255, 71, 87, 0.2);
-            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 0 0 3px rgba(255, 71, 87, 0.1);
+            transform: translateY(-2px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 140px;
+            min-height: 120px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: 1.2rem;
+            padding: 1rem;
             background: var(--gradient-main);
             color: var(--text-white);
             border: none;
             border-radius: 50px;
-            font-weight: 800;
-            font-size: 0.95rem;
+            font-weight: 700;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: translate(-50%, -50%);
-            transition: width 0.8s, height 0.8s;
-        }
-
-        .submit-btn:hover::before {
-            width: 600px;
-            height: 600px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-5px) scale(1.01);
-            box-shadow: 0 25px 70px rgba(255, 71, 87, 0.7), 0 0 100px rgba(255, 71, 87, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 50px rgba(255, 71, 87, 0.6);
         }
 
         .submit-btn:active {
-            transform: translateY(-2px) scale(0.99);
+            transform: translateY(-2px);
         }
 
-        /* Footer with Premium Gradient */
+        /* ==================== FOOTER ==================== */
         footer {
             background: linear-gradient(180deg, var(--dark-bg) 0%, var(--darker) 100%);
-            padding: 5rem 3rem 2.5rem;
+            padding: 4rem 3rem 2rem;
             text-align: center;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
             position: relative;
@@ -1134,76 +1126,100 @@
             right: 0;
             height: 1px;
             background: var(--gradient-main);
-            opacity: 0.3;
+            opacity: 0.5;
         }
 
         .footer-content h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 900;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
             font-family: 'Playfair Display', serif;
-            margin-bottom: 1.2rem;
-            letter-spacing: -0.5px;
+            margin-bottom: 1rem;
         }
 
         .footer-content p {
             color: var(--text-gray);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
+            margin-bottom: 2rem;
+            max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
-            font-size: 0.95rem;
+            line-height: 1.7;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
         }
 
         .footer-social {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             justify-content: center;
-            margin-bottom: 2.5rem;
-            flex-wrap: wrap;
+            margin-bottom: 2rem;
         }
 
         .footer-social-icon {
-            width: 50px;
-            height: 50px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.04);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             cursor: pointer;
-            font-size: 1.1rem;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.95rem;
+            color: var(--text-gray);
         }
 
         .footer-social-icon:hover {
             background: var(--primary);
-            transform: translateY(-8px) rotate(360deg) scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 71, 87, 0.6);
-            border-color: var(--primary);
+            color: var(--text-white);
+            transform: translateY(-6px) rotate(360deg);
+            box-shadow: 0 10px 30px rgba(255, 71, 87, 0.5);
         }
 
         .footer-bottom {
-            padding-top: 2.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             color: var(--text-gray);
-            font-size: 0.85rem;
-            font-weight: 500;
+            font-size: 0.8rem;
         }
 
-        /* Scroll to Top Button with Enhanced Design */
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        /* ==================== SCROLL TO TOP ==================== */
         .scroll-top {
             position: fixed;
-            bottom: 3rem;
-            right: 3rem;
-            width: 55px;
-            height: 55px;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            width: 50px;
+            height: 50px;
             background: var(--gradient-main);
             border-radius: 50%;
             display: flex;
@@ -1215,8 +1231,8 @@
             transition: var(--transition);
             box-shadow: var(--shadow-glow);
             z-index: 999;
-            font-size: 1.3rem;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.2rem;
+            color: var(--text-white);
         }
 
         .scroll-top.visible {
@@ -1226,73 +1242,10 @@
 
         .scroll-top:hover {
             transform: translateY(-8px) scale(1.1) rotate(360deg);
-            box-shadow: 0 20px 60px rgba(255, 71, 87, 0.8);
+            box-shadow: var(--shadow-glow-strong);
         }
 
-        /* Loading Animation */
-        .loading-screen {
-            position: fixed;
-            inset: 0;
-            background: var(--darker);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.5s, visibility 0.5s;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 5px solid rgba(255, 71, 87, 0.2);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        /* Responsive Design - Tablets */
-        @media (max-width: 1024px) {
-            .nav-container {
-                padding: 0 2rem;
-            }
-
-            .hero {
-                padding: 8rem 1.5rem 4rem;
-            }
-
-            .hero h1 {
-                font-size: clamp(2.2rem, 6vw, 4rem);
-            }
-
-            section {
-                padding: 4.5rem 1.5rem;
-            }
-
-            #about {
-                padding: 4rem 2.5rem;
-            }
-
-            .services-grid,
-            .founders-grid,
-            .releases-grid {
-                gap: 2rem;
-            }
-
-            .contact-form {
-                padding: 2.5rem 2rem;
-            }
-        }
-
-        /* Responsive Design - Mobile */
+        /* ==================== RESPONSIVE DESIGN ==================== */
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 1.5rem;
@@ -1300,22 +1253,21 @@
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(40px);
+                backdrop-filter: blur(30px);
                 flex-direction: column;
                 gap: 0;
                 padding: 2rem 0;
-                transform: translateY(-150%);
+                transform: translateX(-100%);
                 transition: var(--transition);
                 border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
             }
 
             .nav-links.active {
-                transform: translateY(0);
+                transform: translateX(0);
             }
 
             .nav-links li {
@@ -1323,6 +1275,10 @@
                 text-align: center;
                 padding: 1rem 0;
                 border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
             }
 
             .nav-links a::after {
@@ -1334,177 +1290,102 @@
             }
 
             .hero {
-                padding: 7rem 1.5rem 3rem;
-                min-height: 90vh;
-            }
-
-            .hero h1 {
-                font-size: clamp(2rem, 8vw, 3rem);
-                letter-spacing: -1px;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn {
-                width: 100%;
-                justify-content: center;
-                padding: 1rem 2rem;
+                padding: 8rem 1.5rem 3rem;
             }
 
             section {
-                padding: 3.5rem 1.5rem;
-            }
-
-            .section-title {
-                font-size: clamp(1.8rem, 7vw, 2.5rem);
-            }
-
-            .section-subtitle {
-                font-size: 0.95rem;
+                padding: 3rem 1.5rem;
             }
 
             #about {
-                padding: 3rem 1.8rem;
-                border-radius: 30px;
+                padding: 3rem 2rem;
             }
 
-            .about-text {
-                font-size: 0.95rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .service-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .founders-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .founder-card {
-                padding: 2.5rem 1.8rem;
-            }
-
+            .services-grid,
+            .founders-grid,
             .releases-grid {
                 grid-template-columns: 1fr;
                 gap: 1.5rem;
             }
 
-            .contact-form {
-                padding: 2.5rem 1.8rem;
-                border-radius: 25px;
+            .floating-icon {
+                display: none;
             }
 
-            .form-group input,
-            .form-group textarea {
-                padding: 1rem 1.2rem;
-                font-size: 0.9rem;
+            .cta-buttons {
+                flex-direction: column;
+                width: 100%;
             }
 
-            footer {
-                padding: 3.5rem 1.5rem 2rem;
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
 
-            .footer-content h3 {
-                font-size: 1.6rem;
-            }
-
-            .footer-content p {
-                font-size: 0.9rem;
-            }
-
-            .footer-social {
-                gap: 1rem;
-            }
-
-            .footer-social-icon {
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
+            .hero-stats {
+                gap: 2rem;
             }
 
             .scroll-top {
                 bottom: 2rem;
                 right: 2rem;
-                width: 50px;
-                height: 50px;
-            }
-
-            .floating-icon {
-                display: none;
+                width: 45px;
+                height: 45px;
             }
         }
 
-        /* Extra Small Devices */
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.4rem;
-            }
-
-            .logo i {
-                font-size: 1.2rem;
-            }
-
-            .hero-badge {
-                font-size: 0.65rem;
-                padding: 0.6rem 1.3rem;
+                font-size: 1.3rem;
             }
 
             .hero h1 {
-                font-size: clamp(1.8rem, 9vw, 2.5rem);
+                font-size: clamp(2rem, 10vw, 3rem);
             }
 
-            .section-label {
-                font-size: 0.7rem;
-                padding: 0.4rem 1.2rem;
+            .section-title {
+                font-size: clamp(1.8rem, 8vw, 2.5rem);
             }
 
-            .service-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 1.6rem;
-            }
-
+            .service-icon,
             .founder-image-wrapper {
-                width: 140px;
-                height: 140px;
+                width: 60px;
+                height: 60px;
             }
 
-            .release-image-wrapper {
-                height: 250px;
-            }
-
-            .play-overlay {
-                width: 65px;
-                height: 65px;
-            }
-
-            .play-overlay i {
-                font-size: 1.5rem;
+            .contact-form {
+                padding: 2rem 1.5rem;
             }
         }
 
-        /* Reduced Motion for Accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        /* ==================== LOADING ANIMATION ==================== */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--darker);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: loaderSpin 1s linear infinite;
+        }
+
+        @keyframes loaderSpin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -1517,18 +1398,18 @@
     <!-- Animated Background -->
     <div class="animated-bg"></div>
 
-    <!-- Particle System -->
+    <!-- Particles -->
     <div class="particles" id="particles"></div>
 
     <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">
-                <i class="fas fa-record-vinyl"></i>
+                <i class="fas fa-music"></i>
                 <span>Ash Hu Music</span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#founders">Founders</a></li>
@@ -1546,13 +1427,18 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <i class="fas fa-music floating-icon"></i>
+        <i class="fas fa-compact-disc floating-icon"></i>
         <i class="fas fa-headphones floating-icon"></i>
         <i class="fas fa-microphone floating-icon"></i>
         
-        <div class="hero-content" data-aos="fade-up">
-            <div class="hero-badge">🎵 Independent Music Label</div>
-            <h1>Your Music, Amplified</h1>
-            <p>We empower independent artists with world-class distribution, strategic branding, innovative marketing, and comprehensive development services to help your music reach its full potential.</p>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-fire"></i> Independent Music Label
+            </div>
+            <h1>Elevate Your Sound</h1>
+            <p>
+                <strong>Ash Hu Music</strong> is an independent music label founded by <strong>Harshit & Udghosh</strong>, empowering artists worldwide with cutting-edge distribution, innovative branding, strategic marketing, and comprehensive development services. Transform your passion into a global phenomenon.
+            </p>
             <div class="cta-buttons">
                 <a href="#services" class="btn btn-primary">
                     <span>Explore Services</span>
@@ -1560,125 +1446,203 @@
                 </a>
                 <a href="#contact" class="btn btn-secondary">
                     <span>Get Started</span>
-                    <i class="fas fa-paper-plane"></i>
+                    <i class="fas fa-rocket"></i>
                 </a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="500">0</div>
+                    <div class="hero-stat-label">Artists</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="5000">0</div>
+                    <div class="hero-stat-label">Releases</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="150">0</div>
+                    <div class="hero-stat-label">Countries</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number" data-target="20">0</div>
+                    <div class="hero-stat-label">M+ Streams</div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Who We Are</div>
-            <h2 class="section-title">About Ash Hu Music</h2>
-            <p class="section-subtitle">Pioneering independent music with passion, innovation, and unwavering artist support</p>
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fas fa-info-circle"></i> About Us
+            </div>
+            <h2 class="section-title">Who We Are</h2>
+            <p class="section-subtitle">A music label built by artists, for artists, with passion and innovation at our core</p>
         </div>
-        <div class="about-text" data-aos="fade-up" data-aos-delay="100">
-            <strong>Ash Hu Music</strong> is a cutting-edge independent music label dedicated to discovering, developing, and promoting exceptional musical talent. We provide comprehensive services including <strong>global distribution</strong>, <strong>brand development</strong>, <strong>digital marketing</strong>, and <strong>artist mentorship</strong>. Our mission is to empower artists with the tools, resources, and support they need to thrive in today's dynamic music industry while maintaining their creative authenticity and artistic vision.
+        <div class="about-text">
+            <strong>Ash Hu Music</strong> was founded by two passionate friends, <strong>Harshit and Udghosh</strong>, who share a vision of empowering independent artists in the digital age. We believe that every artist deserves access to professional-grade distribution, marketing, and development services without sacrificing creative control or fair compensation.
+            <br><br>
+            Our label operates on transparency, innovation, and artist-first principles. We combine cutting-edge technology with personalized support to help musicians navigate the complex music industry landscape. From global distribution across 200+ platforms to strategic playlist pitching, sync licensing opportunities, and comprehensive branding solutions, we provide everything artists need to build sustainable careers.
+            <br><br>
+            What sets us apart is our commitment to keeping artists in control of their music while providing enterprise-level services typically reserved for major label artists. We're not just a distributor—we're your long-term career partner, dedicated to your success every step of the way.
         </div>
     </section>
 
     <!-- Services Section -->
     <section id="services">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-label">What We Offer</div>
-            <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive solutions designed to elevate your music career</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="service-icon">
-                    <i class="fas fa-compact-disc"></i>
-                </div>
-                <h3 class="service-title">Music Distribution</h3>
-                <p class="service-description">Get your music on all major streaming platforms including Spotify, Apple Music, Amazon Music, and 150+ digital stores worldwide with seamless delivery.</p>
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fas fa-star"></i> What We Offer
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive solutions designed to elevate every aspect of your music career</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-palette"></i>
+                    <i class="fas fa-globe"></i>
+                </div>
+                <h3 class="service-title">Global Distribution</h3>
+                <p class="service-description">Get your music on 200+ platforms worldwide including Spotify, Apple Music, Amazon Music, YouTube Music, Tidal, Deezer, and all major streaming services with lightning-fast delivery.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-paint-brush"></i>
                 </div>
                 <h3 class="service-title">Brand Development</h3>
-                <p class="service-description">Build a powerful artist identity with professional branding, logo design, visual aesthetics, and comprehensive brand strategy that resonates with your audience.</p>
+                <p class="service-description">Build a compelling artist identity with professional branding, logo design, visual content creation, and cohesive aesthetic that captures audience attention and builds recognition.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="service-icon">
-                    <i class="fas fa-bullhorn"></i>
-                </div>
-                <h3 class="service-title">Marketing & Promotion</h3>
-                <p class="service-description">Strategic digital marketing campaigns, social media management, playlist pitching, PR coordination, and targeted advertising to maximize your reach.</p>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="service-icon">
-                    <i class="fas fa-user-graduate"></i>
-                </div>
-                <h3 class="service-title">Artist Development</h3>
-                <p class="service-description">Comprehensive mentorship programs, career guidance, skill development workshops, and industry networking opportunities to accelerate your growth.</p>
-            </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="service-title">Analytics & Insights</h3>
-                <p class="service-description">Detailed performance analytics, streaming data, audience demographics, and actionable insights to inform your strategic decisions and growth.</p>
+                <h3 class="service-title">Marketing Strategy</h3>
+                <p class="service-description">Strategic multi-channel campaigns, social media management, playlist pitching, press coverage, influencer partnerships, and targeted advertising to maximize your reach and engagement.</p>
             </div>
-            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+
+            <div class="service-card">
                 <div class="service-icon">
-                    <i class="fas fa-handshake"></i>
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
-                <h3 class="service-title">Licensing & Sync</h3>
-                <p class="service-description">Opportunities for music placement in films, TV shows, commercials, video games, and other media with expert licensing negotiation support.</p>
+                <h3 class="service-title">Artist Development</h3>
+                <p class="service-description">Personalized mentorship, career coaching, skill workshops, performance training, and industry networking opportunities to accelerate your professional growth and long-term success.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-analytics"></i>
+                </div>
+                <h3 class="service-title">Analytics & Insights</h3>
+                <p class="service-description">Advanced performance tracking, real-time data visualization, audience demographics, streaming analytics, and AI-powered recommendations for intelligent decision-making.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-film"></i>
+                </div>
+                <h3 class="service-title">Sync Licensing</h3>
+                <p class="service-description">Premium opportunities for music placement in films, TV shows, commercials, video games, and digital content with expert negotiation and licensing management support.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-headphones"></i>
+                </div>
+                <h3 class="service-title">Audio Mastering</h3>
+                <p class="service-description">Professional mastering services with industry-standard equipment, experienced engineers, format optimization, and quality enhancement for all platforms and devices.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="service-title">Rights Management</h3>
+                <p class="service-description">Comprehensive copyright protection, worldwide royalty collection, content ID management, dispute resolution, and transparent reporting to ensure you receive every penny earned.</p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-video"></i>
+                </div>
+                <h3 class="service-title">Video Production</h3>
+                <p class="service-description">End-to-end music video production including concept development, professional filming, creative editing, color grading, special effects, and multi-platform distribution optimization.</p>
             </div>
         </div>
     </section>
 
     <!-- Founders Section -->
     <section id="founders">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Leadership</div>
-            <h2 class="section-title">Meet The Founders</h2>
-            <p class="section-subtitle">Visionary leaders driving innovation in independent music</p>
-        </div>
-        <div class="founders-grid">
-            <div class="founder-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Founder 1" class="founder-image">
-                </div>
-                <h3 class="founder-name">Ash Kumar</h3>
-                <p class="founder-title">Co-Founder & CEO</p>
-                <p class="founder-bio">A seasoned music industry veteran with over 15 years of experience in artist management, distribution, and label operations. Passionate about empowering independent artists and revolutionizing the music business landscape with innovative, artist-first approaches.</p>
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fas fa-users"></i> Leadership
             </div>
-            <div class="founder-card" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">Meet The Founders</h2>
+            <p class="section-subtitle">Two friends with a shared vision of revolutionizing independent music distribution</p>
+        </div>
+        
+        <div class="founders-grid">
+            <div class="founder-card">
                 <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Founder 2" class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Harshit - Co-Founder" class="founder-image">
                 </div>
-                <h3 class="founder-name">Priya Sharma</h3>
-                <p class="founder-title">Co-Founder & COO</p>
-                <p class="founder-bio">Expert in digital marketing, brand strategy, and music technology with a proven track record of launching successful artist careers. Combines creative vision with data-driven insights to deliver exceptional results and sustainable growth for artists.</p>
+                <h3 class="founder-name">Harshit</h3>
+                <p class="founder-title">Co-Founder & Creative Director</p>
+                <p class="founder-role">Equal Partner</p>
+                <p class="founder-bio">Visionary creative leader with 10+ years of expertise in artist development, brand strategy, music production, and creative direction. Passionate about empowering independent artists through innovative solutions and strategic partnerships. Brings deep industry knowledge and proven track record of transforming emerging artists into global sensations.</p>
+                <div class="founder-social">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:harshit@ashhumusic.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+
+            <div class="founder-card">
+                <div class="founder-image-wrapper">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Udghosh - Co-Founder" class="founder-image">
+                </div>
+                <h3 class="founder-name">Udghosh</h3>
+                <p class="founder-title">Co-Founder & Technology Officer</p>
+                <p class="founder-role">Equal Partner</p>
+                <p class="founder-bio">Tech mastermind specializing in digital distribution infrastructure, analytics platforms, marketing automation, and scalable technology solutions. Expert in building systems that empower artists with data-driven insights and cutting-edge tools. Combines technical excellence with deep music industry knowledge to create innovative platforms that revolutionize artist careers.</p>
+                <div class="founder-social">
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:udghosh@ashhumusic.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Releases Section -->
     <section id="releases">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Latest Drops</div>
-            <h2 class="section-title">Recent Releases</h2>
-            <p class="section-subtitle">Discover the newest tracks from our talented roster of artists</p>
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fas fa-compact-disc"></i> Latest Releases
+            </div>
+            <h2 class="section-title">Featured Music</h2>
+            <p class="section-subtitle">Discover the latest tracks from our talented roster of artists</p>
         </div>
+        
         <div class="releases-grid">
-            <div class="release-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release 1" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop" alt="Release 1" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Midnight Dreams</h4>
-                    <p class="release-artist">by Echo Sound</p>
+                    <h3 class="release-title">Midnight Dreams</h3>
+                    <p class="release-artist">Sarah Collins</p>
                 </div>
             </div>
-            <div class="release-card" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="release-card">
                 <div class="release-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?w=600&h=600&fit=crop" alt="Release 2" class="release-image">
                     <div class="play-overlay">
@@ -1686,35 +1650,38 @@
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Urban Pulse</h4>
-                    <p class="release-artist">by Nova Beats</p>
+                    <h3 class="release-title">Electric Pulse</h3>
+                    <p class="release-artist">DJ Nexus</p>
                 </div>
             </div>
-            <div class="release-card" data-aos="fade-up" data-aos-delay="300">
+
+            <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=600&h=600&fit=crop" alt="Release 3" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Electric Nights</h4>
-                    <p class="release-artist">by Vibe Collective</p>
+                    <h3 class="release-title">Acoustic Sessions</h3>
+                    <p class="release-artist">Marcus Lee</p>
                 </div>
             </div>
-            <div class="release-card" data-aos="fade-up" data-aos-delay="400">
+
+            <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&h=600&fit=crop" alt="Release 4" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Summer Vibes</h4>
-                    <p class="release-artist">by Sunset Records</p>
+                    <h3 class="release-title">Urban Vibes</h3>
+                    <p class="release-artist">The Flow Collective</p>
                 </div>
             </div>
-            <div class="release-card" data-aos="fade-up" data-aos-delay="500">
+
+            <div class="release-card">
                 <div class="release-image-wrapper">
                     <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=600&h=600&fit=crop" alt="Release 5" class="release-image">
                     <div class="play-overlay">
@@ -1722,20 +1689,21 @@
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Acoustic Soul</h4>
-                    <p class="release-artist">by Harmony Lane</p>
+                    <h3 class="release-title">Neon Nights</h3>
+                    <p class="release-artist">Luna Storm</p>
                 </div>
             </div>
-            <div class="release-card" data-aos="fade-up" data-aos-delay="600">
+
+            <div class="release-card">
                 <div class="release-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1446057633965-55d2dcb22598?w=600&h=600&fit=crop" alt="Release 6" class="release-image">
+                    <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=600&h=600&fit=crop" alt="Release 6" class="release-image">
                     <div class="play-overlay">
                         <i class="fas fa-play"></i>
                     </div>
                 </div>
                 <div class="release-info">
-                    <h4 class="release-title">Neon Lights</h4>
-                    <p class="release-artist">by Future Wave</p>
+                    <h3 class="release-title">Soulful Journey</h3>
+                    <p class="release-artist">R&B Legends</p>
                 </div>
             </div>
         </div>
@@ -1743,30 +1711,57 @@
 
     <!-- Contact Section -->
     <section id="contact">
-        <div class="section-header" data-aos="fade-up">
-            <div class="section-label">Get In Touch</div>
+        <div class="section-header">
+            <div class="section-label">
+                <i class="fas fa-envelope"></i> Get In Touch
+            </div>
             <h2 class="section-title">Contact Us</h2>
-            <p class="section-subtitle">Ready to take your music career to the next level? Let's start the conversation</p>
+            <p class="section-subtitle">Ready to elevate your music career? Let's start your success story today</p>
         </div>
-        <div class="contact-form-wrapper" data-aos="fade-up" data-aos-delay="100">
+        
+        <div class="contact-form-wrapper">
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
                 </div>
+
                 <div class="form-group">
-                    <label for="email">Email Address</label>
+                    <label for="email">Email Address *</label>
                     <input type="email" id="email" name="email" placeholder="your@email.com" required>
                 </div>
+
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="tel" id="phone" name="phone" placeholder="+91 XXXXX XXXXX">
                 </div>
+
                 <div class="form-group">
-                    <label for="message">Your Message</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your project, goals, and how we can help you succeed..." required></textarea>
+                    <label for="service">Service Interest</label>
+                    <select id="service" name="service">
+                        <option value="">Select a service</option>
+                        <option value="distribution">Music Distribution</option>
+                        <option value="branding">Brand Development</option>
+                        <option value="marketing">Marketing Strategy</option>
+                        <option value="development">Artist Development</option>
+                        <option value="analytics">Analytics & Insights</option>
+                        <option value="licensing">Sync Licensing</option>
+                        <option value="mastering">Audio Mastering</option>
+                        <option value="rights">Rights Management</option>
+                        <option value="video">Video Production</option>
+                        <option value="other">Other Services</option>
+                    </select>
                 </div>
-                <button type="submit" class="submit-btn">Send Message</button>
+
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us about your music, goals, and how we can help you succeed..." required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Send Message
+                    <i class="fas fa-paper-plane" style="margin-left: 8px;"></i>
+                </button>
             </form>
         </div>
     </section>
@@ -1775,7 +1770,21 @@
     <footer>
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
-            <p>Empowering independent artists with world-class services, innovative strategies, and unwavering support. Join us in shaping the future of music.</p>
+            <p>
+                Founded by <strong>Harshit & Udghosh</strong>, Ash Hu Music is an independent music label empowering artists worldwide with cutting-edge distribution, innovative marketing, comprehensive development services, and unwavering support. Join our global community and transform your music career today.
+            </p>
+            
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Services</a>
+                <a href="#founders">Founders</a>
+                <a href="#releases">Releases</a>
+                <a href="#contact">Contact</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+
             <div class="footer-social">
                 <div class="footer-social-icon" onclick="window.open('https://instagram.com', '_blank')">
                     <i class="fab fa-instagram"></i>
@@ -1795,10 +1804,13 @@
                 <div class="footer-social-icon" onclick="window.open('https://soundcloud.com', '_blank')">
                     <i class="fab fa-soundcloud"></i>
                 </div>
+                <div class="footer-social-icon" onclick="window.open('https://tiktok.com', '_blank')">
+                    <i class="fab fa-tiktok"></i>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Ash Hu Music. All rights reserved. Designed with ❤️ for independent artists.</p>
+            <p>&copy; 2026 Ash Hu Music. Founded by <a href="#founders">Harshit & Udghosh</a>. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--primary);"></i> for independent artists worldwide.</p>
         </div>
     </footer>
 
@@ -1807,27 +1819,17 @@
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
+    <!-- JavaScript -->
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            easing: 'ease-out-cubic',
-            once: true,
-            offset: 100
-        });
-
-        // Loading Screen
+        // ==================== LOADING SCREEN ====================
         window.addEventListener('load', () => {
             const loadingScreen = document.querySelector('.loading-screen');
             setTimeout(() => {
                 loadingScreen.classList.add('hidden');
-            }, 1000);
+            }, 1500);
         });
 
-        // Particle System
+        // ==================== PARTICLE SYSTEM ====================
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
             const particleCount = 30;
@@ -1839,18 +1841,21 @@
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 particle.style.animationDuration = (15 + Math.random() * 10) + 's';
                 
-                // Random colors
-                const colors = ['#ff4757', '#5f27cd', '#00d2d3', '#54a0ff'];
-                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.boxShadow = `0 0 10px ${particle.style.background}`;
+                const colors = ['rgba(255, 71, 87, 0.4)', 'rgba(95, 39, 205, 0.3)', 'rgba(0, 210, 211, 0.3)'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.background = color;
                 
                 particlesContainer.appendChild(particle);
             }
         }
         createParticles();
 
-        // Navbar Scroll Effect
+        // ==================== NAVIGATION ====================
         const navbar = document.getElementById('navbar');
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
@@ -1859,13 +1864,11 @@
             }
         });
 
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-
+        // Mobile menu toggle
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
+            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
         });
 
         // Close mobile menu when clicking on a link
@@ -1873,14 +1876,40 @@
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
         });
 
-        // Smooth Scroll for Navigation Links
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinksAll.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // ==================== SMOOTH SCROLL ====================
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const target = document.querySelector(targetId);
                 if (target) {
                     const offsetTop = target.offsetTop - 80;
                     window.scrollTo({
@@ -1891,10 +1920,11 @@
             });
         });
 
-        // Scroll to Top Button
+        // ==================== SCROLL TO TOP BUTTON ====================
         const scrollTopBtn = document.getElementById('scrollTop');
+        
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
+            if (window.pageYOffset > 600) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
@@ -1908,81 +1938,76 @@
             });
         });
 
-        // Contact Form Submission
+        // ==================== STATS COUNTER ANIMATION ====================
+        function animateCounter(element) {
+            const target = parseInt(element.getAttribute('data-target'));
+            const duration = 2000;
+            const increment = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += increment;
+                if (current < target) {
+                    element.textContent = Math.floor(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    element.textContent = target;
+                }
+            };
+
+            updateCounter();
+        }
+
+        // Intersection Observer for Stats
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counters = entry.target.querySelectorAll('[data-target]');
+                    counters.forEach(counter => {
+                        animateCounter(counter);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            statsObserver.observe(heroSection);
+        }
+
+        // ==================== CONTACT FORM SUBMISSION ====================
         const contactForm = document.getElementById('contactForm');
+        
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
-            // Get form data
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
-            const phone = formData.get('phone');
-            const message = formData.get('message');
 
-            // Here you would typically send the data to a server
-            console.log('Form submitted:', { name, email, phone, message });
-
-            // Show success message
-            alert(`Thank you, ${name}! We've received your message and will get back to you soon at ${email}.`);
+            // Success feedback
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalHTML = submitBtn.innerHTML;
             
-            // Reset form
-            contactForm.reset();
-        });
+            submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Message Sent!';
+            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
+            submitBtn.disabled = true;
 
-        // Add hover effect to release cards
-        document.querySelectorAll('.release-card').forEach(card => {
-            card.addEventListener('click', () => {
-                console.log('Release card clicked:', card.querySelector('.release-title').textContent);
-                // You can add functionality to play music or show more details
-            });
-        });
-
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Add parallax effect to hero section
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const heroContent = document.querySelector('.hero-content');
-            if (heroContent && scrolled < window.innerHeight) {
-                heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
-                heroContent.style.opacity = 1 - (scrolled / window.innerHeight);
-            }
-        });
-
-        // Add dynamic gradient to service cards
-        document.querySelectorAll('.service-card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+            setTimeout(() => {
+                alert(`🎵 Thank you, ${name}!\n\nYour message has been received. Our team will get back to you at ${email} within 24 hours.\n\nGet ready to elevate your music career!\n\n- Harshit & Udghosh\nAsh Hu Music Founders`);
                 
-                card.style.setProperty('--mouse-x', `${x}px`);
-                card.style.setProperty('--mouse-y', `${y}px`);
-            });
+                contactForm.reset();
+                submitBtn.innerHTML = originalHTML;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+            }, 1500);
         });
 
-        // Console welcome message
-        console.log('%cWelcome to Ash Hu Music! 🎵', 'color: #ff4757; font-size: 20px; font-weight: bold;');
-        console.log('%cBuilt with ❤️ for independent artists', 'color: #5f27cd; font-size: 14px;');
+        // ==================== CONSOLE BRANDING ====================
+        console.log('%c🎵 ASH HU MUSIC 🎵', 'color: #ff4757; font-size: 40px; font-weight: 900;');
+        console.log('%c🚀 Founded by Harshit & Udghosh', 'color: #00d2d3; font-size: 20px; font-weight: 700;');
+        console.log('%c✨ Independent Music Label for Artists Worldwide', 'color: #5f27cd; font-size: 14px;');
     </script>
 </body>
 </html>
