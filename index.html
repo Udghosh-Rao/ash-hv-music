@@ -3,268 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ash Hu Music - Revolutionary independent music label founded by Harshit & Udghosh, empowering artists worldwide with cutting-edge distribution, marketing, and development services">
-    <meta name="keywords" content="music label, independent music, artist development, music distribution, music marketing, sync licensing, music production, artist management, music branding">
-    <meta name="author" content="Harshit & Udghosh - Ash Hu Music Founders">
+    <meta name="description" content="Ash Hu Music - Revolutionary independent music label empowering artists worldwide">
+    <meta name="keywords" content="music label, independent music, artist development, music distribution">
     <meta name="theme-color" content="#8b5cf6">
-    <meta property="og:title" content="Ash Hu Music | Revolutionary Music Label">
-    <meta property="og:description" content="Elite independent music label empowering artists worldwide">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="https://ashhumusic.com/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ash Hu Music | Revolutionary Music Label">
-    <meta name="twitter:description" content="Elite independent music label empowering artists worldwide">
-    
-    <title>Ash Hu Music | Revolutionary Independent Music Label | Founded by Harshit & Udghosh</title>
+    <title>Ash Hu Music | Revolutionary Music Label</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Animate.css -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-    
     <style>
-        /* ==================== RESET & BASE STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        *::before,
-        *::after {
-            box-sizing: border-box;
-        }
-
         :root {
-            /* Primary Color Palette - Purple & Violet Tones */
+            /* New Futuristic Color Palette */
             --primary: #8b5cf6;
             --primary-light: #a78bfa;
-            --primary-lighter: #c4b5fd;
-            --primary-dark: #7c3aed;
-            --primary-darker: #6d28d9;
-            
-            /* Secondary Color Palette - Cyan & Blue Tones */
             --secondary: #06b6d4;
             --secondary-light: #22d3ee;
-            --secondary-lighter: #67e8f9;
-            --secondary-dark: #0891b2;
-            --secondary-darker: #0e7490;
-            
-            /* Accent Color Palette - Pink & Rose Tones */
             --accent: #ec4899;
             --accent-light: #f472b6;
-            --accent-lighter: #f9a8d4;
-            --accent-dark: #db2777;
-            --accent-darker: #be185d;
-            
-            /* Success & Positive States */
             --success: #10b981;
-            --success-light: #34d399;
-            --success-dark: #059669;
-            
-            /* Warning & Alert States */
             --warning: #f59e0b;
-            --warning-light: #fbbf24;
-            --warning-dark: #d97706;
             
-            /* Error & Danger States */
-            --error: #ef4444;
-            --error-light: #f87171;
-            --error-dark: #dc2626;
-            
-            /* Info & Neutral States */
-            --info: #3b82f6;
-            --info-light: #60a5fa;
-            --info-dark: #2563eb;
-            
-            /* Background Colors - Dark Theme */
-            --bg-primary: #0f0f23;
-            --bg-secondary: #1a1a2e;
-            --bg-tertiary: #16213e;
-            --bg-dark: #0a0a15;
+            /* Dark Theme */
+            --bg-dark: #0f0f23;
             --bg-darker: #050510;
             --bg-card: rgba(30, 30, 60, 0.4);
             --bg-glass: rgba(139, 92, 246, 0.05);
-            --bg-glass-strong: rgba(139, 92, 246, 0.1);
             
-            /* Text Colors */
+            /* Text */
             --text-primary: #ffffff;
             --text-secondary: #cbd5e1;
-            --text-tertiary: #94a3b8;
-            --text-muted: #64748b;
-            --text-disabled: #475569;
+            --text-muted: #94a3b8;
             
-            /* Gradient Definitions */
+            /* Gradients */
             --gradient-primary: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
-            --gradient-primary-vertical: linear-gradient(180deg, #8b5cf6 0%, #ec4899 100%);
             --gradient-secondary: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
-            --gradient-secondary-vertical: linear-gradient(180deg, #06b6d4 0%, #8b5cf6 100%);
             --gradient-accent: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
-            --gradient-accent-vertical: linear-gradient(180deg, #ec4899 0%, #f59e0b 100%);
-            --gradient-success: linear-gradient(135deg, #10b981 0%, #34d399 100%);
-            --gradient-info: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
-            --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ec4899 100%);
-            --gradient-cool: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-            --gradient-rainbow: linear-gradient(135deg, #8b5cf6 0%, #06b6d4 25%, #10b981 50%, #f59e0b 75%, #ec4899 100%);
             --gradient-glow: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.3), transparent 70%);
-            --gradient-glow-strong: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.5), transparent 60%);
             
-            /* Glass & Transparency Effects */
+            /* Effects */
             --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-bg-strong: rgba(255, 255, 255, 0.1);
-            --glass-bg-light: rgba(255, 255, 255, 0.03);
             --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-border-strong: rgba(255, 255, 255, 0.2);
-            --glass-border-light: rgba(255, 255, 255, 0.05);
-            
-            /* Shadow Definitions */
-            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
-            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
-            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-            --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
-            --shadow-3xl: 0 35px 60px rgba(0, 0, 0, 0.35);
+            --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             --shadow-glow: 0 0 50px rgba(139, 92, 246, 0.4);
-            --shadow-glow-strong: 0 0 80px rgba(139, 92, 246, 0.6);
-            --shadow-glow-pink: 0 0 50px rgba(236, 72, 153, 0.4);
-            --shadow-glow-cyan: 0 0 50px rgba(6, 182, 212, 0.4);
             
-            /* Transitions & Animations */
-            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-slower: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            --transition-spring: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            
-            /* Border Radius */
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 16px;
-            --radius-xl: 20px;
-            --radius-2xl: 24px;
-            --radius-3xl: 30px;
-            --radius-full: 9999px;
-            
-            /* Spacing Scale */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-2xl: 3rem;
-            --space-3xl: 4rem;
-            --space-4xl: 6rem;
-            --space-5xl: 8rem;
-            
-            /* Typography */
-            --font-primary: 'Space Grotesk', 'Inter', sans-serif;
-            --font-secondary: 'Poppins', sans-serif;
-            --font-display: 'Orbitron', sans-serif;
-            --font-mono: 'Courier New', monospace;
-            
-            /* Font Sizes */
-            --text-xs: 0.75rem;
-            --text-sm: 0.875rem;
-            --text-base: 1rem;
-            --text-lg: 1.125rem;
-            --text-xl: 1.25rem;
-            --text-2xl: 1.5rem;
-            --text-3xl: 1.875rem;
-            --text-4xl: 2.25rem;
-            --text-5xl: 3rem;
-            --text-6xl: 3.75rem;
-            --text-7xl: 4.5rem;
-            --text-8xl: 6rem;
-            --text-9xl: 8rem;
-            
-            /* Line Heights */
-            --leading-none: 1;
-            --leading-tight: 1.25;
-            --leading-snug: 1.375;
-            --leading-normal: 1.5;
-            --leading-relaxed: 1.625;
-            --leading-loose: 2;
-            
-            /* Z-Index Scale */
-            --z-negative: -1;
-            --z-base: 0;
-            --z-dropdown: 1000;
-            --z-sticky: 1100;
-            --z-fixed: 1200;
-            --z-modal-backdrop: 1300;
-            --z-modal: 1400;
-            --z-popover: 1500;
-            --z-tooltip: 1600;
-            --z-notification: 1700;
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.2s ease;
         }
 
-        /* ==================== HTML & BODY ==================== */
         html {
-            font-size: 16px;
             scroll-behavior: smooth;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            font-family: var(--font-primary);
+            font-family: 'Space Grotesk', 'Inter', sans-serif;
             background: var(--bg-darker);
             color: var(--text-primary);
-            line-height: var(--leading-relaxed);
+            line-height: 1.7;
             overflow-x: hidden;
             position: relative;
-            min-height: 100vh;
         }
 
-        /* ==================== SELECTION ==================== */
         ::selection {
             background: var(--primary);
             color: white;
-            text-shadow: none;
         }
 
-        ::-moz-selection {
-            background: var(--primary);
-            color: white;
-            text-shadow: none;
-        }
-
-        /* ==================== SCROLLBAR ==================== */
-        ::-webkit-scrollbar {
-            width: 12px;
-            height: 12px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--gradient-primary);
-            border-radius: var(--radius-full);
-            border: 2px solid var(--bg-primary);
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-light);
-        }
-
-        /* ==================== ANIMATED BACKGROUND ==================== */
+        /* Animated Mesh Gradient Background */
         .mesh-background {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: var(--z-negative);
+            z-index: -1;
             background: var(--bg-darker);
             overflow: hidden;
         }
@@ -277,25 +101,15 @@
                 radial-gradient(at 20% 30%, rgba(139, 92, 246, 0.25) 0px, transparent 50%),
                 radial-gradient(at 80% 70%, rgba(6, 182, 212, 0.2) 0px, transparent 50%),
                 radial-gradient(at 40% 80%, rgba(236, 72, 153, 0.2) 0px, transparent 50%),
-                radial-gradient(at 90% 10%, rgba(16, 185, 129, 0.15) 0px, transparent 50%),
-                radial-gradient(at 10% 90%, rgba(245, 158, 11, 0.12) 0px, transparent 50%);
-            animation: meshMove 25s ease-in-out infinite;
+                radial-gradient(at 90% 10%, rgba(16, 185, 129, 0.15) 0px, transparent 50%);
+            animation: meshMove 20s ease-in-out infinite;
             opacity: 0.6;
         }
 
         @keyframes meshMove {
-            0%, 100% { 
-                transform: translate(0, 0) rotate(0deg) scale(1); 
-            }
-            25% { 
-                transform: translate(-8%, 8%) rotate(90deg) scale(1.1); 
-            }
-            50% { 
-                transform: translate(-12%, -5%) rotate(180deg) scale(0.95); 
-            }
-            75% { 
-                transform: translate(5%, -10%) rotate(270deg) scale(1.05); 
-            }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-10%, 10%) rotate(120deg); }
+            66% { transform: translate(10%, -10%) rotate(240deg); }
         }
 
         .grid-overlay {
@@ -305,9 +119,7 @@
                 linear-gradient(rgba(139, 92, 246, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(139, 92, 246, 0.03) 1px, transparent 1px);
             background-size: 50px 50px;
-            animation: gridScroll 25s linear infinite;
-            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
-            -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+            animation: gridScroll 20s linear infinite;
         }
 
         @keyframes gridScroll {
@@ -315,136 +127,28 @@
             100% { transform: translate(50px, 50px); }
         }
 
-        .particles-container {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: particleFloat 30s ease-in-out infinite;
-            box-shadow: 0 0 10px var(--primary);
-        }
-
-        @keyframes particleFloat {
-            0%, 100% {
-                transform: translateY(0) translateX(0) scale(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            90% {
-                opacity: 0.8;
-                transform: scale(1.2);
-            }
-            100% {
-                transform: translateY(-200vh) translateX(100px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* ==================== LOADING SCREEN ==================== */
-        .loading-screen {
-            position: fixed;
-            inset: 0;
-            background: var(--bg-darker);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-        }
-
-        .loading-screen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-
-        .loader {
-            width: 80px;
-            height: 80px;
-            border: 5px solid var(--glass-border);
-            border-top-color: var(--primary);
-            border-radius: 50%;
-            animation: loaderSpin 1s linear infinite;
-            box-shadow: var(--shadow-glow);
-        }
-
-        @keyframes loaderSpin {
-            to { transform: rotate(360deg); }
-        }
-
-        .loading-text {
-            margin-top: var(--space-xl);
-            font-size: var(--text-xl);
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            animation: loadingPulse 2s ease-in-out infinite;
-        }
-
-        @keyframes loadingPulse {
-            0%, 100% { opacity: 0.4; }
-            50% { opacity: 1; }
-        }
-
-        .loading-progress {
-            width: 200px;
-            height: 4px;
-            background: var(--glass-border);
-            border-radius: var(--radius-full);
-            margin-top: var(--space-md);
-            overflow: hidden;
-        }
-
-        .loading-progress-bar {
-            height: 100%;
-            background: var(--gradient-primary);
-            animation: loadingProgress 2s ease-in-out infinite;
-            box-shadow: var(--shadow-glow);
-        }
-
-        @keyframes loadingProgress {
-            0% { width: 0%; }
-            50% { width: 70%; }
-            100% { width: 100%; }
-        }
-
-        /* ==================== NAVIGATION ==================== */
+        /* Glassmorphism Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            z-index: var(--z-sticky);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            z-index: 1000;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             background: rgba(15, 15, 35, 0.7);
             border-bottom: 1px solid var(--glass-border);
-            transition: var(--transition-base);
+            transition: var(--transition);
         }
 
         nav.scrolled {
             background: rgba(15, 15, 35, 0.95);
-            box-shadow: var(--shadow-xl), 0 0 30px rgba(139, 92, 246, 0.1);
-            border-bottom-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
 
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: var(--space-lg) var(--space-2xl);
+            padding: 1.2rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -453,66 +157,37 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: var(--space-md);
-            font-family: var(--font-display);
-            font-size: var(--text-2xl);
+            gap: 1rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
             font-weight: 900;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 2px;
-            position: relative;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: var(--text-xl);
+            font-size: 1.3rem;
             color: white;
             animation: logoFloat 3s ease-in-out infinite;
-            box-shadow: var(--shadow-glow);
-            position: relative;
-        }
-
-        .logo-icon::before {
-            content: '';
-            position: absolute;
-            inset: -2px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
-            opacity: 0.5;
-            filter: blur(8px);
-            z-index: -1;
-            animation: logoPulse 3s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
         @keyframes logoFloat {
-            0%, 100% { 
-                transform: translateY(0) rotate(0deg); 
-            }
-            50% { 
-                transform: translateY(-8px) rotate(5deg); 
-            }
-        }
-
-        @keyframes logoPulse {
-            0%, 100% { 
-                opacity: 0.3; 
-                transform: scale(1); 
-            }
-            50% { 
-                opacity: 0.6; 
-                transform: scale(1.1); 
-            }
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(5deg); }
         }
 
         .logo:hover {
@@ -520,20 +195,10 @@
             filter: brightness(1.2);
         }
 
-        .logo:hover .logo-icon {
-            animation: logoSpin 0.6s ease-in-out;
-        }
-
-        @keyframes logoSpin {
-            0% { transform: rotate(0deg) scale(1); }
-            50% { transform: rotate(180deg) scale(1.1); }
-            100% { transform: rotate(360deg) scale(1); }
-        }
-
         .nav-links {
             display: flex;
             list-style: none;
-            gap: var(--space-2xl);
+            gap: 3rem;
             align-items: center;
         }
 
@@ -541,12 +206,12 @@
             color: var(--text-secondary);
             text-decoration: none;
             font-weight: 600;
-            font-size: var(--text-sm);
-            transition: var(--transition-base);
+            font-size: 0.95rem;
+            transition: var(--transition);
             position: relative;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: var(--space-sm) 0;
+            font-size: 0.85rem;
         }
 
         .nav-links a::before {
@@ -558,80 +223,35 @@
             width: 100%;
             height: 2px;
             background: var(--gradient-primary);
-            transition: var(--transition-base);
-            border-radius: var(--radius-full);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            background: var(--glass-bg);
-            border-radius: var(--radius-md);
-            opacity: 0;
-            transition: var(--transition-fast);
-            z-index: -1;
+            transition: var(--transition);
+            border-radius: 10px;
         }
 
         .nav-links a:hover {
             color: var(--primary-light);
-            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
         }
 
         .nav-links a:hover::before {
             transform: translateX(-50%) scaleX(1);
         }
 
-        .nav-links a:hover::after {
-            opacity: 1;
-        }
-
-        .nav-links a.active {
-            color: var(--primary);
-        }
-
-        .nav-links a.active::before {
-            transform: translateX(-50%) scaleX(1);
-        }
-
         .nav-cta {
-            padding: var(--space-md) var(--space-xl) !important;
+            padding: 0.8rem 2rem !important;
             background: var(--gradient-primary) !important;
-            border-radius: var(--radius-full) !important;
+            border-radius: 50px !important;
             color: white !important;
             font-weight: 700 !important;
             box-shadow: var(--shadow-glow);
-            transition: var(--transition-base) !important;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .nav-cta::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s ease, height 0.6s ease;
-            display: block !important;
-        }
-
-        .nav-cta:hover::before {
-            width: 300px;
-            height: 300px;
+            transition: var(--transition) !important;
         }
 
         .nav-cta:hover {
-            transform: translateY(-3px) scale(1.05) !important;
-            box-shadow: var(--shadow-glow-strong) !important;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.6);
         }
 
-        .nav-cta::after {
-            display: none !important;
+        .nav-cta::before {
+            display: none;
         }
 
         .menu-toggle {
@@ -639,48 +259,39 @@
             flex-direction: column;
             gap: 6px;
             cursor: pointer;
-            padding: var(--space-sm);
+            padding: 10px;
             background: var(--glass-bg);
-            border-radius: var(--radius-md);
+            border-radius: 10px;
             border: 1px solid var(--glass-border);
-            transition: var(--transition-base);
-        }
-
-        .menu-toggle:hover {
-            background: var(--glass-bg-strong);
-            border-color: var(--glass-border-strong);
         }
 
         .menu-toggle span {
             width: 28px;
             height: 3px;
             background: var(--text-primary);
-            border-radius: var(--radius-full);
-            transition: var(--transition-base);
+            border-radius: 10px;
+            transition: var(--transition);
         }
 
         .menu-toggle.active span:nth-child(1) {
             transform: rotate(45deg) translate(8px, 8px);
-            background: var(--primary);
         }
 
         .menu-toggle.active span:nth-child(2) {
             opacity: 0;
-            transform: scaleX(0);
         }
 
         .menu-toggle.active span:nth-child(3) {
             transform: rotate(-45deg) translate(8px, -8px);
-            background: var(--primary);
         }
 
-        /* ==================== HERO SECTION ==================== */
+        /* Hero Section with 3D Effect */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: calc(80px + var(--space-4xl)) var(--space-xl) var(--space-4xl);
+            padding: 10rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -692,183 +303,120 @@
             transform: translate(-50%, -50%);
             width: 80%;
             height: 80%;
-            background: var(--gradient-glow-strong);
+            background: var(--gradient-glow);
             filter: blur(150px);
             opacity: 0.8;
-            animation: glowPulse 8s ease-in-out infinite;
-            pointer-events: none;
+            animation: glowPulse 6s ease-in-out infinite;
         }
 
         @keyframes glowPulse {
-            0%, 100% { 
-                opacity: 0.6; 
-                transform: translate(-50%, -50%) scale(1); 
-            }
-            50% { 
-                opacity: 1; 
-                transform: translate(-50%, -50%) scale(1.3); 
-            }
+            0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
         }
 
         .hero-content {
             max-width: 1200px;
             text-align: center;
             z-index: 10;
-            position: relative;
             animation: heroFadeIn 1.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes heroFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(60px) scale(0.95);
-                filter: blur(10px);
+                transform: translateY(50px) scale(0.95);
             }
             to {
                 opacity: 1;
                 transform: translateY(0) scale(1);
-                filter: blur(0);
             }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-md);
-            padding: var(--space-md) var(--space-xl);
+            gap: 0.8rem;
+            padding: 0.8rem 2rem;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-full);
+            border-radius: 50px;
             color: var(--primary-light);
             font-weight: 700;
-            font-size: var(--text-sm);
-            margin-bottom: var(--space-xl);
+            font-size: 0.85rem;
+            margin-bottom: 2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             box-shadow: 0 10px 30px rgba(139, 92, 246, 0.2);
-            animation: badgeFloat 4s ease-in-out infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: badgeShine 3s infinite;
+            animation: badgeFloat 3s ease-in-out infinite;
         }
 
         @keyframes badgeFloat {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        @keyframes badgeShine {
-            0% { left: -100%; }
-            100% { left: 200%; }
+            50% { transform: translateY(-5px); }
         }
 
         .hero-badge i {
-            font-size: var(--text-base);
-            animation: badgeIconSpin 4s linear infinite;
+            font-size: 1rem;
+            animation: spin 3s linear infinite;
         }
 
-        @keyframes badgeIconSpin {
+        @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
         .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(3rem, 10vw, 8rem);
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(3rem, 8vw, 7rem);
             font-weight: 900;
-            margin-bottom: var(--space-xl);
+            margin-bottom: 1.5rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: var(--leading-none);
-            letter-spacing: -4px;
+            line-height: 1;
+            letter-spacing: -3px;
             text-transform: uppercase;
-            position: relative;
-            animation: titleGlow 3s ease-in-out infinite;
+            animation: titleGlow 2s ease-in-out infinite;
         }
 
         @keyframes titleGlow {
-            0%, 100% { 
-                filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.5)); 
-            }
-            50% { 
-                filter: drop-shadow(0 0 60px rgba(139, 92, 246, 0.8)); 
-            }
-        }
-
-        .hero h1 span {
-            display: inline-block;
-            animation: letterWave 2s ease-in-out infinite;
-        }
-
-        .hero h1 span:nth-child(1) { animation-delay: 0s; }
-        .hero h1 span:nth-child(2) { animation-delay: 0.1s; }
-        .hero h1 span:nth-child(3) { animation-delay: 0.2s; }
-        .hero h1 span:nth-child(4) { animation-delay: 0.3s; }
-        .hero h1 span:nth-child(5) { animation-delay: 0.4s; }
-
-        @keyframes letterWave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.5)); }
+            50% { filter: drop-shadow(0 0 40px rgba(139, 92, 246, 0.8)); }
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
             color: var(--text-secondary);
-            margin-bottom: var(--space-3xl);
-            line-height: var(--leading-relaxed);
-            max-width: 950px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 400;
-        }
-
-        .hero-subtitle strong {
-            color: var(--primary-light);
-            font-weight: 700;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .hero-buttons {
             display: flex;
-            gap: var(--space-lg);
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: var(--space-3xl);
         }
 
         .btn {
-            padding: var(--space-lg) var(--space-3xl);
-            border-radius: var(--radius-full);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: var(--text-base);
-            transition: var(--transition-base);
+            font-size: 1rem;
+            transition: var(--transition);
             display: inline-flex;
             align-items: center;
-            gap: var(--space-md);
+            gap: 0.8rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
-            border: none;
         }
 
         .btn::before {
@@ -881,44 +429,43 @@
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
             transform: translate(-50%, -50%);
-            transition: width 0.8s ease, height 0.8s ease;
+            transition: width 0.6s, height 0.6s;
         }
 
         .btn:hover::before {
-            width: 500px;
-            height: 500px;
+            width: 400px;
+            height: 400px;
         }
 
-        .btn span,
-        .btn i {
+        .btn span {
             position: relative;
             z-index: 1;
         }
 
         .btn i {
-            transition: var(--transition-base);
-            font-size: var(--text-lg);
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
         }
 
         .btn:hover i {
-            transform: translateX(6px) scale(1.1);
+            transform: translateX(5px);
         }
 
         .btn-primary {
             background: var(--gradient-primary);
             color: white;
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: var(--shadow-glow-strong);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.6);
         }
 
         .btn-secondary {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             color: white;
             border: 2px solid var(--glass-border);
         }
@@ -926,130 +473,62 @@
         .btn-secondary:hover {
             background: var(--gradient-secondary);
             border-color: transparent;
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: var(--shadow-glow-cyan);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(6, 182, 212, 0.4);
         }
 
-        .btn-outline {
-            background: transparent;
-            color: white;
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background: var(--primary);
-            transform: translateY(-6px) scale(1.03);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-3xl);
-            flex-wrap: wrap;
-        }
-
-        .hero-stat {
-            text-align: center;
-        }
-
-        .hero-stat-number {
-            font-size: var(--text-4xl);
-            font-weight: 900;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: var(--font-display);
-            line-height: 1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero-stat-label {
-            font-size: var(--text-sm);
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* ==================== FLOATING SHAPES ==================== */
+        /* Floating Elements */
         .floating-shape {
             position: absolute;
-            opacity: 0.08;
-            animation: floatShape 25s ease-in-out infinite;
-            pointer-events: none;
-            filter: blur(2px);
+            opacity: 0.1;
+            animation: floatShape 20s ease-in-out infinite;
         }
 
         .floating-shape:nth-child(1) {
             top: 15%;
             left: 10%;
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             background: var(--gradient-primary);
             border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
             animation-delay: 0s;
-            animation-duration: 20s;
         }
 
         .floating-shape:nth-child(2) {
             top: 60%;
             right: 10%;
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             background: var(--gradient-secondary);
             border-radius: 70% 30% 30% 70% / 60% 40% 60% 40%;
-            animation-delay: 5s;
-            animation-duration: 25s;
+            animation-delay: 3s;
         }
 
         .floating-shape:nth-child(3) {
             bottom: 20%;
             left: 15%;
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             background: var(--gradient-accent);
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation-delay: 10s;
-            animation-duration: 30s;
-        }
-
-        .floating-shape:nth-child(4) {
-            top: 40%;
-            right: 25%;
-            width: 100px;
-            height: 100px;
-            background: var(--gradient-success);
-            border-radius: 60% 40% 40% 60% / 50% 50% 50% 50%;
-            animation-delay: 15s;
-            animation-duration: 22s;
+            animation-delay: 6s;
         }
 
         @keyframes floatShape {
-            0%, 100% { 
-                transform: translate(0, 0) rotate(0deg) scale(1); 
-            }
-            25% { 
-                transform: translate(40px, -40px) rotate(90deg) scale(1.1); 
-            }
-            50% { 
-                transform: translate(80px, 20px) rotate(180deg) scale(0.9); 
-            }
-            75% { 
-                transform: translate(-20px, 40px) rotate(270deg) scale(1.05); 
-            }
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-30px, 30px) rotate(240deg); }
         }
 
-        /* ==================== GLASS CARD COMPONENT ==================== */
+        /* Glass Card Component */
         .glass-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-2xl);
-            transition: var(--transition-base);
+            border-radius: 24px;
+            padding: 2.5rem;
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
@@ -1060,26 +539,15 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
+            height: 2px;
             background: var(--gradient-primary);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition-base);
-        }
-
-        .glass-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-glow);
-            opacity: 0;
-            transition: var(--transition-base);
-            pointer-events: none;
+            transition: var(--transition);
         }
 
         .glass-card:hover {
-            transform: translateY(-12px) scale(1.01);
-            box-shadow: var(--shadow-2xl);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
             border-color: rgba(139, 92, 246, 0.3);
         }
 
@@ -1087,13 +555,9 @@
             transform: scaleX(1);
         }
 
-        .glass-card:hover::after {
-            opacity: 0.1;
-        }
-
-        /* ==================== SECTION STYLES ==================== */
+        /* Section Styles */
         section {
-            padding: var(--space-5xl) var(--space-xl);
+            padding: 7rem 2rem;
             max-width: 1400px;
             margin: 0 auto;
             position: relative;
@@ -1101,111 +565,68 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: var(--space-5xl);
+            margin-bottom: 5rem;
         }
 
         .section-badge {
             display: inline-flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm) var(--space-lg);
+            gap: 0.6rem;
+            padding: 0.6rem 1.5rem;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-full);
+            border-radius: 50px;
             color: var(--secondary-light);
             font-weight: 700;
-            font-size: var(--text-xs);
-            margin-bottom: var(--space-lg);
+            font-size: 0.8rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            box-shadow: 0 5px 20px rgba(6, 182, 212, 0.2);
-            animation: badgeGlow 3s ease-in-out infinite;
-        }
-
-        @keyframes badgeGlow {
-            0%, 100% { 
-                box-shadow: 0 5px 20px rgba(6, 182, 212, 0.2); 
-            }
-            50% { 
-                box-shadow: 0 8px 30px rgba(6, 182, 212, 0.4); 
-            }
         }
 
         .section-badge i {
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
         }
 
         .section-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 1.5rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            line-height: var(--leading-tight);
+            line-height: 1.1;
             letter-spacing: -2px;
             text-transform: uppercase;
         }
 
         .section-subtitle {
-            font-size: var(--text-xl);
+            font-size: 1.2rem;
             color: var(--text-secondary);
-            max-width: 850px;
+            max-width: 800px;
             margin: 0 auto;
-            line-height: var(--leading-relaxed);
-            font-weight: 400;
+            line-height: 1.8;
         }
 
-        .section-divider {
-            width: 100px;
-            height: 4px;
-            background: var(--gradient-primary);
-            margin: var(--space-2xl) auto;
-            border-radius: var(--radius-full);
-            position: relative;
-        }
-
-        .section-divider::before,
-        .section-divider::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-        }
-
-        .section-divider::before {
-            left: -20px;
-        }
-
-        .section-divider::after {
-            right: -20px;
-        }
-
-        /* ==================== SERVICES SECTION ==================== */
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: var(--space-2xl);
-            margin-top: var(--space-4xl);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .service-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-3xl) var(--space-xl);
+            border-radius: 24px;
+            padding: 3rem 2rem;
             text-align: center;
-            transition: var(--transition-base);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
             cursor: pointer;
@@ -1217,26 +638,15 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 3px;
             background: var(--gradient-primary);
             transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition-base);
-        }
-
-        .service-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-glow);
-            opacity: 0;
-            transition: var(--transition-base);
-            pointer-events: none;
+            transition: var(--transition);
         }
 
         .service-card:hover {
-            transform: translateY(-18px) scale(1.02) rotateY(2deg);
-            box-shadow: var(--shadow-3xl), 0 0 50px rgba(139, 92, 246, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(139, 92, 246, 0.3);
             border-color: rgba(139, 92, 246, 0.4);
         }
 
@@ -1244,174 +654,100 @@
             transform: scaleX(1);
         }
 
-        .service-card:hover::after {
-            opacity: 0.1;
-        }
-
         .service-icon {
-            width: 90px;
-            height: 90px;
-            margin: 0 auto var(--space-xl);
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 2rem;
             background: var(--gradient-primary);
-            border-radius: var(--radius-xl);
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: var(--text-4xl);
+            font-size: 2rem;
             color: white;
-            box-shadow: var(--shadow-glow);
-            transition: var(--transition-base);
-            position: relative;
-        }
-
-        .service-icon::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            background: var(--gradient-primary);
-            border-radius: var(--radius-xl);
-            opacity: 0.4;
-            filter: blur(12px);
-            z-index: -1;
-            transition: var(--transition-base);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.4);
+            transition: var(--transition);
         }
 
         .service-card:hover .service-icon {
-            transform: rotateY(360deg) scale(1.15);
-            animation: iconPulse 0.6s ease-in-out;
-        }
-
-        @keyframes iconPulse {
-            0%, 100% { transform: scale(1.15); }
-            50% { transform: scale(1.25); }
-        }
-
-        .service-card:hover .service-icon::before {
-            opacity: 0.7;
-            filter: blur(16px);
+            transform: rotateY(360deg) scale(1.1);
         }
 
         .service-title {
-            font-size: var(--text-2xl);
+            font-size: 1.4rem;
             font-weight: 800;
-            margin-bottom: var(--space-md);
+            margin-bottom: 1rem;
             color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: -0.5px;
-            line-height: var(--leading-tight);
         }
 
         .service-description {
-            color: var(--text-tertiary);
-            line-height: var(--leading-relaxed);
-            font-size: var(--text-base);
-        }
-
-        .service-features {
-            list-style: none;
-            margin-top: var(--space-lg);
-            text-align: left;
-        }
-
-        .service-features li {
-            padding: var(--space-sm) 0;
             color: var(--text-muted);
-            font-size: var(--text-sm);
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
+            line-height: 1.8;
+            font-size: 1rem;
         }
 
-        .service-features li i {
-            color: var(--primary);
-            font-size: var(--text-xs);
-        }
-
-        /* ==================== FOUNDERS SECTION ==================== */
+        /* Founders Section */
         .founders-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-            gap: var(--space-3xl);
-            margin-top: var(--space-4xl);
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .founder-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-3xl);
+            border-radius: 30px;
+            padding: 3rem;
             text-align: center;
-            transition: var(--transition-base);
+            transition: var(--transition);
             position: relative;
             overflow: hidden;
         }
 
-        .founder-card::before {
+        .founder-card::after {
             content: '';
             position: absolute;
             inset: -50%;
-            background: var(--gradient-glow-strong);
+            background: var(--gradient-glow);
             opacity: 0;
-            transition: var(--transition-base);
-            animation: rotateGlow 12s linear infinite;
-            pointer-events: none;
+            transition: var(--transition);
+            animation: rotateBg 10s linear infinite;
         }
 
-        @keyframes rotateGlow {
+        @keyframes rotateBg {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
         .founder-card:hover {
-            transform: translateY(-18px) scale(1.01);
-            box-shadow: var(--shadow-3xl), 0 0 60px rgba(139, 92, 246, 0.4);
+            transform: translateY(-15px) scale(1.01);
+            box-shadow: 0 30px 70px rgba(139, 92, 246, 0.4);
             border-color: rgba(139, 92, 246, 0.5);
         }
 
-        .founder-card:hover::before {
+        .founder-card:hover::after {
             opacity: 1;
         }
 
         .founder-image-wrapper {
-            width: 200px;
-            height: 200px;
-            margin: 0 auto var(--space-xl);
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 2rem;
             border-radius: 50%;
             background: var(--gradient-primary);
             padding: 6px;
             position: relative;
             z-index: 1;
-            box-shadow: var(--shadow-glow-strong);
-            transition: var(--transition-base);
-        }
-
-        .founder-image-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: -8px;
-            background: var(--gradient-primary);
-            border-radius: 50%;
-            opacity: 0.4;
-            filter: blur(20px);
-            z-index: -1;
-            transition: var(--transition-base);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.5);
+            transition: var(--transition);
         }
 
         .founder-card:hover .founder-image-wrapper {
-            transform: scale(1.12) rotate(5deg);
-            animation: founderImagePulse 0.8s ease-in-out;
-        }
-
-        @keyframes founderImagePulse {
-            0%, 100% { transform: scale(1.12) rotate(5deg); }
-            50% { transform: scale(1.18) rotate(-5deg); }
-        }
-
-        .founder-card:hover .founder-image-wrapper::before {
-            opacity: 0.7;
-            filter: blur(30px);
+            transform: scale(1.1) rotate(5deg);
         }
 
         .founder-image {
@@ -1422,10 +758,10 @@
         }
 
         .founder-name {
-            font-family: var(--font-display);
-            font-size: var(--text-3xl);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
             font-weight: 900;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 0.5rem;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1438,9 +774,9 @@
 
         .founder-title {
             color: var(--secondary-light);
-            font-size: var(--text-base);
+            font-size: 0.95rem;
             font-weight: 700;
-            margin-bottom: var(--space-xs);
+            margin-bottom: 0.5rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             position: relative;
@@ -1448,15 +784,10 @@
         }
 
         .founder-role {
-            display: inline-block;
-            padding: var(--space-xs) var(--space-md);
-            background: var(--glass-bg-strong);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-full);
             color: var(--accent-light);
-            font-size: var(--text-sm);
+            font-size: 0.85rem;
             font-weight: 600;
-            margin-bottom: var(--space-lg);
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             position: relative;
@@ -1464,429 +795,92 @@
         }
 
         .founder-bio {
-            color: var(--text-tertiary);
-            line-height: var(--leading-relaxed);
-            font-size: var(--text-base);
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
             text-align: left;
             position: relative;
             z-index: 1;
-            margin-bottom: var(--space-lg);
         }
 
-        .founder-social {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            position: relative;
-            z-index: 1;
-        }
-
-        .founder-social a {
-            width: 45px;
-            height: 45px;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: var(--transition-base);
-            font-size: var(--text-lg);
-        }
-
-        .founder-social a:hover {
-            background: var(--gradient-primary);
-            color: white;
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: var(--shadow-glow);
-        }
-
-        /* ==================== STATS SECTION ==================== */
-        .stats-section {
-            padding: var(--space-5xl) var(--space-xl);
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border-top: 1px solid var(--glass-border);
-            border-bottom: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            opacity: 0.6;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-3xl);
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: var(--space-xl);
-            background: var(--glass-bg-light);
-            backdrop-filter: blur(20px);
-            border-radius: var(--radius-2xl);
-            border: 1px solid var(--glass-border-light);
-            transition: var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .stat-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: var(--transition-base);
-        }
-
-        .stat-card:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: var(--shadow-2xl), 0 0 40px rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .stat-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .stat-icon {
-            font-size: var(--text-5xl);
-            color: var(--primary);
-            margin-bottom: var(--space-md);
-            animation: statIconFloat 3s ease-in-out infinite;
-            display: inline-block;
-        }
-
-        @keyframes statIconFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        .stat-number {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 900;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: var(--font-display);
-            line-height: 1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .stat-label {
-            color: var(--text-tertiary);
-            font-weight: 600;
-            font-size: var(--text-base);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ==================== TESTIMONIALS SECTION ==================== */
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: var(--space-2xl);
-            margin-top: var(--space-4xl);
-        }
-
-        .testimonial-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-3xl);
-            transition: var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -30px;
-            left: 20px;
-            font-size: 12rem;
-            color: rgba(139, 92, 246, 0.08);
-            font-family: Georgia, serif;
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl), 0 0 40px rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .testimonial-text {
-            font-size: var(--text-lg);
-            line-height: var(--leading-relaxed);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-xl);
-            font-style: italic;
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: var(--space-lg);
-            position: relative;
-            z-index: 1;
-        }
-
-        .testimonial-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--primary);
-            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
-        }
-
-        .testimonial-info h4 {
-            font-size: var(--text-lg);
-            font-weight: 700;
-            margin-bottom: var(--space-xs);
-            color: var(--text-primary);
-        }
-
-        .testimonial-info p {
-            color: var(--text-muted);
-            font-size: var(--text-sm);
-        }
-
-        .testimonial-rating {
-            display: flex;
-            gap: var(--space-xs);
-            margin-top: var(--space-sm);
-        }
-
-        .testimonial-rating i {
-            color: var(--warning);
-            font-size: var(--text-base);
-        }
-
-        /* ==================== PRICING SECTION ==================== */
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-            gap: var(--space-3xl);
-            margin-top: var(--space-4xl);
-        }
-
-        .pricing-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-3xl) var(--space-xl);
-            transition: var(--transition-base);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
-            box-shadow: var(--shadow-glow);
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--gradient-primary);
-            transform: scaleX(0);
-            transition: var(--transition-base);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-3xl), 0 0 60px rgba(139, 92, 246, 0.3);
-        }
-
-        .pricing-card.featured:hover {
-            transform: translateY(-15px) scale(1.07);
-        }
-
-        .pricing-card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: var(--space-xl);
-            right: var(--space-xl);
-            padding: var(--space-sm) var(--space-lg);
-            background: var(--gradient-primary);
-            border-radius: var(--radius-full);
-            font-size: var(--text-xs);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-glow);
-            animation: badgeBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes badgeBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
-
-        .pricing-title {
-            font-size: var(--text-2xl);
-            font-weight: 900;
-            margin-bottom: var(--space-md);
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            color: var(--text-primary);
-        }
-
-        .pricing-price {
-            font-size: var(--text-6xl);
-            font-weight: 900;
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: var(--font-display);
-            margin-bottom: var(--space-xs);
-            line-height: 1;
-        }
-
-        .pricing-period {
-            color: var(--text-muted);
-            font-size: var(--text-base);
-            margin-bottom: var(--space-xl);
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: var(--space-2xl);
-        }
-
-        .pricing-features li {
-            padding: var(--space-md) 0;
-            color: var(--text-secondary);
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            border-bottom: 1px solid var(--glass-border-light);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-features li i {
-            color: var(--success);
-            font-size: var(--text-lg);
-            flex-shrink: 0;
-        }
-
-        /* ==================== CONTACT SECTION ==================== */
+        /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1.5fr;
-            gap: var(--space-3xl);
-            margin-top: var(--space-4xl);
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .contact-info {
             display: flex;
             flex-direction: column;
-            gap: var(--space-xl);
+            gap: 2rem;
         }
 
         .contact-item {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            padding: var(--space-xl);
+            border-radius: 20px;
+            padding: 2rem;
             display: flex;
             align-items: flex-start;
-            gap: var(--space-lg);
-            transition: var(--transition-base);
+            gap: 1.5rem;
+            transition: var(--transition);
         }
 
         .contact-item:hover {
-            transform: translateX(12px);
+            transform: translateX(10px);
             border-color: rgba(139, 92, 246, 0.4);
-            box-shadow: 0 12px 35px rgba(139, 92, 246, 0.2);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.2);
         }
 
         .contact-icon {
-            width: 60px;
-            height: 60px;
+            width: 55px;
+            height: 55px;
             background: var(--gradient-primary);
-            border-radius: var(--radius-lg);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: var(--text-2xl);
+            font-size: 1.3rem;
             color: white;
             flex-shrink: 0;
-            box-shadow: var(--shadow-glow);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
         }
 
         .contact-details h3 {
-            font-size: var(--text-xl);
+            font-size: 1.1rem;
             font-weight: 700;
-            margin-bottom: var(--space-sm);
+            margin-bottom: 0.5rem;
             color: var(--text-primary);
         }
 
         .contact-details p {
-            color: var(--text-tertiary);
-            font-size: var(--text-base);
-            line-height: var(--leading-relaxed);
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
         }
 
         .contact-form {
             background: var(--glass-bg);
-            backdrop-filter: blur(25px);
+            backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-3xl);
-            box-shadow: var(--shadow-2xl);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
         }
 
         .form-group {
-            margin-bottom: var(--space-xl);
+            margin-bottom: 2rem;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: var(--space-md);
+            margin-bottom: 0.8rem;
             font-weight: 700;
             color: var(--text-secondary);
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -1895,14 +889,14 @@
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: var(--space-lg) var(--space-xl);
+            padding: 1.2rem 1.5rem;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--glass-border);
-            border-radius: var(--radius-lg);
+            border-radius: 15px;
             color: var(--text-primary);
-            font-size: var(--text-base);
+            font-size: 1rem;
             font-family: inherit;
-            transition: var(--transition-base);
+            transition: var(--transition);
         }
 
         .form-group input:focus,
@@ -1910,66 +904,41 @@
         .form-group select:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+            box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
             background: rgba(255, 255, 255, 0.05);
-            transform: translateY(-2px);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 150px;
+            min-height: 140px;
         }
 
         .submit-btn {
             width: 100%;
-            padding: var(--space-lg);
+            padding: 1.3rem;
             background: var(--gradient-primary);
             color: white;
             border: none;
-            border-radius: var(--radius-full);
+            border-radius: 50px;
             font-weight: 800;
-            font-size: var(--text-base);
+            font-size: 1rem;
             cursor: pointer;
-            transition: var(--transition-base);
+            transition: var(--transition);
             text-transform: uppercase;
             letter-spacing: 2px;
             box-shadow: var(--shadow-glow);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .submit-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.8s ease, height 0.8s ease;
-        }
-
-        .submit-btn:hover::before {
-            width: 600px;
-            height: 600px;
         }
 
         .submit-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-glow-strong);
+            transform: translateY(-3px);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.6);
         }
 
-        .submit-btn:active {
-            transform: translateY(-2px);
-        }
-
-        /* ==================== FOOTER ==================== */
+        /* Footer */
         footer {
-            background: rgba(15, 15, 35, 0.9);
-            backdrop-filter: blur(25px);
-            padding: var(--space-5xl) var(--space-2xl) var(--space-xl);
+            background: rgba(15, 15, 35, 0.8);
+            backdrop-filter: blur(20px);
+            padding: 5rem 3rem 2rem;
             text-align: center;
             border-top: 1px solid var(--glass-border);
             position: relative;
@@ -1981,67 +950,43 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 1px;
             background: var(--gradient-primary);
-            opacity: 0.6;
+            opacity: 0.5;
         }
 
         .footer-content h3 {
-            font-family: var(--font-display);
-            font-size: var(--text-3xl);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
             font-weight: 900;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            margin-bottom: var(--space-md);
+            margin-bottom: 1rem;
             text-transform: uppercase;
         }
 
         .footer-content p {
-            color: var(--text-tertiary);
-            margin-bottom: var(--space-2xl);
-            max-width: 700px;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
-            line-height: var(--leading-relaxed);
-            font-size: var(--text-base);
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-2xl);
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--text-tertiary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition-base);
-            text-transform: uppercase;
-            font-size: var(--text-sm);
-            letter-spacing: 1px;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+            line-height: 1.8;
         }
 
         .footer-social {
             display: flex;
-            gap: var(--space-lg);
+            gap: 1.5rem;
             justify-content: center;
-            margin-bottom: var(--space-2xl);
+            margin-bottom: 2.5rem;
             flex-wrap: wrap;
         }
 
         .footer-social-icon {
-            width: 55px;
-            height: 55px;
+            width: 50px;
+            height: 50px;
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
@@ -2050,55 +995,45 @@
             align-items: center;
             justify-content: center;
             color: var(--text-secondary);
-            font-size: var(--text-xl);
-            transition: var(--transition-base);
+            font-size: 1.1rem;
+            transition: var(--transition);
             cursor: pointer;
         }
 
         .footer-social-icon:hover {
             background: var(--gradient-primary);
             color: white;
-            transform: translateY(-10px) rotate(360deg);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-8px) rotate(360deg);
+            box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
         }
 
         .footer-bottom {
-            padding-top: var(--space-xl);
-            border-top: 1px solid var(--glass-border-light);
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
-            font-size: var(--text-sm);
+            font-size: 0.9rem;
         }
 
-        .footer-bottom a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: var(--transition-fast);
-        }
-
-        .footer-bottom a:hover {
-            color: var(--primary-light);
-        }
-
-        /* ==================== SCROLL TO TOP ==================== */
+        /* Scroll to Top */
         .scroll-top {
             position: fixed;
-            bottom: var(--space-2xl);
-            right: var(--space-2xl);
-            width: 60px;
-            height: 60px;
+            bottom: 3rem;
+            right: 3rem;
+            width: 55px;
+            height: 55px;
             background: var(--gradient-primary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: var(--text-xl);
+            font-size: 1.2rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
-            transition: var(--transition-base);
+            transition: var(--transition);
             box-shadow: var(--shadow-glow);
-            z-index: var(--z-fixed);
+            z-index: 999;
         }
 
         .scroll-top.visible {
@@ -2107,44 +1042,20 @@
         }
 
         .scroll-top:hover {
-            transform: translateY(-10px) scale(1.1) rotate(360deg);
-            box-shadow: var(--shadow-glow-strong);
+            transform: translateY(-8px) scale(1.1) rotate(360deg);
+            box-shadow: 0 20px 50px rgba(139, 92, 246, 0.7);
         }
 
-        /* ==================== RESPONSIVE DESIGN ==================== */
-        @media (max-width: 1200px) {
+        /* Responsive Design */
+        @media (max-width: 1024px) {
             .contact-container {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (max-width: 1024px) {
-            :root {
-                --space-5xl: 6rem;
-                --space-4xl: 4rem;
-            }
-
-            .nav-container {
-                padding: var(--space-md) var(--space-xl);
-            }
-
-            .hero {
-                padding: calc(70px + var(--space-3xl)) var(--space-lg) var(--space-3xl);
-            }
-
-            section {
-                padding: var(--space-4xl) var(--space-lg);
-            }
-        }
-
         @media (max-width: 768px) {
-            :root {
-                --space-5xl: 4rem;
-                --space-4xl: 3rem;
-            }
-
             .nav-container {
-                padding: var(--space-md) var(--space-lg);
+                padding: 1rem 1.5rem;
             }
 
             .nav-links {
@@ -2153,14 +1064,13 @@
                 left: 0;
                 width: 100%;
                 background: rgba(15, 15, 35, 0.98);
-                backdrop-filter: blur(25px);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
                 gap: 0;
-                padding: var(--space-xl) 0;
+                padding: 2rem 0;
                 transform: translateY(-500%);
-                transition: var(--transition-base);
+                transition: var(--transition);
                 border-bottom: 1px solid var(--glass-border);
-                box-shadow: var(--shadow-3xl);
             }
 
             .nav-links.active {
@@ -2170,22 +1080,8 @@
             .nav-links li {
                 width: 100%;
                 text-align: center;
-                padding: var(--space-md) 0;
-                border-bottom: 1px solid var(--glass-border-light);
-            }
-
-            .nav-links li:last-child {
-                border-bottom: none;
-            }
-
-            .nav-links a::before,
-            .nav-links a::after {
-                display: none;
-            }
-
-            .nav-cta {
-                margin-top: var(--space-md);
-                display: inline-block;
+                padding: 1rem 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             }
 
             .menu-toggle {
@@ -2193,15 +1089,29 @@
             }
 
             .hero {
-                padding: calc(70px + var(--space-2xl)) var(--space-lg) var(--space-2xl);
-                min-height: 90vh;
+                padding: 8rem 1.5rem 3rem;
             }
 
             .hero h1 {
-                font-size: clamp(2.5rem, 12vw, 4.5rem);
-                letter-spacing: -2px;
+                font-size: clamp(2.5rem, 10vw, 4rem);
             }
 
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .services-grid,
+            .founders-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .floating-shape {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
             .hero-buttons {
                 flex-direction: column;
                 width: 100%;
@@ -2212,749 +1122,25 @@
                 justify-content: center;
             }
 
-            section {
-                padding: var(--space-3xl) var(--space-lg);
-            }
-
-            .section-header {
-                margin-bottom: var(--space-3xl);
-            }
-
-            .services-grid,
-            .founders-grid,
-            .testimonials-grid,
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
-            }
-
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: var(--space-xl);
-            }
-
             .founder-image-wrapper {
-                width: 160px;
-                height: 160px;
-            }
-
-            .floating-shape {
-                display: none;
+                width: 150px;
+                height: 150px;
             }
 
             .scroll-top {
-                bottom: var(--space-xl);
-                right: var(--space-xl);
-                width: 55px;
-                height: 55px;
+                bottom: 2rem;
+                right: 2rem;
+                width: 50px;
+                height: 50px;
             }
-        }
-
-        @media (max-width: 480px) {
-            :root {
-                --space-5xl: 3rem;
-                --space-4xl: 2.5rem;
-            }
-
-            .logo {
-                font-size: var(--text-xl);
-            }
-
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: var(--text-lg);
-            }
-
-            .hero-badge {
-                font-size: 0.7rem;
-                padding: var(--space-sm) var(--space-md);
-            }
-
-            .section-badge {
-                font-size: 0.65rem;
-                padding: var(--space-xs) var(--space-md);
-            }
-
-            .service-icon {
-                width: 75px;
-                height: 75px;
-                font-size: var(--text-3xl);
-            }
-
-            .founder-image-wrapper {
-                width: 140px;
-                height: 140px;
-            }
-
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-
-            .footer-links {
-                flex-direction: column;
-                gap: var(--space-md);
-            }
-        }
-
-        /* ==================== ACCESSIBILITY ==================== */
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-
-        /* ==================== PRINT STYLES ==================== */
-        @media print {
-            .mesh-background,
-            nav,
-            .hero-glow,
-            .floating-shape,
-            .scroll-top,
-            .loading-screen {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: black;
-            }
-        }
-
-        /* ==================== UTILITIES ==================== */
-        .text-gradient-primary {
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-secondary {
-            background: var(--gradient-secondary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-accent {
-            background: var(--gradient-accent);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .sr-only {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-
-        /* ==================== ANIMATIONS ==================== */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes scaleIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* ==================== NEWSLETTER SECTION ==================== */
-        .newsletter-section {
-            padding: var(--space-5xl) var(--space-xl);
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border-radius: var(--radius-3xl);
-            margin: var(--space-5xl) auto;
-            max-width: 1200px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .newsletter-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-glow);
-            opacity: 0;
-            animation: newsletterGlow 6s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes newsletterGlow {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            50% {
-                opacity: 0.15;
-                transform: scale(1.2);
-            }
-        }
-
-        .newsletter-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .newsletter-title {
-            font-family: var(--font-display);
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            font-weight: 900;
-            margin-bottom: var(--space-md);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
-
-        .newsletter-subtitle {
-            color: var(--text-secondary);
-            font-size: var(--text-xl);
-            margin-bottom: var(--space-3xl);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: var(--space-lg);
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        .newsletter-input {
-            flex: 1;
-            padding: var(--space-lg) var(--space-xl);
-            background: rgba(255, 255, 255, 0.05);
-            border: 2px solid var(--glass-border);
-            border-radius: var(--radius-full);
-            color: var(--text-primary);
-            font-size: var(--text-base);
-            font-family: inherit;
-            transition: var(--transition-base);
-        }
-
-        .newsletter-input::placeholder {
-            color: var(--text-muted);
-        }
-
-        .newsletter-input:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .newsletter-btn {
-            padding: var(--space-lg) var(--space-3xl);
-            background: var(--gradient-primary);
-            border: none;
-            border-radius: var(--radius-full);
-            color: white;
-            font-weight: 700;
-            font-size: var(--text-base);
-            cursor: pointer;
-            transition: var(--transition-base);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-glow);
-            white-space: nowrap;
-        }
-
-        .newsletter-btn:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: var(--shadow-glow-strong);
-        }
-
-        /* ==================== FAQ SECTION ==================== */
-        .faq-container {
-            max-width: 900px;
-            margin: var(--space-4xl) auto 0;
-        }
-
-        .faq-item {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-xl);
-            margin-bottom: var(--space-lg);
-            overflow: hidden;
-            transition: var(--transition-base);
-        }
-
-        .faq-item:hover {
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .faq-question {
-            padding: var(--space-xl);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: var(--space-lg);
-            font-size: var(--text-lg);
-            font-weight: 700;
-            color: var(--text-primary);
-            user-select: none;
-        }
-
-        .faq-question i {
-            font-size: var(--text-xl);
-            color: var(--primary);
-            transition: var(--transition-base);
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding: 0 var(--space-xl) var(--space-xl);
-        }
-
-        .faq-answer p {
-            color: var(--text-tertiary);
-            line-height: var(--leading-relaxed);
-        }
-
-        /* ==================== PORTFOLIO/GALLERY SECTION ==================== */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--space-xl);
-            margin-top: var(--space-4xl);
-        }
-
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            cursor: pointer;
-            height: 350px;
-            background: var(--card-bg);
-            transition: var(--transition-base);
-        }
-
-        .gallery-item::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.9) 100%);
-            z-index: 1;
-            transition: var(--transition-base);
-        }
-
-        .gallery-item:hover::before {
-            background: linear-gradient(180deg, transparent 30%, rgba(139, 92, 246, 0.8) 100%);
-        }
-
-        .gallery-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-
-        .gallery-item:hover .gallery-image {
-            transform: scale(1.15);
-        }
-
-        .gallery-info {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: var(--space-xl);
-            z-index: 2;
-            transform: translateY(0);
-            transition: var(--transition-base);
-        }
-
-        .gallery-item:hover .gallery-info {
-            transform: translateY(-10px);
-        }
-
-        .gallery-title {
-            font-size: var(--text-xl);
-            font-weight: 800;
-            margin-bottom: var(--space-xs);
-            color: var(--text-primary);
-        }
-
-        .gallery-category {
-            color: var(--text-muted);
-            font-size: var(--text-sm);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* ==================== BLOG/NEWS SECTION ==================== */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-2xl);
-            margin-top: var(--space-4xl);
-        }
-
-        .blog-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            overflow: hidden;
-            transition: var(--transition-base);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-12px);
-            box-shadow: var(--shadow-2xl), 0 0 40px rgba(139, 92, 246, 0.2);
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-
-        .blog-image-wrapper {
-            position: relative;
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .blog-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition-slow);
-        }
-
-        .blog-card:hover .blog-image {
-            transform: scale(1.1);
-        }
-
-        .blog-category {
-            position: absolute;
-            top: var(--space-lg);
-            left: var(--space-lg);
-            padding: var(--space-sm) var(--space-md);
-            background: var(--gradient-primary);
-            border-radius: var(--radius-md);
-            font-size: var(--text-xs);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: var(--shadow-glow);
-        }
-
-        .blog-content {
-            padding: var(--space-xl);
-        }
-
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-md);
-            color: var(--text-muted);
-            font-size: var(--text-sm);
-        }
-
-        .blog-meta i {
-            color: var(--primary);
-        }
-
-        .blog-title {
-            font-size: var(--text-xl);
-            font-weight: 800;
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-            line-height: var(--leading-tight);
-        }
-
-        .blog-excerpt {
-            color: var(--text-tertiary);
-            line-height: var(--leading-relaxed);
-            margin-bottom: var(--space-lg);
-        }
-
-        .blog-read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            color: var(--primary);
-            font-weight: 700;
-            text-decoration: none;
-            font-size: var(--text-sm);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: var(--transition-base);
-        }
-
-        .blog-read-more:hover {
-            gap: var(--space-md);
-            text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
-        }
-
-        .blog-read-more i {
-            transition: var(--transition-base);
-        }
-
-        .blog-read-more:hover i {
-            transform: translateX(5px);
-        }
-
-        /* ==================== TEAM SECTION ==================== */
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-2xl);
-            margin-top: var(--space-4xl);
-        }
-
-        .team-card {
-            text-align: center;
-            transition: var(--transition-base);
-        }
-
-        .team-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .team-image-wrapper {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto var(--space-lg);
-            border-radius: 50%;
-            background: var(--gradient-primary);
-            padding: 5px;
-            position: relative;
-            transition: var(--transition-base);
-        }
-
-        .team-card:hover .team-image-wrapper {
-            transform: rotate(5deg) scale(1.05);
-        }
-
-        .team-image {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .team-name {
-            font-size: var(--text-xl);
-            font-weight: 800;
-            margin-bottom: var(--space-xs);
-            color: var(--text-primary);
-        }
-
-        .team-role {
-            color: var(--primary);
-            font-size: var(--text-sm);
-            font-weight: 600;
-            margin-bottom: var(--space-md);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-        }
-
-        .team-social a {
-            width: 40px;
-            height: 40px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            transition: var(--transition-base);
-        }
-
-        .team-social a:hover {
-            background: var(--gradient-primary);
-            color: white;
-            transform: translateY(-5px) rotate(360deg);
-            box-shadow: var(--shadow-glow);
-        }
-
-        /* ==================== CTA SECTION ==================== */
-        .cta-section {
-            padding: var(--space-5xl) var(--space-xl);
-            background: var(--glass-bg);
-            backdrop-filter: blur(25px);
-            border-radius: var(--radius-3xl);
-            margin: var(--space-5xl) auto;
-            max-width: 1200px;
-            text-align: center;
-            border: 1px solid var(--glass-border);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: var(--gradient-glow-strong);
-            opacity: 0.1;
-            animation: ctaPulse 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes ctaPulse {
-            0%, 100% {
-                opacity: 0.05;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.15;
-                transform: scale(1.05);
-            }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .cta-title {
-            font-family: var(--font-display);
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 900;
-            margin-bottom: var(--space-lg);
-            background: var(--gradient-primary);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
-
-        .cta-description {
-            font-size: var(--text-xl);
-            color: var(--text-secondary);
-            margin-bottom: var(--space-3xl);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: var(--space-lg);
-            justify-content: center;
-            flex-wrap: wrap;
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loader"></div>
-        <div class="loading-text">Loading</div>
-        <div class="loading-progress">
-            <div class="loading-progress-bar"></div>
-        </div>
-    </div>
-
-    <!-- Animated Background -->
+    <!-- Mesh Background -->
     <div class="mesh-background">
         <div class="mesh-gradient"></div>
         <div class="grid-overlay"></div>
-        <div class="particles-container" id="particles"></div>
     </div>
 
     <!-- Navigation -->
@@ -2967,11 +1153,9 @@
                 <span>Ash Hu Music</span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#founders">Founders</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
-                <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#contact" class="nav-cta">Get Started</a></li>
             </ul>
             <div class="menu-toggle" id="menuToggle">
@@ -2988,78 +1172,25 @@
         <div class="floating-shape"></div>
         <div class="floating-shape"></div>
         <div class="floating-shape"></div>
-        <div class="floating-shape"></div>
         
         <div class="hero-content">
             <div class="hero-badge">
                 <i class="fas fa-record-vinyl"></i>
                 Revolutionary Music Label
             </div>
-            <h1>
-                <span>S</span><span>H</span><span>A</span><span>P</span><span>E</span>
-                <span>T</span><span>H</span><span>E</span>
-                <span>F</span><span>U</span><span>T</span><span>U</span><span>R</span><span>E</span>
-            </h1>
+            <h1>Shape The Future</h1>
             <p class="hero-subtitle">
-                <strong>Elite independent music label</strong> founded by visionary friends Harshit & Udghosh, empowering artists worldwide with cutting-edge distribution, innovative marketing strategies, comprehensive artist development programs, and unwavering support. Transform your musical passion into a global phenomenon with industry-leading technology and expert guidance.
+                <strong>Elite independent music label</strong> empowering artists worldwide with cutting-edge distribution, innovative marketing, and comprehensive development services. Transform your passion into a global phenomenon.
             </p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">
                     <span>Explore Services</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
-                <a href="#pricing" class="btn btn-secondary">
-                    <span>View Pricing</span>
-                    <i class="fas fa-tag"></i>
-                </a>
-                <a href="#contact" class="btn btn-outline">
+                <a href="#contact" class="btn btn-secondary">
                     <span>Join Us</span>
                     <i class="fas fa-rocket"></i>
                 </a>
-            </div>
-            <div class="hero-stats">
-                <div class="hero-stat">
-                    <div class="hero-stat-number" data-target="500">0</div>
-                    <div class="hero-stat-label">Active Artists</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number" data-target="10000">0</div>
-                    <div class="hero-stat-label">Tracks Released</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number" data-target="150">0</div>
-                    <div class="hero-stat-label">Countries</div>
-                </div>
-                <div class="hero-stat">
-                    <div class="hero-stat-number" data-target="50">0</div>
-                    <div class="hero-stat-label">M+ Streams</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats Section -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card">
-                <i class="fas fa-users stat-icon"></i>
-                <div class="stat-number" data-target="500">0</div>
-                <div class="stat-label">Active Artists</div>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-music stat-icon"></i>
-                <div class="stat-number" data-target="10000">0</div>
-                <div class="stat-label">Tracks Released</div>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-globe-americas stat-icon"></i>
-                <div class="stat-number" data-target="150">0</div>
-                <div class="stat-label">Countries Reached</div>
-            </div>
-            <div class="stat-card">
-                <i class="fas fa-stream stat-icon"></i>
-                <div class="stat-number" data-target="50">0</div>
-                <div class="stat-label">M+ Streams</div>
             </div>
         </div>
     </section>
@@ -3072,8 +1203,7 @@
                 What We Offer
             </div>
             <h2 class="section-title">Premium Services</h2>
-            <p class="section-subtitle">World-class solutions engineered to elevate every aspect of your music career and maximize your global reach</p>
-            <div class="section-divider"></div>
+            <p class="section-subtitle">World-class solutions engineered to elevate every aspect of your music career</p>
         </div>
 
         <div class="services-grid">
@@ -3082,13 +1212,7 @@
                     <i class="fas fa-globe"></i>
                 </div>
                 <h3 class="service-title">Global Distribution</h3>
-                <p class="service-description">Seamless delivery to 200+ digital platforms including Spotify, Apple Music, Amazon Music, YouTube Music, Tidal, Deezer, and all major streaming services worldwide with lightning-fast processing and guaranteed quality control.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> 200+ platforms coverage</li>
-                    <li><i class="fas fa-check"></i> Same-day distribution</li>
-                    <li><i class="fas fa-check"></i> Quality assurance</li>
-                    <li><i class="fas fa-check"></i> Metadata optimization</li>
-                </ul>
+                <p class="service-description">Seamless delivery to 200+ digital platforms including Spotify, Apple Music, Amazon, YouTube Music, and all major streaming services worldwide.</p>
             </div>
 
             <div class="service-card">
@@ -3096,13 +1220,7 @@
                     <i class="fas fa-paint-brush"></i>
                 </div>
                 <h3 class="service-title">Brand Development</h3>
-                <p class="service-description">Build an unforgettable artist identity with premium branding, professional logo design, visual storytelling, comprehensive brand guidelines, and consistent aesthetic that captivates global audiences and builds lasting recognition.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Logo & identity design</li>
-                    <li><i class="fas fa-check"></i> Visual branding</li>
-                    <li><i class="fas fa-check"></i> Brand guidelines</li>
-                    <li><i class="fas fa-check"></i> Social media templates</li>
-                </ul>
+                <p class="service-description">Build an unforgettable artist identity with premium branding, professional design, and visual storytelling that captivates global audiences.</p>
             </div>
 
             <div class="service-card">
@@ -3110,13 +1228,7 @@
                     <i class="fas fa-chart-line"></i>
                 </div>
                 <h3 class="service-title">Marketing Strategy</h3>
-                <p class="service-description">Strategic multi-channel campaigns, advanced social media management, expert playlist pitching, press coverage coordination, influencer partnerships, and precisely targeted advertising to maximize reach, engagement, and fan growth exponentially.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Social media campaigns</li>
-                    <li><i class="fas fa-check"></i> Playlist pitching</li>
-                    <li><i class="fas fa-check"></i> Press & PR coordination</li>
-                    <li><i class="fas fa-check"></i> Targeted advertising</li>
-                </ul>
+                <p class="service-description">Strategic campaigns, social media mastery, playlist pitching, and targeted advertising to maximize your reach and engagement exponentially.</p>
             </div>
 
             <div class="service-card">
@@ -3124,13 +1236,7 @@
                     <i class="fas fa-graduation-cap"></i>
                 </div>
                 <h3 class="service-title">Artist Development</h3>
-                <p class="service-description">Personalized one-on-one mentorship, comprehensive career strategy planning, professional skill-building workshops, performance coaching sessions, industry networking opportunities, and continuous support to accelerate growth and long-term success.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Personal mentorship</li>
-                    <li><i class="fas fa-check"></i> Career planning</li>
-                    <li><i class="fas fa-check"></i> Skill workshops</li>
-                    <li><i class="fas fa-check"></i> Industry networking</li>
-                </ul>
+                <p class="service-description">Personalized mentorship, career coaching, skill workshops, and industry networking to accelerate your professional growth and success.</p>
             </div>
 
             <div class="service-card">
@@ -3138,13 +1244,7 @@
                     <i class="fas fa-analytics"></i>
                 </div>
                 <h3 class="service-title">Analytics Hub</h3>
-                <p class="service-description">Advanced real-time performance tracking dashboard, comprehensive streaming analytics, detailed audience demographic insights, geographic data visualization, AI-powered trend predictions, and actionable recommendations for intelligent, data-driven decision-making.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Real-time dashboard</li>
-                    <li><i class="fas fa-check"></i> Streaming analytics</li>
-                    <li><i class="fas fa-check"></i> Audience insights</li>
-                    <li><i class="fas fa-check"></i> AI predictions</li>
-                </ul>
+                <p class="service-description">Advanced performance tracking, real-time data, audience insights, and AI-powered recommendations for intelligent decision-making.</p>
             </div>
 
             <div class="service-card">
@@ -3152,56 +1252,7 @@
                     <i class="fas fa-film"></i>
                 </div>
                 <h3 class="service-title">Sync Licensing</h3>
-                <p class="service-description">Premium opportunities for strategic
-music placement in blockbuster films, hit TV series, major brand commercials, video games, podcasts, and digital content with expert negotiation support, licensing management, and revenue maximization strategies.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Film & TV placement</li>
-                    <li><i class="fas fa-check"></i> Commercial licensing</li>
-                    <li><i class="fas fa-check"></i> Video game sync</li>
-                    <li><i class="fas fa-check"></i> Expert negotiation</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-headphones"></i>
-                </div>
-                <h3 class="service-title">Audio Mastering</h3>
-                <p class="service-description">Professional audio mastering services with industry-standard equipment, experienced sound engineers, format optimization for all platforms, and quality enhancement that ensures your music sounds incredible on every device and streaming service worldwide.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Professional mastering</li>
-                    <li><i class="fas fa-check"></i> Format optimization</li>
-                    <li><i class="fas fa-check"></i> Quality enhancement</li>
-                    <li><i class="fas fa-check"></i> Unlimited revisions</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3 class="service-title">Rights Management</h3>
-                <p class="service-description">Comprehensive copyright protection, royalty collection from all sources worldwide, content ID management across platforms, legal support for disputes, and transparent reporting to ensure you receive every penny you've earned from your creative work.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Copyright protection</li>
-                    <li><i class="fas fa-check"></i> Royalty collection</li>
-                    <li><i class="fas fa-check"></i> Content ID management</li>
-                    <li><i class="fas fa-check"></i> Legal support</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-video"></i>
-                </div>
-                <h3 class="service-title">Video Production</h3>
-                <p class="service-description">End-to-end music video production including concept development, professional filming with 4K cameras, creative editing, color grading, special effects, animation, and distribution optimization for YouTube, Vevo, and social media platforms.</p>
-                <ul class="service-features">
-                    <li><i class="fas fa-check"></i> Concept development</li>
-                    <li><i class="fas fa-check"></i> 4K filming</li>
-                    <li><i class="fas fa-check"></i> Professional editing</li>
-                    <li><i class="fas fa-check"></i> Platform optimization</li>
-                </ul>
+                <p class="service-description">Premium opportunities for music placement in films, TV series, commercials, and video games with expert negotiation support.</p>
             </div>
         </div>
     </section>
@@ -3214,344 +1265,28 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                 Leadership
             </div>
             <h2 class="section-title">Meet The Founders</h2>
-            <p class="section-subtitle">Visionary friends revolutionizing the independent music industry together with equal partnership, shared vision, and unwavering commitment to artist success</p>
-            <div class="section-divider"></div>
+            <p class="section-subtitle">Visionary friends revolutionizing the independent music industry together</p>
         </div>
 
         <div class="founders-grid">
             <div class="founder-card">
                 <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Harshit - Co-Founder" class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Harshit" class="founder-image">
                 </div>
                 <h3 class="founder-name">Harshit</h3>
                 <p class="founder-title">Co-Founder & Chief Creative Officer</p>
                 <p class="founder-role">Equal Partner</p>
-                <p class="founder-bio">Visionary creative leader with over 10 years of expertise in artist development, brand strategy, music production, and creative direction. Passionate about empowering independent artists through innovative creative solutions, strategic partnerships, and cutting-edge marketing campaigns. Brings deep industry knowledge, artistic vision, and proven track record of transforming emerging artists into global sensations through data-driven creativity and authentic storytelling.</p>
-                <div class="founder-social">
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:harshit@ashhumusic.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
+                <p class="founder-bio">Visionary creative leader with expertise in artist development, brand strategy, and music production. Passionate about empowering independent artists through innovative creative solutions and strategic partnerships. Brings 10+ years of industry experience revolutionizing how artists connect with audiences globally.</p>
             </div>
 
             <div class="founder-card">
                 <div class="founder-image-wrapper">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Udghosh - Co-Founder" class="founder-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Udghosh" class="founder-image">
                 </div>
                 <h3 class="founder-name">Udghosh</h3>
                 <p class="founder-title">Co-Founder & Chief Technology Officer</p>
                 <p class="founder-role">Equal Partner</p>
-                <p class="founder-bio">Tech mastermind specializing in digital distribution infrastructure, advanced analytics platforms, marketing automation systems, and scalable technology solutions. Expert in building robust systems that empower artists with real-time data-driven insights, intelligent recommendations, and cutting-edge tools. Combines technical excellence with deep music industry knowledge to create innovative platforms that revolutionize how artists manage careers, analyze performance, and maximize revenue streams globally.</p>
-                <div class="founder-social">
-                    <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:udghosh@ashhumusic.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section id="testimonials">
-        <div class="section-header">
-            <div class="section-badge">
-                <i class="fas fa-star"></i>
-                Testimonials
-            </div>
-            <h2 class="section-title">What Artists Say</h2>
-            <p class="section-subtitle">Hear from successful artists who transformed their careers with Ash Hu Music's comprehensive services and expert guidance</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Ash Hu Music completely transformed my career! Their distribution network is unmatched, and I'm now streaming on over 150 platforms worldwide. The analytics dashboard helped me understand my audience better, leading to a 300% increase in monthly streams. Harshit and Udghosh are true professionals who genuinely care about artist success!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Sarah Martinez" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>Sarah Martinez</h4>
-                        <p>Pop Artist · Los Angeles</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The marketing strategies provided by Ash Hu Music are phenomenal! They secured playlist placements on major Spotify editorial playlists, got me featured in Rolling Stone, and helped me grow my Instagram following from 2K to 150K in just 8 months. The team's dedication and expertise are truly world-class. Highly recommended!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="James Chen" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>James Chen</h4>
-                        <p>Electronic Producer · London</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"As an independent artist, finding the right label was crucial. Ash Hu Music exceeded all expectations! Their sync licensing team secured placements in three major Netflix shows, generating significant passive income. The personal mentorship from the founders helped me navigate industry challenges and make smarter career decisions. Best investment ever!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Maya Patel" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>Maya Patel</h4>
-                        <p>Singer-Songwriter · Mumbai</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The brand development service is absolutely incredible! They created a stunning visual identity that perfectly captures my artistic vision. The professional logo, social media templates, and brand guidelines have elevated my entire presence. Fans constantly compliment my cohesive aesthetic. The attention to detail is remarkable!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop" alt="Marcus Johnson" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>Marcus Johnson</h4>
-                        <p>Hip-Hop Artist · Atlanta</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Joining Ash Hu Music was the turning point in my career! Their distribution is lightning-fast, the royalty payments are transparent and on-time, and the analytics platform is incredibly intuitive. I love having all my data in one place. The customer support team responds within hours. This is what modern music distribution should be!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop" alt="Emma Rodriguez" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>Emma Rodriguez</h4>
-                        <p>Indie Artist · Barcelona</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="testimonial-card">
-                <p class="testimonial-text">"The artist development program changed everything for me! The one-on-one mentorship sessions with industry experts, career planning workshops, and networking opportunities opened doors I never thought possible. I've learned production techniques, marketing strategies, and business skills that will benefit me for life. Worth every penny!"</p>
-                <div class="testimonial-author">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop" alt="Alex Thompson" class="testimonial-avatar">
-                    <div class="testimonial-info">
-                        <h4>Alex Thompson</h4>
-                        <p>Rock Musician · Sydney</p>
-                        <div class="testimonial-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section id="pricing">
-        <div class="section-header">
-            <div class="section-badge">
-                <i class="fas fa-tag"></i>
-                Pricing Plans
-            </div>
-            <h2 class="section-title">Choose Your Plan</h2>
-            <p class="section-subtitle">Flexible pricing options designed to fit every artist's needs, budget, and career stage with transparent pricing and no hidden fees</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="pricing-grid">
-            <div class="pricing-card">
-                <h3 class="pricing-title">Starter</h3>
-                <div class="pricing-price">$9</div>
-                <p class="pricing-period">per month</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check-circle"></i> Distribution to 150+ platforms</li>
-                    <li><i class="fas fa-check-circle"></i> Keep 100% of your royalties</li>
-                    <li><i class="fas fa-check-circle"></i> Basic analytics dashboard</li>
-                    <li><i class="fas fa-check-circle"></i> Unlimited releases</li>
-                    <li><i class="fas fa-check-circle"></i> Copyright protection</li>
-                    <li><i class="fas fa-check-circle"></i> Email support</li>
-                </ul>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-
-            <div class="pricing-card featured">
-                <div class="pricing-badge">Most Popular</div>
-                <h3 class="pricing-title">Professional</h3>
-                <div class="pricing-price">$29</div>
-                <p class="pricing-period">per month</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check-circle"></i> Everything in Starter</li>
-                    <li><i class="fas fa-check-circle"></i> Distribution to 200+ platforms</li>
-                    <li><i class="fas fa-check-circle"></i> Advanced analytics & insights</li>
-                    <li><i class="fas fa-check-circle"></i> Playlist pitching service</li>
-                    <li><i class="fas fa-check-circle"></i> Social media promotion</li>
-                    <li><i class="fas fa-check-circle"></i> Priority support (24/7)</li>
-                    <li><i class="fas fa-check-circle"></i> Custom artist website</li>
-                    <li><i class="fas fa-check-circle"></i> Monthly strategy sessions</li>
-                </ul>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-
-            <div class="pricing-card">
-                <h3 class="pricing-title">Enterprise</h3>
-                <div class="pricing-price">$99</div>
-                <p class="pricing-period">per month</p>
-                <ul class="pricing-features">
-                    <li><i class="fas fa-check-circle"></i> Everything in Professional</li>
-                    <li><i class="fas fa-check-circle"></i> Dedicated account manager</li>
-                    <li><i class="fas fa-check-circle"></i> Personal branding & design</li>
-                    <li><i class="fas fa-check-circle"></i> Video production services</li>
-                    <li><i class="fas fa-check-circle"></i> Sync licensing opportunities</li>
-                    <li><i class="fas fa-check-circle"></i> PR & press coordination</li>
-                    <li><i class="fas fa-check-circle"></i> Tour & event promotion</li>
-                    <li><i class="fas fa-check-circle"></i> Radio promotion</li>
-                    <li><i class="fas fa-check-circle"></i> Artist development program</li>
-                    <li><i class="fas fa-check-circle"></i> Exclusive industry networking</li>
-                </ul>
-                <button class="btn btn-primary">Get Started</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq">
-        <div class="section-header">
-            <div class="section-badge">
-                <i class="fas fa-question-circle"></i>
-                FAQ
-            </div>
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Find answers to common questions about our services, pricing, and how we help artists succeed</p>
-            <div class="section-divider"></div>
-        </div>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How quickly can my music be distributed?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Your music can be live on all major platforms within 24-48 hours! We offer one of the fastest distribution services in the industry. For urgent releases, we provide same-day distribution for an additional fee. Our streamlined process ensures your music reaches fans quickly without compromising quality.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do I keep 100% of my royalties?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Absolutely! You keep 100% of your royalties with all our plans. We believe artists deserve to be fairly compensated for their work. Unlike traditional labels that take large percentages, we only charge a simple monthly subscription fee. All streaming revenue goes directly to you, with transparent reporting and monthly payouts.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What platforms do you distribute to?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>We distribute to 200+ platforms worldwide including Spotify, Apple Music, Amazon Music, YouTube Music, Tidal, Deezer, Pandora, SoundCloud, Instagram, TikTok, Facebook, and many more. We also cover regional platforms in Asia, Europe, Latin America, and Africa to maximize your global reach.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Can I cancel my subscription anytime?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! There are no long-term contracts or cancellation fees. You can cancel your subscription anytime from your dashboard. If you cancel, your music will remain live on all platforms for the duration of your paid period. We believe in earning your business every month through excellent service, not binding contracts.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do you provide playlist pitching services?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! Our Professional and Enterprise plans include expert playlist pitching to Spotify editorial playlists, Apple Music curators, and independent playlist curators with millions of followers. Our team has established relationships with key decision-makers and a proven track record of securing high-profile placements.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>How does the artist development program work?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Our artist development program (included in Enterprise plan) offers personalized one-on-one mentorship sessions, career strategy planning, skill workshops covering production/marketing/business, performance coaching, industry networking events, and ongoing support from our founders Harshit and Udghosh. It's designed to accelerate your growth and build a sustainable music career.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>What makes Ash Hu Music different from other distributors?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Unlike other distributors, we offer a complete ecosystem for artist success: distribution + marketing + branding + development + analytics, all in one platform. Founded by two friends who are passionate about empowering independent artists, we provide personalized attention, cutting-edge technology, and genuine commitment to your success. We're not just a distributor; we're your long-term career partner.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>Do you offer sync licensing opportunities?</span>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! Our sync licensing team actively pitches your music to film studios, TV networks, advertising agencies, video game developers, and content creators. We have partnerships with major production companies and have secured placements in Netflix shows, major commercials, and popular video games. Enterprise members get priority consideration for all opportunities.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready To Transform Your Music Career?</h2>
-            <p class="cta-description">Join thousands of successful artists worldwide who trust Ash Hu Music to distribute, promote, and grow their music. Start your journey today with our risk-free trial and experience the difference of working with a label that truly cares about your success.</p>
-            <div class="cta-buttons">
-                <a href="#pricing" class="btn btn-primary">
-                    <span>Start Free Trial</span>
-                    <i class="fas fa-rocket"></i>
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <span>Contact Us</span>
-                    <i class="fas fa-envelope"></i>
-                </a>
+                <p class="founder-bio">Tech mastermind specializing in digital distribution, analytics platforms, and marketing automation. Expert in building scalable systems that empower artists with data-driven insights and cutting-edge technology. Combines technical prowess with deep music industry knowledge to create innovative solutions.</p>
             </div>
         </div>
     </section>
@@ -3564,8 +1299,7 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                 Get In Touch
             </div>
             <h2 class="section-title">Let's Connect</h2>
-            <p class="section-subtitle">Ready to transform your music career? Reach out to our team and let's start your success story today</p>
-            <div class="section-divider"></div>
+            <p class="section-subtitle">Ready to transform your music career? Let's start your success story today</p>
         </div>
 
         <div class="contact-container">
@@ -3576,7 +1310,7 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                     </div>
                     <div class="contact-details">
                         <h3>Visit Us</h3>
-                        <p>123 Music Street, Malviya Nagar<br>Jaipur, Rajasthan, India 302017<br>Open Mon-Sat: 10AM - 7PM IST</p>
+                        <p>123 Music Street, Jaipur<br>Rajasthan, India 302001</p>
                     </div>
                 </div>
 
@@ -3586,7 +1320,7 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                     </div>
                     <div class="contact-details">
                         <h3>Call Us</h3>
-                        <p>India: +91 98765 43210<br>USA: +1 (555) 123-4567<br>Available 24/7 for emergencies</p>
+                        <p>+91 98765 43210<br>Mon-Sat: 10AM - 7PM IST</p>
                     </div>
                 </div>
 
@@ -3596,17 +1330,7 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                     </div>
                     <div class="contact-details">
                         <h3>Email Us</h3>
-                        <p>General: info@ashhumusic.com<br>Support: support@ashhumusic.com<br>Artists: artists@ashhumusic.com</p>
-                    </div>
-                </div>
-
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h3>Business Hours</h3>
-                        <p>Monday - Saturday: 10:00 AM - 7:00 PM IST<br>Sunday: Closed<br>24/7 Emergency Support Available</p>
+                        <p>info@ashhumusic.com<br>support@ashhumusic.com</p>
                     </div>
                 </div>
             </div>
@@ -3614,7 +1338,7 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
             <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                    <input type="text" id="name" name="name" placeholder="Your full name" required>
                 </div>
 
                 <div class="form-group">
@@ -3637,214 +1361,102 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
                         <option value="development">Artist Development</option>
                         <option value="analytics">Analytics Hub</option>
                         <option value="licensing">Sync Licensing</option>
-                        <option value="mastering">Audio Mastering</option>
-                        <option value="rights">Rights Management</option>
-                        <option value="video">Video Production</option>
-                        <option value="other">Other Services</option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="message">Your Message *</label>
-                    <textarea id="message" name="message" placeholder="Tell us about your music, goals, and how we can help you succeed..." required></textarea>
+                    <textarea id="message" name="message" placeholder="Tell us about your project and goals..." required></textarea>
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <span style="position: relative; z-index: 1;">Send Message</span>
-                    <i class="fas fa-paper-plane" style="position: relative; z-index: 1; margin-left: 10px;"></i>
+                    Send Message
+                    <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <div class="newsletter-section">
-        <div class="newsletter-content">
-            <h3 class="newsletter-title">Stay In The Loop</h3>
-            <p class="newsletter-subtitle">Subscribe to our newsletter for exclusive music industry insights, special offers, new features, artist success stories, and the latest trends in music distribution</p>
-            <form class="newsletter-form" id="newsletterForm">
-                <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
-                <button type="submit" class="newsletter-btn">
-                    Subscribe
-                    <i class="fas fa-arrow-right" style="margin-left: 8px;"></i>
-                </button>
-            </form>
-        </div>
-    </div>
-
     <!-- Footer -->
     <footer>
         <div class="footer-content">
             <h3>Ash Hu Music</h3>
-            <p>Revolutionary independent music label founded by Harshit & Udghosh, empowering artists worldwide with cutting-edge distribution, innovative marketing, comprehensive development services, and unwavering support. Join our global community of successful independent artists and transform your music career today with industry-leading technology, expert guidance, and genuine commitment to your success.</p>
+            <p>Empowering independent artists worldwide with cutting-edge services and unwavering support. Join our community and transform your music career today.</p>
             
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#services">Services</a>
-                <a href="#founders">Founders</a>
-                <a href="#testimonials">Reviews</a>
-                <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
-                <a href="#contact">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#">Press Kit</a>
-            </div>
-
             <div class="footer-social">
-                <div class="footer-social-icon" onclick="window.open('https://instagram.com', '_blank')" aria-label="Instagram">
+                <div class="footer-social-icon" onclick="window.open('https://instagram.com', '_blank')">
                     <i class="fab fa-instagram"></i>
                 </div>
-                <div class="footer-social-icon" onclick="window.open('https://twitter.com', '_blank')" aria-label="Twitter">
+                <div class="footer-social-icon" onclick="window.open('https://twitter.com', '_blank')">
                     <i class="fab fa-twitter"></i>
                 </div>
-                <div class="footer-social-icon" onclick="window.open('https://facebook.com', '_blank')" aria-label="Facebook">
+                <div class="footer-social-icon" onclick="window.open('https://facebook.com', '_blank')">
                     <i class="fab fa-facebook-f"></i>
                 </div>
-                <div class="footer-social-icon" onclick="window.open('https://youtube.com', '_blank')" aria-label="YouTube">
+                <div class="footer-social-icon" onclick="window.open('https://youtube.com', '_blank')">
                     <i class="fab fa-youtube"></i>
                 </div>
-                <div class="footer-social-icon" onclick="window.open('https://spotify.com', '_blank')" aria-label="Spotify">
+                <div class="footer-social-icon" onclick="window.open('https://spotify.com', '_blank')">
                     <i class="fab fa-spotify"></i>
                 </div>
-                <div class="footer-social-icon" onclick="window.open('https://soundcloud.com', '_blank')" aria-label="SoundCloud">
+                <div class="footer-social-icon" onclick="window.open('https://soundcloud.com', '_blank')">
                     <i class="fab fa-soundcloud"></i>
-                </div>
-                <div class="footer-social-icon" onclick="window.open('https://tiktok.com', '_blank')" aria-label="TikTok">
-                    <i class="fab fa-tiktok"></i>
-                </div>
-                <div class="footer-social-icon" onclick="window.open('https://linkedin.com', '_blank')" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Ash Hu Music. Founded by <a href="#founders">Harshit & Udghosh</a>. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent);"></i> for independent artists worldwide.</p>
+            <p>&copy; 2026 Ash Hu Music. Founded by Harshit & Udghosh. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
+    <!-- Scroll to Top -->
     <div class="scroll-top" id="scrollTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- JavaScript -->
     <script>
-        // ==================== LOADING SCREEN ====================
-        window.addEventListener('load', () => {
-            const loadingScreen = document.querySelector('.loading-screen');
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 1800);
-        });
-
-        // ==================== PARTICLE SYSTEM ====================
-        function createParticles() {
-            const particlesContainer = document.getElementById('particles');
-            if (!particlesContainer) return;
-            
-            const particleCount = 40;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 30 + 's';
-                particle.style.animationDuration = (25 + Math.random() * 15) + 's';
-                
-                const colors = ['#8b5cf6', '#06b6d4', '#ec4899', '#10b981', '#f59e0b'];
-                const color = colors[Math.floor(Math.random() * colors.length)];
-                particle.style.background = color;
-                particle.style.boxShadow = `0 0 12px ${color}`;
-                
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles();
-
-        // ==================== NAVIGATION ====================
-        const navbar = document.getElementById('navbar');
+        // Mobile Menu Toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');
 
-        // Navbar scroll effect
-        let lastScroll = 0;
-        window.addEventListener('scroll', () => {
-            const currentScroll = window.pageYOffset;
-            
-            if (currentScroll > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-            
-            lastScroll = currentScroll;
-        });
-
-        // Mobile menu toggle
         menuToggle.addEventListener('click', () => {
             menuToggle.classList.toggle('active');
             navLinks.classList.toggle('active');
-            document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : 'auto';
         });
 
-        // Close mobile menu when clicking on a link
+        // Close menu when clicking links
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navLinks.classList.remove('active');
-                document.body.style.overflow = 'auto';
             });
         });
 
-        // Active nav link on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinksAll = document.querySelectorAll('.nav-links a[href^="#"]');
-
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinksAll.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
-            });
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
-        // ==================== SMOOTH SCROLL ====================
+        // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const target = document.querySelector(targetId);
+                const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    const offsetTop = target.offsetTop - 80;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // ==================== SCROLL TO TOP BUTTON ====================
+        // Scroll to top button
         const scrollTopBtn = document.getElementById('scrollTop');
-        
         window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 600) {
+            if (window.scrollY > 500) {
                 scrollTopBtn.classList.add('visible');
             } else {
                 scrollTopBtn.classList.remove('visible');
@@ -3852,320 +1464,39 @@ music placement in blockbuster films, hit TV series, major brand commercials, vi
         });
 
         scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // ==================== STATS COUNTER ANIMATION ====================
-        function animateCounter(element) {
-            const target = parseInt(element.getAttribute('data-target'));
-            const duration = 2500;
-            const increment = target / (duration / 16);
-            let current = 0;
-
-            const updateCounter = () => {
-                current += increment;
-                if (current < target) {
-                    element.textContent = Math.floor(current);
-                    requestAnimationFrame(updateCounter);
-                } else {
-                    element.textContent = target;
-                }
-            };
-
-            updateCounter();
-        }
-
-        // Intersection Observer for Stats
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px'
-        };
-
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const counters = entry.target.querySelectorAll('[data-target]');
-                    counters.forEach(counter => {
-                        animateCounter(counter);
-                    });
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const statsSection = document.querySelector('.stats-section');
-        const heroSection = document.querySelector('.hero');
-        
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
-        if (heroSection) {
-            statsObserver.observe(heroSection);
-        }
-
-        // ==================== FAQ ACCORDION ====================
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            question.addEventListener('click', () => {
-                const isActive = item.classList.contains('active');
-                
-                // Close all items
-                faqItems.forEach(otherItem => {
-                    otherItem.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!isActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // ==================== CONTACT FORM SUBMISSION ====================
+        // Contact form submission
         const contactForm = document.getElementById('contactForm');
-        
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
             
             const formData = new FormData(contactForm);
             const name = formData.get('name');
             const email = formData.get('email');
-            const phone = formData.get('phone');
-            const service = formData.get('service');
-            const message = formData.get('message');
 
-            // Log form data (in production, send to server)
-            console.log('Contact Form Submission:', {
-                name, email, phone, service, message
-            });
-
-            // Success feedback
-            const submitBtn = contactForm.querySelector('.submit-btn');
-            const originalHTML = submitBtn.innerHTML;
+            alert(`🎵 Thank you, ${name}!\n\nWe've received your message and will contact you at ${email} within 24 hours.\n\n- Harshit & Udghosh\nAsh Hu Music Founders`);
             
-            submitBtn.innerHTML = '<i class="fas fa-check-circle" style="position: relative; z-index: 1;"></i> <span style="position: relative; z-index: 1;">Message Sent!</span>';
-            submitBtn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
-            submitBtn.disabled = true;
+            contactForm.reset();
+        });
 
-            setTimeout(() => {
-                alert(`🎵 Thank you, ${name}!\n\nYour message has been received. Our team will get back to you at ${email} within 24 hours.\n\nGet ready to elevate your music career!\n\n- Harshit & Udghosh\nAsh Hu Music Founders`);
+        // Add hover effects to service cards
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
                 
-                contactForm.reset();
-                submitBtn.innerHTML = originalHTML;
-                submitBtn.style.background = '';
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-
-        // ==================== NEWSLETTER FORM ====================
-        const newsletterForm = document.getElementById('newsletterForm');
-        
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = newsletterForm.querySelector('input').value;
-            
-            console.log('Newsletter Subscription:', email);
-            
-            const btn = newsletterForm.querySelector('.newsletter-btn');
-            const originalHTML = btn.innerHTML;
-            
-            btn.innerHTML = '<i class="fas fa-check-circle" style="margin-right: 8px;"></i> Subscribed!';
-            btn.style.background = 'linear-gradient(135deg, #10b981 0%, #34d399 100%)';
-            btn.disabled = true;
-            
-            setTimeout(() => {
-                alert(`🎉 Welcome to the Ash Hu Music family!\n\nYou're now subscribed to our newsletter at ${email}.\n\nExpect exclusive updates, industry insights, and special offers directly in your inbox!`);
-                
-                newsletterForm.reset();
-                btn.innerHTML = originalHTML;
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 1500);
-        });
-
-        // ==================== SCROLL ANIMATIONS ====================
-        const animateOnScroll = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        // Animate cards and sections
-        document.querySelectorAll('.service-card, .founder-card, .testimonial-card, .pricing-card, .stat-card, .faq-item, .blog-card, .contact-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            animateOnScroll.observe(el);
-        });
-
-        // ==================== CONSOLE BRANDING ====================
-        console.log('%c🎵 ASH HU MUSIC 🎵', 'color: #8b5cf6; font-size: 48px; font-weight: 900; text-shadow: 0 0 20px rgba(139, 92, 246, 0.5);');
-        console.log('%c🚀 Founded by Harshit & Udghosh', 'color: #06b6d4; font-size: 24px; font-weight: 700;');
-        console.log('%c✨ Revolutionary Music Label for Independent Artists', 'color: #ec4899; font-size: 16px; font-weight: 600;');
-        console.log('%c💼 Equal Partners | Different Expertise | Shared Vision', 'color: #10b981; font-size: 14px;');
-        console.log('%c🌍 Empowering Artists Worldwide Since 2020', 'color: #f59e0b; font-size: 14px;');
-        console.log('%c\n📧 Contact: info@ashhumusic.com', 'color: #a78bfa; font-size: 12px;');
-        console.log('%c🌐 Website: https://ashhumusic.com', 'color: #a78bfa; font-size: 12px;');
-
-        // ==================== PERFORMANCE MONITORING ====================
-        window.addEventListener('load', () => {
-            const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
-            console.log(`⚡ Page loaded in ${loadTime}ms`);
-        });
-
-        // ==================== EASTER EGG ====================
-        let konamiCode = [];
-        const konamiSequence = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
-        
-        document.addEventListener('keydown', (e) => {
-            konamiCode.push(e.key);
-            konamiCode = konamiCode.slice(-10);
-            
-            if (konamiCode.join('') === konamiSequence.join('')) {
-                document.body.style.animation = 'rainbow 2s linear infinite';
-                alert('🎉 KONAMI CODE ACTIVATED! 🎵\n\nYou found our secret! Enjoy 50% off your first month!\nUse code: KONAMIMUSIC at checkout 🚀');
-            }
-        });
-
-        // ==================== KEYBOARD NAVIGATION ====================
-        document.addEventListener('keydown', (e) => {
-            // Escape key closes mobile menu
-            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-                menuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-            
-            // Ctrl/Cmd + K for search (placeholder)
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                console.log('Search functionality coming soon!');
-            }
-        });
-
-        // ==================== COPY EMAIL ON CLICK ====================
-        document.querySelectorAll('.contact-details p').forEach(el => {
-            if (el.textContent.includes('@')) {
-                el.style.cursor = 'pointer';
-                el.addEventListener('click', () => {
-                    const email = el.textContent.match(/[\w.-]+@[\w.-]+\.\w+/)?.[0];
-                    if (email) {
-                        navigator.clipboard.writeText(email).then(() => {
-                            const originalText = el.textContent;
-                            el.textContent = '✓ Email copied to clipboard!';
-                            el.style.color = 'var(--success)';
-                            setTimeout(() => {
-                                el.textContent = originalText;
-                                el.style.color = '';
-                            }, 2000);
-                        });
-                    }
-                });
-            }
-        });
-
-        // ==================== DYNAMIC YEAR IN FOOTER ====================
-        const currentYear = new Date().getFullYear();
-        document.querySelector('.footer-bottom p').innerHTML = document.querySelector('.footer-bottom p').innerHTML.replace('2026', currentYear);
-
-        // ==================== ACCESSIBILITY ENHANCEMENTS ====================
-        // Skip to main content
-        const skipLink = document.createElement('a');
-        skipLink.href = '#home';
-        skipLink.textContent = 'Skip to main content';
-        skipLink.className = 'sr-only';
-        skipLink.style.cssText = 'position:absolute;top:-40px;left:0;background:#8b5cf6;color:white;padding:8px;z-index:10000;';
-        skipLink.addEventListener('focus', () => {
-            skipLink.style.top = '0';
-        });
-        skipLink.addEventListener('blur', () => {
-            skipLink.style.top = '-40px';
-        });
-        document.body.prepend(skipLink);
-
-        // ==================== SERVICE WORKER (PWA) ====================
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                // Uncomment when you have a service worker file
-                // navigator.serviceWorker.register('/sw.js')
-                //     .then(reg => console.log('Service Worker registered!', reg))
-                //     .catch(err => console.log('Service Worker registration failed:', err));
-            });
-        }
-
-        // ==================== ANALYTICS PLACEHOLDER ====================
-        function trackEvent(category, action, label) {
-            console.log('Analytics Event:', { category, action, label });
-            // Integrate with Google Analytics, Mixpanel, or your preferred analytics tool
-        }
-
-        // Track button clicks
-        document.querySelectorAll('.btn').forEach(btn => {
-            btn.addEventListener('click', () => {
-                trackEvent('Button', 'Click', btn.textContent.trim());
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
             });
         });
 
-        // ==================== FORM VALIDATION ENHANCEMENTS ====================
-        const inputs = document.querySelectorAll('input[type="email"]');
-        inputs.forEach(input => {
-            input.addEventListener('blur', (e) => {
-                const value = e.target.value;
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                
-                if (value && !emailRegex.test(value)) {
-                    e.target.style.borderColor = 'var(--error)';
-                    e.target.setCustomValidity('Please enter a valid email address');
-                } else {
-                    e.target.style.borderColor = '';
-                    e.target.setCustomValidity('');
-                }
-            });
-        });
-
-        // ==================== DARK/LIGHT MODE TOGGLE (FUTURE FEATURE) ====================
-        // Placeholder for future dark/light mode toggle
-        const themeToggle = () => {
-            console.log('Theme toggle feature coming soon!');
-        };
-
-        // ==================== LAZY LOADING IMAGES ====================
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            img.removeAttribute('data-src');
-                            imageObserver.unobserve(img);
-                        }
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // ==================== INITIALIZATION ====================
-        console.log('✅ Ash Hu Music website fully loaded and initialized!');
-        console.log('🎵 All systems operational');
-        console.log('🚀 Ready to empower artists worldwide');
+        // Console art
+        console.log('%c🎵 ASH HU MUSIC 🎵', 'color: #8b5cf6; font-size: 36px; font-weight: bold;');
+        console.log('%c🚀 Founded by Harshit & Udghosh', 'color: #06b6d4; font-size: 18px; font-weight: bold;');
+        console.log('%c✨ Revolutionary Music Label for Independent Artists', 'color: #ec4899; font-size: 14px;');
     </script>
 </body>
 </html>
-
